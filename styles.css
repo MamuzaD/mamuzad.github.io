@@ -172,6 +172,7 @@ footer {
 }
 
 .section-heading {
+  text-shadow: 2px 3px rgba(0,0,0,0.5);
   font-size: 48px;
 }
 
@@ -185,6 +186,10 @@ footer {
   padding: 0;
 }
 
+#addtl-skills * {
+  padding: 10px;
+}
+
 .scale-item {
   transition: transform 0.3s ease-in-out; 
 }
@@ -193,8 +198,6 @@ footer {
   border-radius: 50%;
   transform: scale(1.2);
 }
-
-
 
 @media (max-width: 768px) {
   #skills {
