@@ -84,6 +84,7 @@ p {
 }
 
 #intro {
+  text-shadow: 5px 7px rgba(0,0,0,0.5);
   padding-top: 20vh;
   margin-top: 0;
   font-size: 5vh;
