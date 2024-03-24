@@ -52,7 +52,6 @@ p {
   display: block;
   width: 100%;
   position: fixed;
-  font-weight: 600;
 }
 
 nav {
@@ -260,19 +259,19 @@ footer {
     font-size: 1rem;
   }
 
-  a,
   #name {
     font-size: 18px;
     margin-left: 1rem;
   }
 
-  h1 {
-    font-size: 5rem;
+  #intro {
+    height: 100%;
   }
 
   .skill-item {
     max-width: 100%;
     margin-bottom: 10px;
     height: 100%;
+    font-size: 70%;
   }
 }
