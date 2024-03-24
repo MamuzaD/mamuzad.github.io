@@ -18,19 +18,19 @@
           <a id="name" href="#intro">
             <span>Daniel Mamuza</span>
           </a>
-          <ul>
+          <ul id="nav-links">
             <li>
-              <a class="underline-animation" href="#projects">Projects</a>
+              <a class="nav-link underline-animation" href="#projects">Projects</a>
             </li>
             <li>
-              <a class="underline-animation" href="#skills">Skills</a>
+              <a class="nav-link underline-animation" href="#skills">Skills</a>
             </li>
             </li>
             <li>
-              <a id="nav-link" class="underline-animation" href="#contact">Contact</a>
+              <a class="nav-link underline-animation" href="#contact">Contact</a>
             </li>
             <li>
-              <a type="application/pdf" class="underline-animation" href="resume/Daniel_Mamuza_Resume.pdf"
+              <a type="application/pdf" class="nav-link underline-animation" href="resume/Daniel_Mamuza_Resume.pdf"
                 target="_blank">Resume <img src="img/pdf-svgrepo-com.svg">
               </a>
           </ul>
@@ -41,12 +41,18 @@
       </div>
     </header>
     <div id="intro">
-      <div class="container">
+      <div>
         <h1 id="welcome">Hello, I'm Daniel</h1>
         <h3 id="description">I'm a first year CS student at UNLV.</h3>
+        <h6 id="subtitle">part time film critic, music enthusiast, and video game connoisseur</h6>
+        <p style="font-size: 16px; text-shadow: none; margin-top: 100px;">Some of quotes from my favorite media: </p>
         <div id="quotes">
           <div class="quote">
             <q>Death smiles at us all, all we can do is smile back.</q>
+          </div>
+
+          <div class="quote">
+              <q>This player dreamed of sunlight and trees. Of fire and water. It dreamed it created.</q>
           </div>
 
           <div class="quote">
@@ -59,10 +65,35 @@
           </div>
 
         </div> <!-- quotes -->
-      </div> <!-- container -->
+      </div>
     </div> <!-- intro -->
-    <div class="container" id="projects">
+    <div id="projects">
       <h1 class="section-heading"><u>Projects</u></h1>
+      <div class="column">
+      <div class="fade-in project" id="project1">
+        <h4>Lord of the Rings Esoteric Language</h4>
+        <p>A TypeScript Esolang. Over winter break I started rereading the Lord of the Rings trilogy and decided to pursue developing a language. While developing I learned how to use tokenizers, lexers, parsers, and evaluations to incoporate variables and functions to the language.</p>
+        <div class="row">
+          <a href="https://github.com/NostalgicDani/TheLonelyWizard"><img src="img/Octicons-mark-github.svg"
+              style="width: 48px; height: 48px; "></a>
+        </div>
+      </div>
+      <div class="fade-in project" id="project2">
+        <h4> The Lonely Wizard</h4>
+        <p>A Unity Game developed with C#. After my first Computer Science course at UNLV, I found the courage to work
+          on game development during winter
+          break. After brainstorming, I decided to incoporate elements from my favorite rouge-like games such as <i>Risk
+            of Rain 2</i> and <i>Hades</i>. Amidst the process, I learned and understood simple basics from a player
+          controller to incoporating enemy tracking and attacks. Additionally with upcoming updates, I plan to
+          eventually release to Steam.</p>
+        <div class="row">
+          <a href="https://youtube.com/@danielmamuza"><img src="img/youtube-168-svgrepo-com.svg"
+              style="width: 48px; height: 48px; "></a>
+          <a href="https://github.com/NostalgicDani/TheLonelyWizard"><img src="img/Octicons-mark-github.svg"
+              style="width: 48px; height: 48px; "></a>
+        </div>
+        </div>  
+      </div>
     </div>
     <div id="skills">
       <h1 class="section-heading"><u>Skills</u></h1>
@@ -102,7 +133,7 @@
           <p>My experience with TypeScript comes with the similarity to JavaScript. Additionally, the experience I
             gained
             from working on the <a href="https://github.com/NostalgicDani/Lord-of-The-Rings-Esolang"
-              style="color: #5A7870;">LOTR esolang</a> gave me insight into the makings of processing an intrepreted
+              style="color: #5A7870;">LOTR esolang</a> gave me insight into the inner makings of an intrepreted
             language.</p>
         </div>
       </div>

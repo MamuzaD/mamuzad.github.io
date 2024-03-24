@@ -1,28 +1,24 @@
-window.onscroll = function() {scroll()};
+window.onscroll = function () {
+  progressScroll();
+};
 
-// let projects = document.getElementById("projects").offsetTop + 150;
-// window.onscroll = function() {
-//   if (window.scrollY > 0) {
-//  let opac = (window.scrollY / projects);
-//     console.log(opac);
-//   document.body.style.backgroundAttachment = "fixed";
-//   document.body.style.backgroundSize = "cover";
-//   document.body.style.background = "linear-gradient(rgba(30, 30, 30, " + opac + "), rgba(47, 61, 69, " + opac + ")), url('img/waves.png') no-repeat";
-//   }
-// }
+let slideIndex = 0;
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   carousel();
 });
 
-function scroll() {
+function progressScroll() {
   let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  let height = document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
   let scrolled = (winScroll / height) * 100;
   document.getElementById("progressScroll").style.width = scrolled + "%";
 }
 
-let slideIndex = 0;
+function bgScroll() {
+
+}
 
 function carousel() {
   let x = document.getElementsByClassName("quote");
@@ -30,7 +26,33 @@ function carousel() {
     x[i].style.display = "none";
   }
   slideIndex++;
-  if (slideIndex > x.length) {slideIndex = 1}
-  x[slideIndex-1].style.display = "block";
-  setTimeout(carousel, 6000); 
+  if (slideIndex > x.length) slideIndex = 1;
+  x[slideIndex - 1].style.display = "block";
+  setTimeout(carousel, 6000);
 }
+
+const fadeIn = document.querySelectorAll(".fade-in");
+
+const options = {
+  threshold: 1,
+  rootMargin: "0px 0px -75px 0px",
+};
+
+const appearOnScroll = new IntersectionObserver(
+  function (entries, appearOnScroll) {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      } else {
+        entry.target.classList.add("appear");
+        appearOnScroll.unobserve(entry.target);
+      }
+    });
+  },
+  options,
+);
+
+fadeIn.forEach((fade) => {
+  appearOnScroll.observe(fade);
+});
+

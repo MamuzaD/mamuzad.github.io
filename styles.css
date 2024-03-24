@@ -13,14 +13,32 @@
   }
 }
 
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(.9);
+  }
+
+  100% {
+    opacity: 100;
+    transform: translateY(0px) scale(1);
+  }
+}
+
 @keyframes fade {
-  0% { opacity: 0; }
-  100% { opacity: 100%; }
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
 }
 
 /* general */
 
 html {
+  text-rendering: optimizeLegibility;
   font-family: 'Red Hat Display';
   scroll-behavior: smooth;
   color: #fff;
@@ -42,10 +60,11 @@ p {
   background-image: url(img/waves.png);
   background-attachment: fixed;
   background-size: cover;
-
 }
+
 /* header / navbar */
 #header {
+  z-index: 100;
   background-color: rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
@@ -113,36 +132,65 @@ li img {
   margin: 0;
   font-size: 5vh;
   text-align: center;
-  line-height: 1.4;
   height: 80vh;
+  max-height: 80vh;
 }
 
-h3, p {
+h3,
+p {
   font-family: "DM Serif Display", serif;
   font-weight: 400;
   font-style: normal;
 }
 
+#description {
+  margin: 0;
+  padding: 0;
+}
+
+#subtitle {
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
 #quotes {
   background-color: rgba(0, 0, 0, 0.1);
-  padding: 25px;
+  padding: 10px;
   border-radius: 45px;
   text-shadow: 1px 2px black;
-  margin: 0 20%;
-  margin-top: 25px;
+  margin: 0 20vw;
 }
 
 .quote {
   display: none;
   font-size: 32px;
-  transition: opacity 2s ease-in-out;
   animation: fade 1s ease-in-out;
 }
 
 #projects {
-  height: 95vh;
-  min-height: 100%;
+  height: 100%;
 }
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.fade-in.appear {
+  opacity: 1;
+}
+
+.project {
+  border-radius: 25px;
+  background-color: #323D45;
+  padding: 30px;
+  margin: 20px 10%;
+  translate: translateY(-300px) scale(1);
+}
+
 
 #projects,
 #skills {
@@ -153,7 +201,7 @@ h3, p {
 
 #skills {
   min-height: 100;
-  /*background-color: rgba(50, 61, 69, .5);*/
+  background-color: rgba(50, 61, 69, .5);
 }
 
 #contact {
@@ -189,13 +237,17 @@ h3, p {
   transform: scaleX(1);
 }
 
-
 .row {
   display: flex;
   text-decoration: none;
   list-style-type: none;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }
 
 footer {
@@ -205,6 +257,7 @@ footer {
 }
 
 .skill-item {
+  border-radius: 25px;
   padding: 30px;
   max-width: 30%;
   margin: 20px 20px;
@@ -248,7 +301,7 @@ footer {
   padding: 15px 40px;
   width: 100%;
   background: rgba(0, 0, 0, 0.3);
-  border-radius: 25px; 
+  border-radius: 25px;
 }
 
 
@@ -259,16 +312,35 @@ footer {
     font-size: 1rem;
   }
 
+  #welcome {
+    font-size: 84px;
+    margin-bottom: 15px;
+  }
+
+  #description {
+    font-size: 26px;
+  }
+
+  #subtitle {
+    font-size: 18px;
+    margin: 0px 20%;
+  }
+
+  .quote {
+    font-size: 24px;
+  }
+
   #name {
     font-size: 18px;
     margin-left: 1rem;
   }
 
   #intro {
+    padding-top: 155px;
     height: 100%;
   }
 
-  .skill-item {
+  .skill-item, .project {
     max-width: 100%;
     margin-bottom: 10px;
     height: 100%;
