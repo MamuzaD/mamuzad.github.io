@@ -7,120 +7,143 @@
   <meta name="description" content="Daniel Mamuza, UNLV CS Student">
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="img/favicon.ico" type="image/ico">
-  <script src="script.js"></script>
   <title>Daniel Mamuza</title>
 </head>
 
 <body>
-  <header id="header">
-    <div id="header-wrap">
-      <nav id="navbar">
-        <a href="#intro">
-          <span id="name">Daniel Mamuza</span>
+  <main id="main-wrap">
+    <header id="header">
+      <div id="header-wrap">
+        <nav id="navbar">
+          <a id="name" href="#intro">
+            <span>Daniel Mamuza</span>
+          </a>
+          <ul>
+            <li>
+              <a class="underline-animation" href="#projects">Projects</a>
+            </li>
+            <li>
+              <a class="underline-animation" href="#skills">Skills</a>
+            </li>
+            </li>
+            <li>
+              <a id="nav-link" class="underline-animation" href="#contact">Contact</a>
+            </li>
+            <li>
+              <a type="application/pdf" class="underline-animation" href="resume/Daniel_Mamuza_Resume.pdf"
+                target="_blank">Resume <img src="img/pdf-svgrepo-com.svg">
+              </a>
+          </ul>
+        </nav>
+        <div class="progress-container">
+          <div class="progress-bar" id="progressScroll"></div>
+        </div>
+      </div>
+    </header>
+    <div id="intro">
+      <div class="container">
+        <h1 id="welcome">Hello, I'm Daniel</h1>
+        <h3 id="description">I'm a first year CS student at UNLV.</h3>
+        <div id="quotes">
+          <div class="quote">
+            <q>Death smiles at us all, all we can do is smile back.</q>
+          </div>
+
+          <div class="quote">
+            <q>I would have gone with you to end, to the very fires of Mordor.</q>
+          </div>
+
+          <div class="quote">
+
+            <q>Death can have me when it earns me.</q>
+          </div>
+
+        </div> <!-- quotes -->
+      </div> <!-- container -->
+    </div> <!-- intro -->
+    <div class="container" id="projects">
+      <h1 class="section-heading"><u>Projects</u></h1>
+    </div>
+    <div id="skills">
+      <h1 class="section-heading"><u>Skills</u></h1>
+      <div class="row">
+        <div class="skill-item">
+          <img class="skill-icon" src="img/javascript-16-svgrepo-com.svg">
+          <h4>Javascript, HTMl, CSS</h4>
+          <p>I have significant experience using JavasScript, HTML, and CSS in order to create web pages and
+            applications.
+            Including a <a style="color: #5A7870;"
+              href="https://www.freecodecamp.org/certification/danielmamuza/responsive-web-design"
+              target="_blank">freeCodeCamp certification</a>.</p>
+        </div>
+        <div class="skill-item">
+          <img class="skill-icon" src="img/c-plusplus-16-svgrepo-com.svg">
+          <h4>C++</h4>
+          <p>With over a <b>year</b> of experience in C++ for school and terminal projects. Working on algorithms,
+            pointers, recursion, and polymorphism. </p>
+        </div>
+        <div class="skill-item">
+          <img class="skill-icon" src="img/python-16-svgrepo-com.svg">
+          <h4>Python</h4>
+          <p>I am currently applying my knowledge to create a website that incorporates Django's backend framework
+            including with BeautifulSoup in order to webscrape for user information.</p>
+        </div>
+        <div class="skill-item">
+          <img class="skill-icon" src="img/c-sharp-16-svgrepo-com.svg">
+          <h4>C#</h4>
+          <p>My experience with C# comes hand in hand with Unity game development. I quickly gained interest after
+            overcoming certain challenges. I am currently taking a break from my 2D Top Down Shooter, <a
+              href="https://github.com/NostalgicDani/TheLonelyWizard" style="color: #5A7870">The Lonely Wizard</a>.
+            However, I am hopeful for an upcoming Stream release.</p>
+        </div>
+        <div class="skill-item">
+          <img class="skill-icon" src="img/typescript-16-svgrepo-com.svg">
+          <h4>TypeScript</h4>
+          <p>My experience with TypeScript comes with the similarity to JavaScript. Additionally, the experience I
+            gained
+            from working on the <a href="https://github.com/NostalgicDani/Lord-of-The-Rings-Esolang"
+              style="color: #5A7870;">LOTR esolang</a> gave me insight into the makings of processing an intrepreted
+            language.</p>
+        </div>
+      </div>
+      <div id="addtl-skills">
+        <h4><u>Additional Skills</u></h4>
+        <img title="Blender" src="img/blender-svgrepo-com.svg">
+        <img title="Cloudflare" src="img/cloudflare-svgrepo-com.svg">
+        <img title="Deno" src="img/deno-svgrepo-com.svg">
+        <img title="Django" src="img/django-svgrepo-com.svg">
+        <img title="Docker" src="img/docker-16-svgrepo-com.svg">
+        <img title="Git" src="img/git-svgrepo-com.svg">
+        <img title="Unity" src="img/unity-svgrepo-com.svg">
+      </div>
+    </div>
+    <div id="contact">
+      <h1 class="section-heading"><u>Contact Me</u></h1>
+      <span>
+        <a class="underline-animation scale-item"
+          href="mailto:hello@danielmamuza.com?subject=Hey%20I%20saw%20your%20portfolio%20website....">
+          Right Here
         </a>
-        <ul>
-          <li>
-            <a class="underline-animation" href="#projects">Projects</a>
-          </li>
-          <li>
-            <a class="underline-animation" href="#skills">Skills</a>
-          </li>
-          <li>
-            <a type="application/pdf" class="underline-animation" href="resume/Daniel_Mamuza_Resume.pdf"
-              target="_blank">Resume <img src="img/pdf-svgrepo-com.svg">
-            </a>
-          </li>
-          <li>
-            <a id="nav-link" class="underline-animation" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </nav>
+      </span>
     </div>
-  </header>
-  <div id="intro">
-    <div class="container">
-      <h1 id="welcome">Hello, I'm Daniel</h1>
-      <h3>I'm a first year CS student at UNLV.</h3>
-    </div>
-  </div>
-  <div class="container" id="projects">
-    <h1 class="section-heading"><u>Projects</u></h1>
-  </div>
-  <div id="skills">
-    <h1 class="section-heading"><u>Skills</u></h1>
-    <div class="row">
-      <div class="skill-item">
-        <img class="skill-icon" src="img/javascript-16-svgrepo-com.svg">
-        <h4>Javascript, HTMl, CSS</h4>
-        <p>I have significant experience using JavasScript, HTML, and CSS in order to create web pages and applications.
-          Including a <a style="color: #5A7870;"
-            href="https://www.freecodecamp.org/certification/danielmamuza/responsive-web-design"
-            target="_blank">freeCodeCamp certification</a>.</p>
+
+    <footer>
+      <ul class="row">
+        <li class="scale-item">
+          <a href="https://www.linkedin.com/in/daniel-mamuza/" target="_blank">
+            <img src="img/LinkedIn_icon.svg">
+          </a>
+        </li>
+        <li class="scale-item">
+          <a href="https://github.com/NostalgicDani" target="_blank">
+            <img src="img/Octicons-mark-github.svg">
+          </a>
+        </li>
+      </ul>
       </div>
-      <div class="skill-item">
-        <img class="skill-icon" src="img/c-plusplus-16-svgrepo-com.svg">
-        <h4>C++</h4>
-        <p>With over a <b>year</b> of experience in C++ for school and terminal projects. Working on algorithms,
-          pointers, recursion, and polymorphism. </p>
-      </div>
-      <div class="skill-item">
-        <img class="skill-icon" src="img/python-16-svgrepo-com.svg">
-        <h4>Python</h4>
-        <p>I am currently applying my knowledge to create a website that incorporates Django's backend framework
-          including with BeautifulSoup in order to webscrape for user information.</p>
-      </div>
-      <div class="skill-item">
-        <img class="skill-icon" src="img/c-sharp-16-svgrepo-com.svg">
-        <h4>C#</h4>
-        <p>My experience with C# comes hand in hand with Unity game development. I quickly gained interest after
-          overcoming certain challenges. I am currently taking a break from my 2D Top Down Shooter, <a
-            href="https://github.com/NostalgicDani/TheLonelyWizard" style="color: #5A7870">The Lonely Wizard</a>.
-          However, I am hopeful for an upcoming Stream release.</p>
-      </div>
-      <div class="skill-item">
-        <img class="skill-icon" src="img/typescript-16-svgrepo-com.svg">
-        <h4>TypeScript</h4>
-        <p>My experience with TypeScript comes with the similarity to JavaScript. Additionally, the experience I gained
-          from working on the <a href="https://github.com/NostalgicDani/Lord-of-The-Rings-Esolang"
-            style="color: #5A7870;">LOTR esolang</a> gave me insight into the makings of processing an intrepreted
-          language.</p>
-      </div>
-    </div>
-    <div id="addtl-skills">
-      <h3><u>Additional Skills</u></h3>
-      <img title="Blender" src="img/blender-svgrepo-com.svg">
-      <img title="Cloudflare" src="img/cloudflare-svgrepo-com.svg">
-      <img title="Deno" src="img/deno-svgrepo-com.svg">
-      <img title="Django" src="img/django-svgrepo-com.svg">
-      <img title="Docker" src="img/docker-16-svgrepo-com.svg">
-      <img title="Git" src="img/git-svgrepo-com.svg">
-      <img title="Unity" src="img/unity-svgrepo-com.svg">
-    </div>
-  </div>
-  <div id="contact">
-    <h1 class="section-heading"><u>Contact Me</u></h1>
-    <span>
-      <a class="underline-animation scale-item"
-        href="mailto:hello@danielmamuza.com?subject=Hey%20I%20saw%20your%20portfolio%20website....">
-        Right Here
-      </a>
-    </span>
-  </div>
-  <footer>
-    <ul class="row">
-      <li class="scale-item">
-        <a href="https://www.linkedin.com/in/daniel-mamuza/" target="_blank">
-          <img src="img/LinkedIn_icon.svg">
-        </a>
-      </li>
-      <li class="scale-item">
-        <a href="https://github.com/NostalgicDani" target="_blank">
-          <img src="img/Octicons-mark-github.svg">
-        </a>
-      </li>
-    </ul>
-    </div>
-  </footer>
+    </footer>
+  </main>
+  <script src="script.js"></script>
 </body>
 
 </html>

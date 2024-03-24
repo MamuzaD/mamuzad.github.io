@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 
 @keyframes fade-down {
   0% {
@@ -13,15 +13,18 @@
   }
 }
 
+@keyframes fade {
+  0% { opacity: 0; }
+  100% { opacity: 100%; }
+}
+
+/* general */
 
 html {
   font-family: 'Red Hat Display';
   scroll-behavior: smooth;
   color: #fff;
   background-color: #323D45;
-  background-image: url('img/waves.png');
-  background-size: cover;
-  background-attachment: fixed;
 }
 
 html,
@@ -31,6 +34,17 @@ ul {
   padding: 0;
 }
 
+p {
+  font-size: 16x;
+}
+
+#main-wrap {
+  background-image: url(img/waves.png);
+  background-attachment: fixed;
+  background-size: cover;
+
+}
+/* header / navbar */
 #header {
   background-color: rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(8px);
@@ -39,8 +53,6 @@ ul {
   width: 100%;
   position: fixed;
   font-weight: 600;
-  font-size: em;
-  border-bottom: 5px solid white;
 }
 
 nav {
@@ -56,9 +68,10 @@ nav {
 }
 
 #name {
+  font-family: "DM Serif Display", serif;
   color: white;
+  margin-left: 20px;
   font-size: 24px;
-  margin-left: 10px;
 }
 
 nav ul {
@@ -81,19 +94,50 @@ li img {
   display: inline;
 }
 
-p {
-  font-size: 16px;
+.progress-container {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, .5);
 }
+
+.progress-bar {
+  height: 4px;
+  background: #fff;
+  width: 0%;
+}
+
+/* intro section */
 
 #intro {
   text-shadow: 5px 7px rgba(0, 0, 0, 0.5);
   padding-top: 20vh;
-  margin-top: 0;
+  margin: 0;
   font-size: 5vh;
   text-align: center;
   line-height: 1.4;
   height: 80vh;
-  border-bottom: 10px solid;
+}
+
+h3, p {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#quotes {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 45px;
+  text-shadow: 1px 2px black;
+  margin: 0 20%;
+  margin-top: 25px;
+}
+
+.quote {
+  display: none;
+  font-size: 32px;
+  transition: opacity 2s ease-in-out;
+  animation: fade 1s ease-in-out;
 }
 
 #projects {
@@ -110,7 +154,7 @@ p {
 
 #skills {
   min-height: 100;
-  background-color: rgba(50, 61, 69, .5);
+  /*background-color: rgba(50, 61, 69, .5);*/
 }
 
 #contact {
@@ -196,16 +240,21 @@ footer {
   border-radius: 50%;
   transform: scale(1.2);
 }
+
 #skills a {
   margin: 0;
 }
+
 #contact span {
-  padding: 17px 35px;
+  padding: 15px 40px;
   width: 100%;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 25px; 
 }
 
+
+
+/* different sizes */
 @media (max-width: 768px) {
   li a {
     font-size: 1rem;
