@@ -24,6 +24,11 @@
           <a id="name" href="#intro">
             <span>Daniel Mamuza</span>
           </a>
+          <div id="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div> 
           <ul id="nav-links">
             <li>
               <a class="nav-link underline-animation" href="#projects">Projects</a>
@@ -46,6 +51,24 @@
         </div>
       </div>
     </header>
+    <div id="mobilebar">
+    <ul id="mobile-links">
+      <li>
+        <a class="nav-link underline-animation" href="#projects">Projects</a>
+      </li>
+      <li>
+        <a class="nav-link underline-animation" href="#skills">Skills</a>
+      </li>
+      </li>
+      <li>
+        <a class="nav-link underline-animation" href="#contact">Contact</a>
+      </li>
+      <li>
+        <a type="application/pdf" class="nav-link underline-animation" href="resume/Daniel_Mamuza_Resume.pdf"
+          target="_blank">Resume <img src="img/pdf-svgrepo-com.svg">
+        </a>
+    </ul>
+    </div>
     <div id="intro">
       <div>
         <h1 id="welcome">Hello, I'm Daniel</h1>
@@ -53,23 +76,8 @@
         <h6 id="subtitle">part time film critic, music enthusiast, and video game connoisseur</h6>
         <p style="font-size: 16px; text-shadow: none; margin-top: 100px;">Some of quotes from my favorite media: </p>
         <div id="quotes">
-          <div class="quote">
-            <q>Death smiles at us all, all we can do is smile back.</q>
-          </div>
-
-          <div class="quote">
-            <q>This player dreamed of sunlight and trees. Of fire and water. It dreamed it created.</q>
-          </div>
-
-          <div class="quote">
-            <q>I would have gone with you to end, to the very fires of Mordor.</q>
-          </div>
-
-          <div class="quote">
-
-            <q>Death can have me when it earns me.</q>
-          </div>
-
+          <q id="quote"></q>
+          <p id="author"></p>
         </div> <!-- quotes -->
       </div>
     </div> <!-- intro -->
@@ -107,7 +115,7 @@
     <div id="skills">
       <h1 class="section-heading"><u>Skills</u></h1>
       <div class="row">
-        <div class="skill-item">
+        <div class="fade-in skill-item">
           <img class="skill-icon" src="img/javascript-16-svgrepo-com.svg">
           <h4>Javascript, HTMl, CSS</h4>
           <p>I have significant experience using JavasScript, HTML, and CSS in order to create web pages and
@@ -116,19 +124,19 @@
               href="https://www.freecodecamp.org/certification/danielmamuza/responsive-web-design"
               target="_blank">freeCodeCamp certification</a>.</p>
         </div>
-        <div class="skill-item">
+        <div class="fade-in skill-item">
           <img class="skill-icon" src="img/c-plusplus-16-svgrepo-com.svg">
           <h4>C++</h4>
           <p>With over a <b>year</b> of experience in C++ for school and terminal projects. Working on algorithms,
             pointers, recursion, and polymorphism. </p>
         </div>
-        <div class="skill-item">
+        <div class="fade-in skill-item">
           <img class="skill-icon" src="img/python-16-svgrepo-com.svg">
           <h4>Python</h4>
           <p>I am currently applying my knowledge to create a website that incorporates Django's backend framework
             including with BeautifulSoup in order to webscrape for user information.</p>
         </div>
-        <div class="skill-item">
+        <div class="fade-in skill-item">
           <img class="skill-icon" src="img/c-sharp-16-svgrepo-com.svg">
           <h4>C#</h4>
           <p>My experience with C# comes hand in hand with Unity game development. I quickly gained interest after
@@ -136,7 +144,7 @@
               href="https://github.com/NostalgicDani/TheLonelyWizard" style="color: #5A7870">The Lonely Wizard</a>.
             However, I am hopeful for an upcoming Stream release.</p>
         </div>
-        <div class="skill-item">
+        <div class="fade-in skill-item">
           <img class="skill-icon" src="img/typescript-16-svgrepo-com.svg">
           <h4>TypeScript</h4>
           <p>My experience with TypeScript comes with the similarity to JavaScript. Additionally, the experience I
