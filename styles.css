@@ -266,16 +266,14 @@ p {
 
 #projects,
 #skills {
+  margin-top: 25px;
   position: relative;
   padding: 50px 0;
   font-size: 3vh;
+  background-color: rgba(50, 61, 69, .5);
   text-align: center;
 }
 
-#skills {
-  min-height: 100;
-  background-color: rgba(50, 61, 69, .5);
-}
 
 #contact {
   display: block;
