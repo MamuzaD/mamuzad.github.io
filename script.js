@@ -2,7 +2,6 @@ window.onscroll = function () {
   progressScroll();
 };
 
-
 function progressScroll() {
   let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
   let height = document.documentElement.scrollHeight -
@@ -25,8 +24,8 @@ const quotes = [
   "Not all those who wander are lost.",
   "The world is not in your books and maps. It's out there.",
   "People call those imperfections, but no, that’s the good stuff.",
-  "But now I'm not so sure I believe in beginnings and endings. There are days that define your story beyond your life."
-]
+  "But now I'm not so sure I believe in beginnings and endings. There are days that define your story beyond your life.",
+];
 const authors = [
   "— Maximus, <em>Gladiator</em>",
   "— Julian Gough, <em>Minecraft</em>",
@@ -36,25 +35,24 @@ const authors = [
   "— Bilbo Baggins, <em>The Lord of the Rings</em>",
   "— Gandalf, <em>The Hobbit</em>",
   "— Sean, <em>Good Will Hunting</em>",
-  "— Louise, <em>The Arrival</em>"
-]
+  "— Louise, <em>The Arrival</em>",
+];
 function carousel() {
   let quote = document.getElementById("quote");
   let author = document.getElementById("author");
-  quote.style.animation = 'none'; //disable animation
-  author.style.animation = 'none'; //disable animation
+  quote.style.animation = "none"; //disable animation
+  author.style.animation = "none"; //disable animation
 
-  setTimeout(() => { 
+  setTimeout(() => {
     quote.textContent = quotes[slideIndex]; //set text to quote
     author.innerHTML = authors[slideIndex]; // Set text to author
-    quote.style.animation = ''; //enable animation after text change
-    author.style.animation = ''; //enable animation after text change
+    quote.style.animation = ""; //enable animation after text change
+    author.style.animation = ""; //enable animation after text change
+  }, 10);
 
-  }, 10); 
-  
   slideIndex++;
   if (slideIndex >= quotes.length) slideIndex = 0;
-  
+
   setTimeout(carousel, 6000);
 }
 
@@ -62,7 +60,7 @@ const fadeIn = document.querySelectorAll(".fade-in");
 
 const options = {
   threshold: 1,
-  rootMargin: "0px 0px -75px 0px",
+  rootMargin: "0px 0px -50px 0px",
 };
 
 const appearOnScroll = new IntersectionObserver(
@@ -83,9 +81,8 @@ fadeIn.forEach((fade) => {
   appearOnScroll.observe(fade);
 });
 
- document.getElementById("hamburger").addEventListener("click", function() {
+document.getElementById("hamburger").addEventListener("click", function () {
   const mobilebar = document.getElementById("mobilebar");
   mobilebar.classList.toggle("show");
-  this.classList.toggle("active"); 
+  this.classList.toggle("active");
 });
-

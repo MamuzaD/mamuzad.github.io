@@ -128,7 +128,7 @@ p {
   font-size: 24px;
 }
 
-/* navarbar */
+/* navbar */
 nav {
   animation: fade-down 1s;
   z-index: 100;
@@ -193,6 +193,14 @@ li img {
   height: 80vh;
 }
 
+#intro #welcome, h3, h6 {
+  animation: fade-up 500ms ease-in;
+}
+
+#intro #quotes, p {
+  animation: fade 1250ms ease-in;
+}
+
 h3,
 p {
   font-family: "DM Serif Display", serif;
@@ -201,7 +209,7 @@ p {
 }
 
 #description {
-  text-shadow: 4px 4px rgba(0,0,0,0.5);
+  text-shadow: 4px 4px rgba(0, 0, 0, 0.5);
   margin: 0;
   padding: 0;
 }
@@ -241,7 +249,7 @@ p {
 
 .fade-in {
   opacity: 0;
-  transition: opacity 250ms ease-in;
+  transition: opacity 400ms ease-in;
 }
 
 .fade-in.appear {
