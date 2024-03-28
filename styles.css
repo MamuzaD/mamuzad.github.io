@@ -447,4 +447,10 @@ footer {
   }
 }
 
-/* different sizes */
+/* accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

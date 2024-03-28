@@ -16,26 +16,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 let slideIndex = 0;
 const quotes = [
+  "Wind's howling",
   "I knew a man once who said, 'Death smiles at us all. All a man can do is smile back.'",
   "This player dreamed of sunlight and trees. Of fire and water. It dreamed it created.",
   "And the player was the universe. And the player was love.",
   "I would have gone with you to end, to the very fires of Mordor.",
   "Open your heart.",
+  "All we have to decide is what to do with the time that is given to us.",
   "Not all those who wander are lost.",
   "The world is not in your books and maps. It's out there.",
   "People call those imperfections, but no, that’s the good stuff.",
   "But now I'm not so sure I believe in beginnings and endings. There are days that define your story beyond your life.",
+  "The only thing predictable about life is its unpredictability.",
 ];
 const authors = [
+  "— Geralt, <em>Witcher 3: Wild Hunt</em>",
   "— Maximus, <em>Gladiator</em>",
   "— Julian Gough, <em>Minecraft</em>",
   "— Julian Gough, <em>Minecraft</em>",
   "— Aragorn, <em>The Lord of the Rings</em>",
   "— Kratos, <em>God of War: Ragnarok</em>",
+  "— Gandalf, <em>The Lord of the Rings</em>",
   "— Bilbo Baggins, <em>The Lord of the Rings</em>",
   "— Gandalf, <em>The Hobbit</em>",
   "— Sean, <em>Good Will Hunting</em>",
   "— Louise, <em>The Arrival</em>",
+  "— Remy, <em>Ratatouille</em>"
 ];
 function carousel() {
   let quote = document.getElementById("quote");
