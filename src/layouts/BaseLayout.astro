@@ -22,7 +22,9 @@ const { title, description } = Astro.props;
 	<body>
 		<div class="stack backgrounds">
 			<Nav />
+			<div class="slot" >
 			<slot />
+			</div>
 			<Footer />
 		</div>
 
@@ -112,6 +114,10 @@ const { title, description } = Astro.props;
 					background-blend-mode: none;
 					--bg-gradient-size: none;
 				}
+			}
+
+			.slot {
+				margin-top: 14rem;
 			}
 		</style>
 	</body>
