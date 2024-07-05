@@ -57,14 +57,20 @@ const { height, width } = Astro.props;
 <style>
   profile-pic {
     height: 100%;
-    width: 100%;
+    width: auto;
     position: relative;
     display: inline;
+    border-radius: 1.5rem;
+  }
+
+  profile-pic:hover {
+    box-shadow: 6px -3px 0px 0px var(--accent-regular);
   }
 
   .profile-picture {
     height: 100%;
     width: 100%;
+    padding: 0;
     cursor: pointer;
     background: none;
     border: none;
@@ -78,6 +84,7 @@ const { height, width } = Astro.props;
     object-fit: cover;
     border-radius: 1.5rem;
   }
+
   @media (min-width: 50em) {
     .profile-picture img {
       height: 100%;
