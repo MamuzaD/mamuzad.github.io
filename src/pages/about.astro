@@ -3,25 +3,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 import ContactCTA from "../components/ContactCTA.astro";
 import Hero from "../components/Hero.astro";
+import Icon from "../components/Icon.astro";
 ---
 
-<BaseLayout
-  title="About | Daniel Mamuza"
-  description="About Daniel Mamuza Lorem Ipsum"
->
+<BaseLayout title="About | Daniel Mamuza" description="About Daniel Mamuza">
   <div class="stack gap-20">
     <main class="wrapper about">
       <Hero
-        title="About"
+        title="About Me"
         tagline="Thanks for stopping by. Read below to learn more about myself and my background."
-      >
-        <img
-          width="1553"
-          height="873"
-          src="/assets/at-work.jpg"
-          alt="Daniel Mamuza at work with a colleague"
-        />
-      </Hero>
+      />
 
       <section>
         <h2 class="section-title">Background</h2>
@@ -34,26 +25,21 @@ import Hero from "../components/Hero.astro";
             diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus
             in ornare.
           </p>
-          <p>
-            Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget
-            gravida cum sociis natoque penatibus. Cras fermentum odio eu feugiat
-            pretium nibh. Proin nibh nisl condimentum id venenatis. Porta nibh
-            venenatis cras sed felis eget velit. Id diam vel quam elementum
-            pulvinar etiam non.
-          </p>
-          <p>
-            Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut
-            sem viverra aliquet eget sit amet. Lacus luctus accumsan tortor
-            posuere ac ut consequat semper viverra. Viverra accumsan in nisl
-            nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
-            pretium fusce.
-          </p>
         </div>
       </section>
       <section>
         <h2 class="section-title">Education</h2>
-        <div class="content">
-          <p>Corporis voluptates tenetur laudantium.</p>
+        <div class="content" id="education">
+          <h4><Icon icon="grad-cap" size="1em" />Sophomore Student</h4>
+          <p>
+            University of Nevada, Las Vegas <span>August 2023 - May 2027</span>
+          </p>
+          <p>
+            Bachelor of Science in Computer Science, Minor in Mathematics <span
+              >GPA: 3.8</span
+            >
+          </p>
+          <p></p>
         </div>
       </section>
       <section>
@@ -123,5 +109,21 @@ import Hero from "../components/Hero.astro";
       display: contents;
       font-size: var(--text-lg);
     }
+  }
+
+  #education {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #education p {
+    display: flex;
+    justify-content: space-between; /* Aligns items from start to end */
+    align-items: center; /* Centers items vertically */
+  }
+
+  #education h4 {
+    font-size: var(--text-lg);
   }
 </style>

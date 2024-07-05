@@ -1,0 +1,102 @@
+---
+
+---
+
+<section class="box quotes">
+  <div class="stack gap-2 lg:gap-4" id="quote">
+    <h5>Some quotes from my favorite media:</h5>
+    <q>"Open your heart."</q>
+    <p id="author">-Kratos</p>
+  </div>
+</section>
+
+<script>
+  import { Quotes } from "./Quotes";
+
+  document.addEventListener("DOMContentLoaded", function () {
+    carousel();
+  });
+
+  let slideIndex = 0;
+
+  function carousel() {
+    let quote = document.querySelector("q")!;
+    let author = document.getElementById("author")!;
+    quote.style.animation = "none"; //disable animation
+    author.style.animation = "none"; //disable animation
+
+    setTimeout(() => {
+      quote.textContent = Quotes[slideIndex].quote; //set text to quote
+      author.innerHTML =
+        "— " +
+        Quotes[slideIndex].author +
+        ", <em>" +
+        Quotes[slideIndex].media +
+        "</em>"; // Set text to author
+      quote.style.animation = ""; //enable animation after text change
+      author.style.animation = ""; //enable animation after text change
+    }, 10);
+
+    slideIndex = (slideIndex + 1) % Quotes.length;
+
+    setTimeout(carousel, 6000);
+  }
+</script>
+
+<style>
+  .box {
+    border: 1px solid var(--gray-800);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    background-color: var(--gray-999_40);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  #quote q,
+  p {
+    animation: fade 2s ease-in-out;
+  }
+
+  .quotes h5 {
+    font-size: var(--text-s);
+  }
+
+  .quotes q {
+    quotes: initial;
+    font-size: var(--text-lg);
+  }
+
+  #author {
+    font-size: var(--text-m);
+    color: var(--gray-400);
+    text-align: center;
+  }
+
+  @media (min-width: 50em) {
+    .box {
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+    }
+
+    .quotes h5 {
+      font-size: var(--text-m);
+    }
+
+    .quotes q {
+      font-size: var(--text-xl);
+    }
+
+    #author {
+      font-size: var(--text-lg);
+    }
+  }
+</style>

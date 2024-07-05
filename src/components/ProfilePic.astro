@@ -1,0 +1,88 @@
+---
+interface Props {
+  height: string;
+  width: string;
+}
+
+const { height, width } = Astro.props;
+---
+
+<profile-pic>
+  <button class="profile-picture">
+    <img {height} {width} />
+  </button>
+  <div class="profile-picture-overlay"></div>
+</profile-pic>
+
+<script>
+  // variables
+  let imageIndex = localStorage.getItem("imgIndex")
+    ? parseInt(localStorage.getItem("imgIndex")!)
+    : 0;
+
+  const profilePics = [
+    { name: "me", path: "/assets/profile/portrait.jpg" },
+    { name: "spiderman", path: "/assets/profile/spiderman.jpg" },
+  ];
+
+  // class
+  class ProfilePic extends HTMLElement {
+    constructor() {
+      super();
+
+      const button = this.querySelector("button.profile-picture")!;
+
+      renderProfilePicture();
+
+      button.addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent default behavior (e.g., form submission or page reload)
+
+        imageIndex = (imageIndex + 1) % profilePics.length;
+        renderProfilePicture();
+        localStorage.setItem("imgIndex", imageIndex.toString()); // Save imgIndex to localStorage
+      });
+
+      function renderProfilePicture() {
+        const img = button.querySelector("img");
+        if (img) {
+          img.src = profilePics[imageIndex].path;
+        }
+      }
+    }
+  }
+
+  customElements.define("profile-pic", ProfilePic);
+</script>
+
+<style>
+  profile-pic {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: inline;
+  }
+
+  .profile-picture {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .profile-picture img {
+    object-fit: cover;
+    border-radius: 1.5rem;
+  }
+  @media (min-width: 50em) {
+    .profile-picture img {
+      height: 100%;
+      width: 100%;
+      aspect-ratio: 5/6;
+    }
+  }
+</style>

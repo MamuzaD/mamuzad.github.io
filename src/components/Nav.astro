@@ -1,32 +1,43 @@
 ---
 import Icon from "./Icon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
+import ProfilePic from "./ProfilePic.astro";
 import type { iconPaths } from "./IconPaths";
 
+/** Main menu items */
 const textLinks: { label: string; href: string }[] = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/projects/" },
   { label: "About", href: "/about/" },
 ];
 
+/** Icon links to social media — edit these with links to your profiles! */
 const iconLinks: {
   label: string;
   href: string;
   icon: keyof typeof iconPaths;
-}[] = [{ label: "GitHub", href: "https://github.com/me", icon: "github-logo" }];
+}[] = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/daniel-mamuza/",
+    icon: "linkedin-logo",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/nostalgicdani",
+    icon: "github-logo",
+  },
+  {
+    label: "Resume",
+    href: "/public/resume/Daniel_Mamuza_Resume.pdf",
+    icon: "resume",
+  },
+];
 ---
 
 <nav>
   <div class="menu-header">
-    <a href="/" class="site-title">
-      <Icon
-        icon="terminal-window"
-        color="var(--accent-regular)"
-        size="1.6em"
-        gradient
-      />
-      Daniel Mamuza
-    </a>
+    <a href="/" class="nav-title"> Daniel Mamuza </a>
     <menu-button>
       <template>
         <button class="menu-button" aria-expanded="false">
@@ -117,6 +128,18 @@ const iconLinks: {
 </nav>
 
 <script>
+  window.addEventListener("scroll", function () {
+    const nav = document.querySelector("nav")!;
+    const scrollPosition = window.scrollY;
+    const triggerPosition = document.documentElement.scrollHeight * 0.15;
+
+    if (scrollPosition > triggerPosition) {
+      nav.classList.add("nav-blurred");
+    } else {
+      nav.classList.remove("nav-blurred");
+    }
+  });
+
   class MenuButton extends HTMLElement {
     constructor() {
       super();
@@ -158,10 +181,10 @@ const iconLinks: {
     z-index: 9999;
     position: fixed;
     width: 100%;
-    height: 4rem;
     font-family: var(--font-brand);
     font-weight: 500;
     margin-bottom: 3.5rem;
+    transition: backdrop-filter 0.9s ease-in-out;
   }
 
   .menu-header {
@@ -171,7 +194,7 @@ const iconLinks: {
     padding: 1.5rem;
   }
 
-  .site-title {
+  .nav-title {
     display: flex;
     gap: 0.5rem;
     align-items: center;
@@ -265,11 +288,12 @@ const iconLinks: {
     padding: var(--icon-padding);
     text-decoration: none;
     color: var(--accent-dark);
-    transition: color var(--theme-transition);
+    transition: color var(--theme-transition) transform  0.5s;
   }
 
   .social:hover,
   .social:focus {
+    transform: scale(1.2);
     color: var(--accent-text-over);
   }
 
@@ -292,7 +316,7 @@ const iconLinks: {
       padding: 0;
     }
 
-    .site-title {
+    .nav-title {
       font-size: var(--text-lg);
     }
 
@@ -365,5 +389,9 @@ const iconLinks: {
     .link.active {
       color: SelectedItem;
     }
+  }
+
+  .nav-blurred {
+    backdrop-filter: blur(3px);
   }
 </style>
