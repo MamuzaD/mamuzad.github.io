@@ -24,15 +24,15 @@ const projects = (await getCollection("projects"))
   .slice(0, 4);
 
 // test
+import { BackgroundBeams } from "../components/ui/background-beams";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
 ---
 
 <BaseLayout>
-    <div class="stack gap-20 lg:gap-48">
+  <div class="stack gap-20 lg:gap-48">
     <div class="wrapper stack gap-8 lg:gap-20">
-      
       <header class="hero">
         <Hero
           title="Hey, I'm Daniel"
@@ -54,12 +54,12 @@ const projects = (await getCollection("projects"))
         </Hero>
 
         <ProfilePic height="640px" width="320px" />
+        <BackgroundBeams client:load />
       </header>
 
       <Quotes />
       <Skills />
     </div>
-    
 
     <main class="wrapper stack gap-20 lg:gap-48">
       <section class="section with-background with-cta">
