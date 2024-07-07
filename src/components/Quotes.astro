@@ -11,7 +11,7 @@
 </section>
 
 <script>
-  import { Quotes } from "./Quotes";
+  import { quotes } from "./Quotes";
 
   document.addEventListener("DOMContentLoaded", function () {
     carousel();
@@ -26,18 +26,18 @@
     author.style.animation = "none"; //disable animation
 
     setTimeout(() => {
-      quote.textContent = Quotes[slideIndex].quote; //set text to quote
+      quote.textContent = quotes[slideIndex].quote; //set text to quote
       author.innerHTML =
         "— " +
-        Quotes[slideIndex].author +
+        quotes[slideIndex].author +
         ", <em>" +
-        Quotes[slideIndex].media +
+        quotes[slideIndex].media +
         "</em>"; // Set text to author
       quote.style.animation = ""; //enable animation after text change
       author.style.animation = ""; //enable animation after text change
     }, 10);
 
-    slideIndex = (slideIndex + 1) % Quotes.length;
+    slideIndex = (slideIndex + 1) % quotes.length;
 
     setTimeout(carousel, 6000);
   }
@@ -86,7 +86,9 @@
       border-radius: 1.5rem;
       padding: 2.5rem;
     }
-
+    .quotes{
+      
+    }
     .quotes h5 {
       font-size: var(--text-m);
     }

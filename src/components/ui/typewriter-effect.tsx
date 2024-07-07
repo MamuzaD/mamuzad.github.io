@@ -1,6 +1,5 @@
 "use client";
 
-import { cn } from "../../util/cn";
 import { motion, stagger, useAnimate, useInView } from "framer-motion";
 import { useEffect } from "react";
 
@@ -32,7 +31,7 @@ export const TypewriterEffect = ({
         },
         {
           duration: 0.3,
-          delay: stagger(0.1),
+          delay: stagger(0.2),
           ease: "easeInOut",
         }
       );
@@ -64,25 +63,9 @@ export const TypewriterEffect = ({
 
   return (
     <div
-      className={cn("text-base sm:text-xl md:text-3xl lg:text-5xl font-bold")}
+      className="text-[2.625rem] md:text-[4.5rem] font-bold"
     >
       {renderWords()}
-      <motion.span
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-        transition={{
-          duration: 0.8,
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
-        className={cn(
-          "inline-block rounded-sm w-[4px] h-4 md:h-6 lg:h-10 bg-neutral-500"
-        )}
-      ></motion.span>
     </div>
   );
 };

@@ -1,0 +1,61 @@
+---
+import { skillIcons } from "./SkillIcons";
+
+interface Props {
+  icons: string[];
+}
+
+const { icons } = Astro.props;
+---
+
+<ul class="gap-2 lg:gap-4">
+  {
+    icons.map((iconName) => {
+      const icon = skillIcons.find((icon) => icon.name === iconName);
+      if (!icon) return null;
+
+      return (
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="96"
+            height="96"
+          >
+            <g set:html={icon.svg} />
+          </svg>
+          <span>{icon.name}</span>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 3rem;
+    transition: transform 0.2s linear;
+  }
+  
+  li:hover {
+    transform: scale(1.2);
+  }
+  span {
+    font-weight: 500;
+    font-family: var(--font-system);
+  }
+  svg {
+    height: 5rem;
+    width: 5rem;
+  }
+</style>

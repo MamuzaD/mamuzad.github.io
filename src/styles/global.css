@@ -97,7 +97,7 @@
 
   --accent-light: #313D45;
   --accent-regular: #3A4F53;
-  --accent-dark: #AA78F;
+  --accent-dark: #8AA78F;
   --accent-overlay: hsla(167, 27%, 47%, 0.33);
   --accent-subtle-overlay: hsla(204, 29%, 27%, 0.33);
   --accent-text-over: var(--gray-0);
@@ -277,3 +277,22 @@ h5 {
     opacity: 100;
   }
 }
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-150%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-150%);
+  }
+}
+

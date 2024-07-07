@@ -1,7 +1,7 @@
 ---
 import Icon from "./Icon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-import ProfilePic from "./ProfilePic.astro";
+import { ScrollProgress } from "./scroll-progress";
 import type { iconPaths } from "./IconPaths";
 
 /** Main menu items */
@@ -125,13 +125,14 @@ const iconLinks: {
       </div>
     </div>
   </div>
+  <ScrollProgress client:idle />
 </nav>
 
 <script>
   window.addEventListener("scroll", function () {
     const nav = document.querySelector("nav")!;
     const scrollPosition = window.scrollY;
-    const triggerPosition = document.documentElement.scrollHeight * 0.15;
+    const triggerPosition = document.documentElement.scrollHeight * 0.08;
 
     if (scrollPosition > triggerPosition) {
       nav.classList.add("nav-blurred");
@@ -157,7 +158,18 @@ const iconLinks: {
       /** Set whether the menu is currently expanded or collapsed. */
       const setExpanded = (expand: boolean) => {
         btn.setAttribute("aria-expanded", expand ? "true" : "false");
-        menu.hidden = !expand;
+        const header = document.querySelector(".menu-header")!;
+        if (expand) {
+          menu.classList.remove("nav-closing");
+          menu.hidden = false;
+          header.classList.add("nav-open");
+        } else {
+          menu.classList.add("nav-closing");
+          setTimeout(function () {
+            menu.hidden = true;
+          }, 500);
+          header.classList.remove("nav-open");
+        }
       };
 
       // Toggle menu visibility when the menu button is clicked.
@@ -192,6 +204,7 @@ const iconLinks: {
     justify-content: space-between;
     gap: 0.5rem;
     padding: 1.5rem;
+    z-index: 2;
   }
 
   .nav-title {
@@ -238,6 +251,28 @@ const iconLinks: {
     position: absolute;
     left: 0;
     right: 0;
+  }
+
+  @media (max-width: 50em) {
+    nav {
+      z-index: 100;
+    }
+    .nav-open {
+      background-color: var(--gray-999);
+    }
+    .menu-header {
+      position: relative;
+      z-index: 999;
+      transition: background-color 0.1s linear 0.2s;
+    }
+
+    .menu-content {
+      z-index: 1; /* to be below nav when sliding in */
+      animation: slide-down 0.5s ease-in;
+    }
+    .nav-closing {
+      animation: slide-up 0.5s ease-out;
+    }
   }
 
   .nav-items {
@@ -288,7 +323,7 @@ const iconLinks: {
     padding: var(--icon-padding);
     text-decoration: none;
     color: var(--accent-dark);
-    transition: color var(--theme-transition) transform  0.5s;
+    transition: color var(--theme-transition) transform 0.5s;
   }
 
   .social:hover,
@@ -308,7 +343,7 @@ const iconLinks: {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      padding: 2.5rem 5rem;
+      padding: 1.5rem 5rem 1rem 5rem;
       gap: 1rem;
     }
 

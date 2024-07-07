@@ -1,4 +1,4 @@
-export const Quotes: {
+export const quotes: {
   quote: string;
   author: string;
   media: string;

@@ -8,10 +8,9 @@ const { height, width } = Astro.props;
 ---
 
 <profile-pic>
-  <button class="profile-picture">
-    <img {height} {width} />
+  <button class="profile-picture" aria-label="Change profile picture">
+    <img {height} {width} alt="Picture of me" />
   </button>
-  <div class="profile-picture-overlay"></div>
 </profile-pic>
 
 <script>
@@ -35,11 +34,11 @@ const { height, width } = Astro.props;
       renderProfilePicture();
 
       button.addEventListener("click", (event) => {
-        event.preventDefault(); // Prevent default behavior (e.g., form submission or page reload)
+        event.preventDefault(); 
 
         imageIndex = (imageIndex + 1) % profilePics.length;
         renderProfilePicture();
-        localStorage.setItem("imgIndex", imageIndex.toString()); // Save imgIndex to localStorage
+        localStorage.setItem("imgIndex", imageIndex.toString()); 
       });
 
       function renderProfilePicture() {
@@ -56,10 +55,9 @@ const { height, width } = Astro.props;
 
 <style>
   profile-pic {
-    height: 100%;
-    width: auto;
-    position: relative;
-    display: inline;
+    padding: 0;
+    max-width: 320px;
+    max-height: 640px;
     border-radius: 1.5rem;
   }
 
@@ -68,8 +66,7 @@ const { height, width } = Astro.props;
   }
 
   .profile-picture {
-    height: 100%;
-    width: 100%;
+
     padding: 0;
     cursor: pointer;
     background: none;
@@ -87,9 +84,7 @@ const { height, width } = Astro.props;
 
   @media (min-width: 50em) {
     .profile-picture img {
-      height: 100%;
-      width: 100%;
-      aspect-ratio: 5/6;
+      aspect-ratio: 3/4;
     }
   }
 </style>
