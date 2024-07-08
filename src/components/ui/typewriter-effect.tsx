@@ -62,9 +62,7 @@ export const TypewriterEffect = ({
   };
 
   return (
-    <div
-      className="text-[2.625rem] md:text-[4.5rem] font-bold"
-    >
+    <div className="text-[2.625rem] md:text-[4.5rem] font-bold">
       {renderWords()}
     </div>
   );

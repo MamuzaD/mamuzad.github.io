@@ -4,14 +4,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Hero from "../components/Hero.astro";
 import Icon from "../components/Icon.astro";
+import Pill from "../components/Pill.astro";
 ---
 
 <BaseLayout title="About | Daniel Mamuza" description="About Daniel Mamuza">
   <div class="stack gap-20">
     <main class="wrapper about">
-      <Hero
-        title="About Me"
-      />
+      <Hero title="About Me" />
 
       <section>
         <h2 class="section-title">Background</h2>
@@ -29,22 +28,58 @@ import Icon from "../components/Icon.astro";
       <section>
         <h2 class="section-title">Education</h2>
         <div class="content" id="education">
-          <h4><Icon icon="grad-cap" size="1.25em" />Sophomore Student</h4>
-          <p>
-            University of Nevada, Las Vegas <span>August 2023 - May 2027</span>
-          </p>
-          <p>
-            <strong>Bachelor of Science in Computer Science</strong><span
-              >GPA: 3.8</span
-            >
-          </p>
-          <p>Minor in Mathematics</p>
+          <img
+            src="/src/assets/unlv.png"
+            alt="UNLV Logo"
+            width="300px"
+            height="300px"
+            loading="lazy"
+            decoding="async"
+          />
+          <div>
+            <h4><Icon icon="grad-cap" size="1.25em" /> Sophomore Student</h4>
+            <p>
+              University of Nevada, Las Vegas <span class="metadata"
+                >August 2023 - May 2027</span
+              >
+            </p>
+            <p>
+              <strong>Bachelor of Science in Computer Science</strong><span
+                class="metadata">GPA: 3.81/4.0</span
+              >
+            </p>
+            <p>Minor in Mathematics</p>
+          </div>
         </div>
       </section>
       <section>
         <h2 class="section-title">Skills</h2>
-        <div class="content">
-          <p>officia unde omnis</p>
+        <div class="content" id="skills">
+          <h4>Languages</h4>
+          <div class="pills">
+            <Pill>C++</Pill>
+            <Pill>C#</Pill>
+            <Pill>HTML/CSS</Pill>
+            <Pill>TypeScript</Pill>
+            <Pill>Python</Pill>
+          </div>
+          <h4>Frameworks & Libraries</h4>
+          <div class="pills">
+            <Pill>Astro</Pill>
+            <Pill>Next.js</Pill>
+            <Pill>React</Pill>
+            <Pill>ShadcnUI</Pill>
+            <Pill>tailwindcss</Pill>
+          </div>
+          <h4>Tools</h4>
+          <div class="pills">
+            <Pill>Blender</Pill>
+            <Pill>Clerk</Pill>
+            <Pill>Git</Pill>
+            <Pill>Stripe</Pill>
+            <Pill>Supabase</Pill>
+            <Pill>Unity</Pill>
+          </div>
         </div>
       </section>
     </main>
@@ -58,12 +93,6 @@ import Icon from "../components/Icon.astro";
     display: flex;
     flex-direction: column;
     gap: 3.5rem;
-  }
-
-  img {
-    margin-top: 1.5rem;
-    border-radius: 1.5rem;
-    box-shadow: var(--shadow-md);
   }
 
   section {
@@ -108,24 +137,53 @@ import Icon from "../components/Icon.astro";
       display: contents;
       font-size: var(--text-lg);
     }
+
+    #education img {
+      height: 10rem;
+      width: 10rem;
+    }
+
+    #education p {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 
   #education {
+    width: 100%;
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  #education img {
+    border-radius: 1rem;
+    height: 8rem;
+    width: 8rem;
+  }
+
+  #education div {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
 
-  #education p {
-    display: flex;
-    justify-content: space-between; /* Aligns items from start to end */
-    align-items: center; /* Centers items vertically */
+  #education .metadata {
+    color: var(--gray-500); /* Example color, adjust as needed */
+    font-size: 0.9em; /* Slightly smaller font size for metadata */
+    display: block; /* Make the metadata span elements block-level elements */
   }
 
-  #education h4 {
+  .content h4 {
+    font-size: var(--text-md);
+  }
+
+  .pills {
+    margin: 0.5rem;
     display: flex;
-    width: auto;
-    justify-content: space-between;
-    font-size: var(--text-lg);
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
   }
 </style>

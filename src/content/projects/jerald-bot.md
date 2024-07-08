@@ -1,14 +1,15 @@
 ---
 title: Jerald Bot
-publishDate: 2024-06-01 00:00:00
-img: /assets/jerald-bot.jpg
-img_alt: Soft pink and baby blue water ripples together in a subtle texture.
+publishDate: 2024-05-28 00:00:00
+img: /src/assets/jerald-bot.jpg
+img_alt: A profile view of the Jerald Bot in Discord.
 description: |
-  We developed brand positioning and design assets for the launch
-  of a new colored water product.
+  Created a Discord chatbot to answer any plant related questions.
 tags:
   - Python
   - DiscordAPI
+githubLink: https://github.com/NostalgicDani/JeraldBot
+liveLink: https://discord.com/oauth2/authorize?client_id=1239862738612785182&permissions=137439464512&scope=bot
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur posuere commodo venenatis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam non ligula vel metus efficitur hendrerit. In hac habitasse platea dictumst. Praesent et mauris ut mi dapibus semper. Curabitur tortor justo, efficitur sit amet pretium cursus, porta eget odio. Cras ac venenatis dolor. Donec laoreet posuere malesuada. Curabitur nec mi tempor, placerat leo sit amet, tincidunt est. Quisque pellentesque venenatis magna, eget tristique nibh pulvinar in. Vestibulum vitae volutpat arcu. Aenean ut malesuada odio, sit amet pellentesque odio. Suspendisse nunc elit, blandit nec hendrerit non, aliquet at magna. Donec id leo ut nulla sagittis sodales.

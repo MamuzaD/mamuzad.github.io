@@ -11,6 +11,7 @@ import Hero from "../components/Hero.astro";
 import Icon from "../components/Icon.astro";
 import ProfilePic from "../components/ProfilePic.astro";
 import Pill from "../components/Pill.astro";
+import Projects from "../components/Projects.astro";
 import PortfolioPreview from "../components/PortfolioPreview.astro";
 
 // Page section components
@@ -22,9 +23,6 @@ import Quotes from "../components/Quotes.astro";
 const projects = (await getCollection("projects"))
   .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
   .slice(0, 4);
-
-// test
-import { BackgroundBeams } from "../components/ui/background-beams";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -40,14 +38,14 @@ import { BackgroundBeams } from "../components/ui/background-beams";
           align="start"
         >
           <div class="roles">
-            <Pill><Icon icon="code" size="1.33em" />Developer</Pill>
-            <Pill
+            <Pill isAnimated><Icon icon="code" size="1.33em" />Developer</Pill>
+            <Pill isAnimated
               ><Icon icon="film-slate" size="1.33em" />Part-time Film Critic</Pill
             >
-            <Pill
+            <Pill isAnimated
               ><Icon icon="casette-tape" size="1.33em" />Music Enthusiast</Pill
             >
-            <Pill
+            <Pill isAnimated
               ><Icon icon="joystick" size="1.33em" />Video Game Connoisseur</Pill
             >
           </div>
@@ -57,30 +55,16 @@ import { BackgroundBeams } from "../components/ui/background-beams";
       </header>
 
       <Quotes />
-      <Skills />
     </div>
 
     <main class="wrapper stack gap-20 lg:gap-48">
       <section class="section with-background with-cta">
         <header class="section-header stack gap-2 lg:gap-4">
           <h3>Selected projects</h3>
-          <p>
-            Take a look below at some of my featured projects for clients from
-            the past few years.
-          </p>
+          <p>These are some of my most recent projects</p>
         </header>
 
-        <div class="gallery">
-          <Grid variant="offset">
-            {
-              projects.map((project) => (
-                <li>
-                  <PortfolioPreview project={project} />
-                </li>
-              ))
-            }
-          </Grid>
-        </div>
+        <Projects count={4} />
 
         <div class="cta">
           <CallToAction href="/projects/">
@@ -89,34 +73,7 @@ import { BackgroundBeams } from "../components/ui/background-beams";
           </CallToAction>
         </div>
       </section>
-
-      <!-- <section class="section with-background bg-variant">
-        <header class="section-header stack gap-2 lg:gap-4">
-          <h3>Mentions</h3>
-          <p>
-            I have been fortunate enough to receive praise for my projects in
-            several publications. Take a look below to learn more.
-          </p>
-        </header>
-
-        <div class="gallery">
-          <Grid variant="small">
-            {
-              [
-                "Medium",
-                "BuzzFeed",
-                "The Next Web",
-                "awwwards.",
-                "TechCrunch",
-              ].map((brand) => (
-                <li class="mention-card">
-                  <p>{brand}</p>
-                </li>
-              ))
-            }
-          </Grid>
-        </div>
-      </section> -->
+      <Skills />
     </main>
 
     <ContactCTA />
@@ -131,6 +88,11 @@ import { BackgroundBeams } from "../components/ui/background-beams";
     gap: 2rem;
   }
 
+  @media (prefers-reduced-motion) {
+    .roles {
+      animation: none;
+    }
+  }
   .roles {
     display: none;
   }
@@ -189,7 +151,7 @@ import { BackgroundBeams } from "../components/ui/background-beams";
     top: 0;
     transform: translateY(-75%) translateX(-50%);
     background:
-      url("/assets/backgrounds/noise.png") top center/220px repeat,
+      url("src/assets/backgrounds/noise.png") top center/220px repeat,
       var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
       var(--gray-999);
     background-blend-mode: overlay, normal, normal, normal;
@@ -236,10 +198,6 @@ import { BackgroundBeams } from "../components/ui/background-beams";
     .with-cta .section-header {
       justify-self: flex-start;
       text-align: left;
-    }
-
-    .gallery {
-      grid-area: gallery;
     }
 
     .cta {

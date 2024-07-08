@@ -1,45 +1,67 @@
 ---
-
+import Icon from "./Icon.astro";
 ---
 
-<section class="box quotes">
+<section class="box quotes hidden">
+  <button class="prev-btn"><Icon icon="arrow-left" size="1.2rem" /></button>
   <div class="stack gap-2 lg:gap-4" id="quote">
     <h5>Some quotes from my favorite media:</h5>
     <q>"Open your heart."</q>
     <p id="author">-Kratos</p>
   </div>
+  <button class="next-btn"><Icon icon="arrow-right" size="1.2rem" /></button>
 </section>
 
 <script>
   import { quotes } from "./Quotes";
 
+  const prevBtn = document.querySelector(".prev-btn")!;
+  const nextBtn = document.querySelector(".next-btn")!;
+  let slideIndex = 0;
+  let autoplay = true;
+
+  prevBtn.addEventListener("click", () => change(true, true));
+  nextBtn.addEventListener("click", () => change(true));
+
   document.addEventListener("DOMContentLoaded", function () {
     carousel();
   });
 
-  let slideIndex = 0;
-
   function carousel() {
+    if (autoplay) {
+      change();
+      setTimeout(carousel, 6000);
+    }
+  }
+
+  function change(button?: boolean, decrease?: boolean) {
     let quote = document.querySelector("q")!;
     let author = document.getElementById("author")!;
     quote.style.animation = "none"; //disable animation
     author.style.animation = "none"; //disable animation
 
     setTimeout(() => {
-      quote.textContent = quotes[slideIndex].quote; //set text to quote
+      quote.textContent = quotes[slideIndex].quote;
       author.innerHTML =
         "— " +
         quotes[slideIndex].author +
         ", <em>" +
         quotes[slideIndex].media +
-        "</em>"; // Set text to author
+        "</em>";
       quote.style.animation = ""; //enable animation after text change
       author.style.animation = ""; //enable animation after text change
     }, 10);
 
-    slideIndex = (slideIndex + 1) % quotes.length;
+    if (decrease) slideIndex = (slideIndex - 1 + quotes.length) % quotes.length;
+    else slideIndex = (slideIndex + 1) % quotes.length;
 
-    setTimeout(carousel, 6000);
+    if (button && autoplay) {
+      autoplay = false;
+      setTimeout(() => {
+        autoplay = true;
+        carousel();
+      }, 6000);
+    }
   }
 </script>
 
@@ -53,14 +75,22 @@
   }
 
   .quotes {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 3rem;
     justify-content: center;
     align-items: center;
     text-align: center;
+    animation: fade-right 1s linear;
   }
 
+  @media (prefers-reduced-motion) {
+    .quotes {
+      animation: none;
+    }
+  }
+  
   #quote q,
   p {
     animation: fade 2s ease-in-out;
@@ -81,14 +111,21 @@
     text-align: center;
   }
 
+  button {
+    display: none;
+  }
+
   @media (min-width: 50em) {
+    .quotes {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+    }
+
     .box {
       border-radius: 1.5rem;
       padding: 2.5rem;
     }
-    .quotes{
-      
-    }
+
     .quotes h5 {
       font-size: var(--text-m);
     }
@@ -99,6 +136,18 @@
 
     #author {
       font-size: var(--text-lg);
+    }
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      padding: 0.5rem;
+      border-radius: 100%;
+      color: white;
+      background: var(--gradient-accent-blue);
+      box-shadow: var(--shadow-md);
     }
   }
 </style>

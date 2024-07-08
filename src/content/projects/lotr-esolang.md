@@ -1,8 +1,8 @@
 ---
 title: Lord of the Rings Esolang
-publishDate: 2020-03-02 00:00:00
-img: /assets/stock-1.jpg
-img_alt: Iridescent ripples of a bright blue and pink liquid
+publishDate: 2024-02-14 00:00:00
+img: /src/assets/lotr-esolang.png
+img_alt: A code snippet of the LOTR esolang
 description: |
   We designed a whodunnit-style game to introduce Markdown formatting. Suspense — suspicion — syntax!
 tags:
@@ -11,6 +11,7 @@ tags:
   - Parser
   - Evaluater
   - Lexer
+githubLink: https://github.com/NostalgicDani/Lord-of-The-Rings-Esolang
 ---
 
 ## Level-two heading

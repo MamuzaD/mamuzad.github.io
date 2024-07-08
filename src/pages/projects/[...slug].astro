@@ -27,6 +27,7 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 const github = entry.data.githubLink;
 const demo = entry.data.demoLink;
+const live = entry.data.liveLink;
 ---
 
 <BaseLayout title={entry.data.title} description={entry.data.description}>
@@ -35,13 +36,51 @@ const demo = entry.data.demoLink;
       <header>
         <div class="wrapper stack gap-2">
           <a class="back-link" href="/projects/"
-            ><Icon icon="arrow-left" /> projects</a
+            ><Icon icon="arrow-left" />projects</a
           >
           <Hero title={entry.data.title} align="start">
             <div class="details">
               <div class="tags">
                 {entry.data.tags.map((t) => <Pill>{t}</Pill>)}
+                <div class="links">
+                  {
+                    github && (
+                      <Pill isTransparent>
+                        <>
+                          <Icon icon="github-logo" size="1.5rem" />
+                          <a target="_blank" href={github}>
+                            Github
+                          </a>
+                        </>
+                      </Pill>
+                    )
+                  }
+                  {
+                    demo && (
+                      <Pill isTransparent>
+                        <>
+                          <Icon icon="youtube-logo" size="1.5rem" />
+                          <a target="_blank" href={demo}>
+                            Demo
+                          </a>
+                        </>
+                      </Pill>
+                    )
+                  }{
+                    live && (
+                      <Pill isTransparent>
+                        <>
+                          <Icon icon="link" size="1.5rem" />
+                          <a target="_blank" href={live}>
+                            Live
+                          </a>
+                        </>
+                      </Pill>
+                    )
+                  }
+                </div>
               </div>
+
               <p class="description">{entry.data.description}</p>
             </div>
           </Hero>
@@ -51,7 +90,12 @@ const demo = entry.data.demoLink;
         <div class="stack gap-10 content">
           {
             entry.data.img && (
-              <img src={entry.data.img} alt={entry.data.img_alt || ""} />
+              <img
+                src={entry.data.img}
+                alt={entry.data.img_alt || ""}
+                loading="lazy"
+                decoding="async"
+              />
             )
           }
           <div class="content">
@@ -83,8 +127,10 @@ const demo = entry.data.demoLink;
     align-items: center;
   }
 
-  .tags {
+  .tags,
+  .links {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
   }
 

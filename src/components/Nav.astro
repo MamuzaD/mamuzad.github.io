@@ -197,6 +197,7 @@ const iconLinks: {
     font-weight: 500;
     margin-bottom: 3.5rem;
     transition: backdrop-filter 0.9s ease-in-out;
+    animation: fade-down 0.5s linear;
   }
 
   .menu-header {
@@ -210,6 +211,7 @@ const iconLinks: {
   .nav-title {
     display: flex;
     gap: 0.5rem;
+    font-family: var(--font-body);
     align-items: center;
     line-height: 1.1;
     color: var(--gray-0);
@@ -271,7 +273,7 @@ const iconLinks: {
       animation: slide-down 0.5s ease-in;
     }
     .nav-closing {
-      animation: slide-up 0.5s ease-out;
+      animation: nav-slide-up 0.5s ease-out;
     }
   }
 

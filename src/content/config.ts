@@ -9,6 +9,7 @@ export const collections = {
       publishDate: z.coerce.date(),
       githubLink: z.string().optional(),
       demoLink: z.string().optional(),
+      liveLink: z.string().optional(),
       tags: z.array(z.string()),
       img: z.string(),
       img_alt: z.string().optional(),

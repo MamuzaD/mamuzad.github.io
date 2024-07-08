@@ -5,70 +5,94 @@ import FlexIcons from "./FlexIcons.astro";
 
 <section class="box skills">
   <div class="gap-2 lg:gap-4">
-    <Icon
-      icon="terminal-window"
-      color="var(--accent-regular)"
-      size="2.5rem"
-      gradient
-    />
-    <h2>Languages</h2>
+    <h2>
+      <Icon
+        icon="terminal-window"
+        color="var(--accent-regular)"
+        size="2.5rem"
+        gradient
+      />Languages
+    </h2>
     <FlexIcons icons={["C++", "C#", "HTML", "CSS", "TypeScript", "Python"]} />
   </div>
-  <div class="stack gap-2 lg:gap-4">
-    <Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
-    <h2>Frameworks & Libraries</h2>
+  <div class="gap-2 lg:gap-4">
+    <h2>
+      <Icon
+        icon="package"
+        color="var(--accent-regular)"
+        size="2.5rem"
+        gradient
+      />
+      Frameworks & Libraries
+    </h2>
 
-    <FlexIcons icons={["Astro", "Next.js", "React", "tailwindcss"]} />
-  </div>
-  <div class="stack gap-2 lg:gap-4">
-    <Icon
-      icon="strategy"
-      color="var(--accent-regular)"
-      size="2.5rem"
-      gradient
+    <FlexIcons
+      icons={["Astro", "Next.js", "React", "ShadcnUI", "tailwindcss"]}
     />
-    <h2>Tools</h2>
-    <p>Urna porttitor rhoncus dolor purus non enim praesent ornare.</p>
   </div>
-</section>
+  <div class="gap-2 lg:gap-4">
+    <h2>
+      <Icon
+        icon="toolbox"
+        color="var(--accent-regular)"
+        size="2.5rem"
+        gradient
+      />
+      Tools
+    </h2>
+    <FlexIcons
+      icons={["Blender", "Clerk", "Git", "Stripe", "Supabase", "Unity"]}
+    />
+  </div>
 
-<style>
-  .box {
-    border: 1px solid var(--gray-800);
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    background-color: var(--gray-999_40);
-    box-shadow: var(--shadow-sm);
-  }
-
-  .skills {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-  }
-
-  .skills h2 {
-    font-size: var(--text-lg);
-  }
-
-  .skills p {
-    color: var(--gray-400);
-  }
-
-  @media (min-width: 50em) {
+  <style>
     .box {
-      border-radius: 1.5rem;
-      padding: 2.5rem;
+      border: 1px solid var(--gray-800);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      background-color: var(--gray-999_40);
+      box-shadow: var(--shadow-sm);
     }
 
     .skills {
-      gap: 5rem;
+      gap: 3rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    div {
+      align-items: center;
+      justify-items: center;
+      display: flex;
+      flex-direction: column;
     }
 
     .skills h2 {
-      font-size: var(--text-2xl);
+      font-size: var(--text-lg);
+      display: inline;
     }
-  }
-</style>
+
+    .skills h2 Icons {
+      margin-bottom: 2rem;
+    }
+
+    .skills p {
+      color: var(--gray-400);
+    }
+
+    @media (min-width: 50em) {
+      .box {
+        border-radius: 1.5rem;
+        padding: 2.5rem;
+      }
+
+      .skills {
+        gap: 5rem;
+      }
+
+      .skills h2 {
+        font-size: var(--text-2xl);
+      }
+    }
+  </style>
+</section>

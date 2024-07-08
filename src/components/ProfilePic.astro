@@ -9,7 +9,7 @@ const { height, width } = Astro.props;
 
 <profile-pic>
   <button class="profile-picture" aria-label="Change profile picture">
-    <img {height} {width} alt="Picture of me" />
+    <img {height} {width} loading="lazy" decoding="async" alt="Picture of me" />
   </button>
 </profile-pic>
 
@@ -20,8 +20,9 @@ const { height, width } = Astro.props;
     : 0;
 
   const profilePics = [
-    { name: "me", path: "/assets/profile/portrait.jpg" },
-    { name: "spiderman", path: "/assets/profile/spiderman.jpg" },
+    { name: "me", path: "src/assets/profile/portrait.jpg" },
+    { name: "spiderman", path: "src/assets/profile/spiderman.jpg" },
+    { name: "minecraft me", path: "src/assets/profile/minecraftme.png" },
   ];
 
   // class
@@ -34,11 +35,11 @@ const { height, width } = Astro.props;
       renderProfilePicture();
 
       button.addEventListener("click", (event) => {
-        event.preventDefault(); 
+        event.preventDefault();
 
         imageIndex = (imageIndex + 1) % profilePics.length;
         renderProfilePicture();
-        localStorage.setItem("imgIndex", imageIndex.toString()); 
+        localStorage.setItem("imgIndex", imageIndex.toString());
       });
 
       function renderProfilePicture() {
@@ -59,6 +60,13 @@ const { height, width } = Astro.props;
     max-width: 320px;
     max-height: 640px;
     border-radius: 1.5rem;
+    animation: blur-in 0.7s linear;
+  }
+
+  @media (prefers-reduced-motion) {
+    profile-pic {
+      animation: none;
+    }
   }
 
   profile-pic:hover {
@@ -66,7 +74,6 @@ const { height, width } = Astro.props;
   }
 
   .profile-picture {
-
     padding: 0;
     cursor: pointer;
     background: none;

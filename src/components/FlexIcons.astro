@@ -15,12 +15,8 @@ const { icons } = Astro.props;
       if (!icon) return null;
 
       return (
-        <li>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="96"
-            height="96"
-          >
+        <li class="hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox={icon.viewBox}>
             <g set:html={icon.svg} />
           </svg>
           <span>{icon.name}</span>
@@ -29,6 +25,27 @@ const { icons } = Astro.props;
     })
   }
 </ul>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  });
+
+  const listElements = document.querySelectorAll("li");
+  listElements.forEach((el, index) => {
+    observer.observe(el);
+    const delay = index * 0.2; // 0.2 seconds delay for each element
+    el.style.transitionDelay = `${delay}s`;
+
+    el.addEventListener("mouseover", () => {
+      el.style.transitionDelay = "0s"; // Remove delay on hover
+    });
+  });
+</script>
 
 <style>
   ul {
@@ -43,19 +60,51 @@ const { icons } = Astro.props;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 2rem 3rem;
-    transition: transform 0.2s linear;
+    padding: 1rem 1.2rem;
   }
-  
+
   li:hover {
     transform: scale(1.2);
   }
+
   span {
     font-weight: 500;
     font-family: var(--font-system);
   }
+
   svg {
-    height: 5rem;
-    width: 5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .hidden {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(100%);
+    transition:
+      opacity 0.5s,
+      filter 0.7s,
+      transform 0.5s;
+  }
+
+  .show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0px);
+  }
+
+  @media (min-width: 50em) {
+    svg {
+      height: 5rem;
+      width: 5rem;
+    }
+    li {
+      padding: 2rem 3rem;
+    }
+  }
+  @media (prefer-reduced-motion) {
+    .hidden {
+      transition: none;
+    }
   }
 </style>
