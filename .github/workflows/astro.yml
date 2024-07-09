@@ -34,8 +34,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        env: 
-          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
         uses: actions/checkout@v4
       - name: Detect package manager
         id: detect-package-manager
@@ -72,8 +70,10 @@ jobs:
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
             --site "${{ steps.pages.outputs.origin }}" \
-            --base "${{ steps.pages.outputs.base_path }}"
+            --base "${{ steps.pages.outputs.base_path }}" 
         working-directory: ${{ env.BUILD_PATH }}
+        env: 
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
