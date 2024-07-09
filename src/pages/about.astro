@@ -8,7 +8,11 @@ import Pill from "../components/Pill.astro";
 import RecentPlayed from "../components/RecentPlayed.astro";
 ---
 
-<BaseLayout title="About | Daniel Mamuza" description="About Daniel Mamuza">
+<BaseLayout
+  title="About | Daniel Mamuza"
+  description="About Daniel Mamuza"
+  OGTitle="About Me"
+>
   <div class="stack gap-20">
     <main class="wrapper about">
       <Hero title="About Me" />
@@ -17,7 +21,8 @@ import RecentPlayed from "../components/RecentPlayed.astro";
         <h2 class="section-title">Background</h2>
         <div class="content">
           <p>
-            I don't know what to write here but I will find out soon enough dot dot dot
+            I don't know what to write here but I will find out soon enough dot
+            dot dot
           </p>
         </div>
       </section>
@@ -81,7 +86,7 @@ import RecentPlayed from "../components/RecentPlayed.astro";
       <h2 class="w-full mt-[10vh]">A little more of me...</h2>
       <section>
         <h2 class="section-title">Recently Played Games</h2>
-       <RecentPlayed />
+        <RecentPlayed />
       </section>
     </main>
 

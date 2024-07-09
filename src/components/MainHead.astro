@@ -1,23 +1,53 @@
 ---
 import "../styles/global.css";
+import { SEO } from "astro-seo";
 
 interface Props {
   title?: string | undefined;
+  OGTitle?: string | undefined;
   description?: string | undefined;
 }
 
-const { title = "Daniel Mamuza", description = "Daniel Mamuza Portfolio" } =
-  Astro.props;
+const {
+  title = "Daniel Mamuza",
+  OGTitle = "Daniel Mamuza",
+  description = "Daniel Mamuza Portfolio",
+} = Astro.props;
 ---
 
 <meta charset="UTF-8" />
-<meta name="description" property="og:description" content={description} />
+
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
-<title>{title}</title>
+<SEO
+  title={title}
+  description={description}
+  openGraph={{
+    basic: {
+      title: OGTitle,
+      type: "website",
+      image: "https://danielmamuza.com/assets/old/img/waves.png",
+    },
+  }}
+  extend={{
+    // extending the default link tags
+    link: [
+      { rel: "icon", href: "/favicon.ico" },
+      { rel: "sitemap", href: "/sitemap-index.xml" },
+    ],
+    // extending the default meta tags
+    meta: [
+      {
+        name: "twitter:image",
+        content:
+          "https://user-images.githubusercontent.com/5182256/131216951-8f74f425-f775-463d-a11b-0e01ad9fce8d.png",
+      },
+      { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
+      { name: "twitter:description", content: "Agent" },
+    ],
+  }}
+/>
 
-<link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link

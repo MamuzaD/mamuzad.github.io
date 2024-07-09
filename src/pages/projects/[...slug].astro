@@ -30,7 +30,11 @@ const demo = entry.data.demoLink;
 const live = entry.data.liveLink;
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description}>
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  OGTitle={entry.data.title}
+>
   <div class="stack gap-20">
     <div class="stack gap-15">
       <header>
