@@ -39,7 +39,7 @@ const { icons } = Astro.props;
   listElements.forEach((el) => {
     observer.observe(el);
     el.addEventListener("mouseover", () => {
-      el.style.transitionDelay = "0s"; // Remove delay on hover
+      el.style.transitionDelay = "0s"; 
     });
   });
 </script>
