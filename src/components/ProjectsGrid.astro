@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import Grid from "../components/Grid.astro";
-import PortfolioPreview from "../components/PortfolioPreview.astro";
+import Grid from "./Grid.astro";
+import PortfolioPreview from "./PortfolioPreview.astro";
 
 interface Props {
   count?: number;
@@ -30,7 +30,6 @@ const projects = (await getCollection("projects"))
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
-
         if (index % 2 === 0) entry.target.classList.add("slide-left");
         else entry.target.classList.add("slide-right");
       }
@@ -54,7 +53,7 @@ const projects = (await getCollection("projects"))
     transition:
       opacity 0.6s,
       filter 0.6s,
-      transform 0.6s;
+      transform 0.6s cubic-bezier(0, 0.96, 0.33, 0.83);
   }
 
   @media (prefers-reduced-motion) {
