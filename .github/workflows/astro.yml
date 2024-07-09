@@ -32,10 +32,10 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    env: 
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
     steps:
       - name: Checkout
-        env: 
-          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
         uses: actions/checkout@v4
       - name: Detect package manager
         id: detect-package-manager
