@@ -1,7 +1,7 @@
 ---
 title: Monk
 publishDate: 2024-06-28 00:00:00
-img: /src/assets/monk.gif
+img: /assets/monk.gif
 img_alt: Soft pink and baby blue water ripples together in a subtle texture.
 description: |
   We developed brand positioning and design assets for the launch

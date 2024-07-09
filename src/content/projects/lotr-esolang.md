@@ -1,7 +1,7 @@
 ---
 title: Lord of the Rings Esolang
 publishDate: 2024-02-14 00:00:00
-img: /src/assets/lotr-esolang.png
+img: /assets/lotr-esolang.png
 img_alt: A code snippet of the LOTR esolang
 description: |
   We designed a whodunnit-style game to introduce Markdown formatting. Suspense — suspicion — syntax!

@@ -1,7 +1,7 @@
 ---
 title: The Lonely Wizard
 publishDate: 2024-02-01 00:00:00
-img: /src/assets/the-lonely-wizard.jpg
+img: /assets/the-lonely-wizard.jpg
 img_alt: A photo showcasing the video game in development.
 description: |
   Developed a 2d rogue-like shooter game over winter break.
