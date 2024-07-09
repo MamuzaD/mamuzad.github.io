@@ -26,6 +26,7 @@ concurrency:
 
 env:
   BUILD_PATH: "." # default value when not using subfolders
+  STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
   # BUILD_PATH: subfolder
 
 jobs:
@@ -69,11 +70,14 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
         working-directory: ${{ env.BUILD_PATH }}
       - name: Build with Astro
+        env: 
+            STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
             --site "${{ steps.pages.outputs.origin }}" \
-            --base "${{ steps.pages.outputs.base_path }}"
+            --base "${{ steps.pages.outputs.base_path }}" 
         working-directory: ${{ env.BUILD_PATH }}
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
