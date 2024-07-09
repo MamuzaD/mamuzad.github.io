@@ -7,5 +7,6 @@ import playformCompress from "@playform/compress";
 // https://astro.build/config
 export default defineConfig({
   site: "https://danielmamuza.com",
+  base: "/",
   integrations: [react(), tailwind(), playformCompress()],
 });

@@ -1,7 +1,7 @@
 ---
 title: Jerald Bot
 publishDate: 2024-05-28 00:00:00
-img: ../../assets/jerald-bot.jpg
+img: /src/assets/jerald-bot.jpg
 img_alt: A profile view of the Jerald Bot in Discord.
 description: |
   Created a Discord chatbot to answer any plant related questions.
