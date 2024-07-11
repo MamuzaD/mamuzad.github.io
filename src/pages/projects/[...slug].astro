@@ -85,7 +85,17 @@ const live = entry.data.liveLink;
                 </div>
               </div>
 
-              <p class="description">{entry.data.description}</p>
+              <p class="description">
+                {entry.data.description}
+              </p>
+              <p style="font-size: var(--text-lg); text-align: right;">
+                {
+                  entry.data.publishDate.toLocaleDateString("UTC", {
+                    month: "long",
+                  })
+                }
+                {entry.data.publishDate.getFullYear()}.
+              </p>
             </div>
           </Hero>
         </div>

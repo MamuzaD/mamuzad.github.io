@@ -15,23 +15,15 @@ githubLink: https://github.com/NostalgicDani/Lord-of-The-Rings-Esolang
 ---
 
 
-### to be written
+### Development
 
-Lorem ipsum dolor sit amet. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare.
+Creating an esoteric language gave me real insight to certain aspects that all langauges contain. Adding that this was my first time using TypeScript, it was a much need benefit as using types throughout the development was helpful in regard to literals, evaluations, and the lexing process. 
 
-Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget gravida cum sociis natoque penatibus. Cras fermentum odio eu feugiat pretium nibh. Proin nibh nisl condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel quam elementum pulvinar etiam non.
+Through this project, I created a process with a lexer and parser in order to interpret and evaluate statements. All of these different functions are highlighted on my <a href="https://github.com/NostalgicDani/Lord-of-The-Rings-Esolang">Github</a> each in their own scripts.
 
-### Level-three heading
+#### Background
 
-Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra. Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl pretium fusce.
+In winter break, I underwent a bit of a Lord of the Rings phase where I reread all three books and watched the movies many times over. Due to this and because of my CS202 class at UNLV in which I was learning some more advanced C++ techniques. I was really interested in preprocessor directives and learning to reword certain parts of C++ in order to "create a new language". This itself was not that impressive so I attempted to use this information and compile it with TypeScript to develop a new esolang.
 
-### Level-three heading
 
-Sed pulvinar porttitor mi in ultricies. Etiam non dolor gravida eros pulvinar pellentesque et dictum ex. Proin eu ornare ligula, sed condimentum dui. Vivamus tincidunt tellus mi, sed semper ipsum pharetra a. Suspendisse sollicitudin at sapien nec volutpat. Etiam justo urna, laoreet ac lacus sed, ultricies facilisis dolor. Integer posuere, metus vel viverra gravida, risus elit ornare magna, id feugiat erat risus ullamcorper libero. Proin vitae diam auctor, laoreet lorem vitae, varius tellus.
 
-Aenean pretium purus augue, ut bibendum erat convallis quis. Cras condimentum quis velit ac mollis. Suspendisse non purus fringilla, venenatis nisl porta, finibus odio. Curabitur aliquet metus faucibus libero interdum euismod. Morbi sed magna nisl. Morbi odio nibh, facilisis vel sapien eu, tempus tincidunt erat. Nullam erat velit, sagittis at purus quis, tristique scelerisque tortor. Pellentesque lacinia tortor id est aliquam viverra. Vestibulum et diam ac ipsum mollis fringilla.
-
-#### Level-four heading
-
-- We noted this
-- And also this other point
