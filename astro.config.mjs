@@ -13,6 +13,10 @@ export default defineConfig({
     react(),
     tailwind(),
     playformCompress(),
-    sitemap({ filter: (page) => page !== "https://danielmamuza.com/old/" }),
+    sitemap({
+      filter: (page) =>
+        page !== "http://danielmamuza.com/old/" &&
+        page !== "https://danielmamuza.com/old/",
+    }),
   ],
 });
