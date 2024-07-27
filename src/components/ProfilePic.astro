@@ -9,7 +9,7 @@ const { height, width } = Astro.props;
 
 <profile-pic>
   <button class="profile-picture" aria-label="Change profile picture">
-    <img {height} {width} loading="lazy" decoding="async" alt="Picture of me" />
+    <img {height} {width} decoding="async" alt="Picture of me" />
   </button>
 </profile-pic>
 
@@ -20,9 +20,9 @@ const { height, width } = Astro.props;
     : 0;
 
   const profilePics = [
-    { name: "me", path: "/assets/profile/portrait.jpg" },
-    { name: "spiderman", path: "/assets/profile/spiderman.jpg" },
-    { name: "minecraft me", path: "/assets/profile/minecraftme.png" },
+    { name: "me", path: "/assets/profile/portrait.webp" },
+    { name: "spiderman", path: "/assets/profile/spiderman.webp" },
+    { name: "minecraft me", path: "/assets/profile/minecraftme.webp" },
   ];
 
   // class

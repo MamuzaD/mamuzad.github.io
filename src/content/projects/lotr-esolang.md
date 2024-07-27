@@ -1,7 +1,7 @@
 ---
 title: Lord of the Rings Esolang
 publishDate: 2024-02-14 00:00:00
-img: /assets/lotr-esolang.png
+img: /assets/lotr-esolang.webp
 img_alt: A code snippet of the LOTR esolang
 description: |
   Developed an esoteric language based on a small Lord of the Rings phase from winter 2024.

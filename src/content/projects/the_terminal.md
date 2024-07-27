@@ -1,7 +1,7 @@
 ---
 title: The Terminal
 publishDate: 2023-06-01 00:00:00
-img: /assets/the_terminal.jpg
+img: /assets/the_terminal.webp
 img_alt: The starting screen to the terminal game
 description: |
   My first ever C++ program detailing a person stuck in an airport.

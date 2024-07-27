@@ -1,7 +1,7 @@
 ---
 title: Monk
 publishDate: 2024-06-28 00:00:00
-img: /assets/monk.gif
+img: /assets/monk.webp
 img_alt: Gif showcasing monk in action as a kanban board.
 description: |
   Created a kanban board and notes management web app.
