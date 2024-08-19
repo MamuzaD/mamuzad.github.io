@@ -47,6 +47,10 @@ const {
   }}
 />
 
+<link rel="preload" href="/assets/profile/spiderman.webp" as="image" />
+<link rel="preload" href="/assets/profile/portrait.webp" as="image" />
+<link rel="preload" href="/assets/profile/minecraftme.webp" as="image" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
@@ -81,4 +85,13 @@ const {
       attributeFilter: ["class"],
     });
   }
+
+  // Ensure theme is re-applied before loading new page
+  document.addEventListener("astro:after-swap", () => {
+    console.log("hi");
+    const theme = getThemePreference();
+    document.documentElement.classList[theme === "dark" ? "add" : "remove"](
+      "theme-dark"
+    );
+  });
 </script>

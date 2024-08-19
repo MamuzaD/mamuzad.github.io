@@ -160,6 +160,12 @@ a {
   color: var(--link-color);
 }
 
+
+p {
+  z-index: 99;
+}
+
+
 h1,
 h2,
 h3,

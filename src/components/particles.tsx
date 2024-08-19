@@ -33,7 +33,7 @@ export const ParticlesTest = () => {
   }, []);
 
   const particlesLoaded = async (container?: Container): Promise<void> => {
-    console.log(container);
+  //  console.log(container);
   };
 
   useEffect(() => {
@@ -71,8 +71,8 @@ export const ParticlesTest = () => {
             distance: 400,
             duration: 2,
             opacity: 1,
-            size: 20,
-            speed: 3,
+            size: 24,
+            speed: 5,
           },
           push: {
             quantity: 1,
@@ -107,8 +107,8 @@ export const ParticlesTest = () => {
             image: [
               {
                 src: particleIcons[0],
-                width: 32,
-                height: 32,
+                width: 64,
+                height: 64,
                 particles: {
                   move: {
                     direction: "none",
@@ -117,8 +117,8 @@ export const ParticlesTest = () => {
               },
               {
                 src: particleIcons[1],
-                width: 32,
-                height: 32,
+                width: 64,
+                height: 64,
                 particles: {
                   move: {
                     direction: "none",
@@ -127,8 +127,8 @@ export const ParticlesTest = () => {
               },
               {
                 src: particleIcons[2],
-                width: 32,
-                height: 32,
+                width: 64,
+                height: 64,
                 particles: {
                   move: {
                     direction: "none",

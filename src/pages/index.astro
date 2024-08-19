@@ -97,7 +97,7 @@ import Quotes from "../components/Quotes.astro";
   @media (min-width: 50em) {
     .hero {
       display: grid;
-      grid-template-columns: 6fr 4fr;
+      grid-template-columns: auto 20rem;
       padding-inline: 2.5rem;
       gap: 3.75rem;
     }
@@ -115,6 +115,7 @@ import Quotes from "../components/Quotes.astro";
       aspect-ratio: 3 / 4;
       border-radius: 4.5rem;
       object-fit: cover;
+      justify-self: flex-end;
     }
   }
 

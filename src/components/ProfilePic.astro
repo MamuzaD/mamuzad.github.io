@@ -12,11 +12,11 @@ const { height, width, small } = Astro.props;
   {
     small ? (
       <button class="profile-picture-small" aria-label="Change profile picture">
-        <img decoding="async" alt="Picture of me" />
+        <img decoding="async" alt="Me" loading="eager" />
       </button>
     ) : (
       <button class="profile-picture" aria-label="Change profile picture">
-        <img {height} {width} decoding="async" alt="Picture of me" />
+        <img {height} {width} decoding="async" alt="Me" loading="eager" />
       </button>
     )
   }
@@ -31,15 +31,20 @@ const { height, width, small } = Astro.props;
 
       this.renderProfilePicture();
 
-      // Update the component whenever the profile changes
       currentProfile.subscribe(() => this.renderProfilePicture());
 
-      // Add event listener to cycle profiles on click
       const button = this.querySelector("button");
+
       if (button) {
         button.addEventListener("click", (event) => {
           event.preventDefault();
+
           cycleProfile();
+          const currentProfileName = currentProfile.get();
+          const profile = profiles.find((p) => p.name === currentProfileName)!;
+          var sound = new Audio(profile.audio);
+          console.log(profile.audio);
+          sound.play();
         });
       }
     }
@@ -51,8 +56,6 @@ const { height, width, small } = Astro.props;
       const img = this.querySelector("img");
       if (img && profile) {
         img.src = profile.path;
-
-        // You may also want to change the theme based on the profile
         currentProfile.set(profile.name);
       }
     }
@@ -63,9 +66,8 @@ const { height, width, small } = Astro.props;
 
 <style>
   profile-pic {
+    line-height: 0;
     padding: 0;
-    max-width: 320px;
-    max-height: 640px;
     border-radius: 1.5rem;
     animation: blur-in 0.7s linear;
   }
@@ -77,23 +79,23 @@ const { height, width, small } = Astro.props;
   }
 
   profile-pic:hover {
-    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    box-shadow: var(--shadow-md);
+  }
+
+  button.profile-picture:hover,
+  button.profile-picture-small:hover {
+    cursor: url("/help.svg"), auto;
   }
 
   .profile-picture {
-    padding: 0;
-    cursor: pointer;
-    background: none;
-    border: none;
-    outline: none;
     position: relative;
-    overflow: hidden;
-    z-index: 1;
+    z-index: 99;
   }
 
   .profile-picture img {
     object-fit: cover;
     border-radius: 1.5rem;
+    aspect-ratio: 5/6;
   }
 
   .profile-picture-small {

@@ -12,6 +12,6 @@ export default defineConfig({
   integrations: [react(), tailwind(), playformCompress(), sitemap({
     filter: page => page !== "http://danielmamuza.com/old/" && page !== "https://danielmamuza.com/old/"
   })],
-  output: "server",
+  output: "hybrid",
   adapter: vercel()
 });

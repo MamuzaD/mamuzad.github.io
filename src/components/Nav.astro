@@ -4,6 +4,7 @@ import ThemeToggle from "./ThemeToggle.astro";
 import { ScrollProgress } from "./scroll-progress";
 import type { iconPaths } from "./IconPaths";
 import ProfilePic from "./ProfilePic.astro";
+import RichPresence from "./RichPresence.astro";
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
@@ -36,10 +37,13 @@ const iconLinks: {
 ];
 ---
 
-<nav>
+<nav transition:persist>
   <div class="menu-header">
-    <ProfilePic height="300px" width="300px" small />
-    <a href="/" class="nav-title"> Daniel Mamuza </a>
+    <div class="name">
+      <ProfilePic height="300px" width="300px" small />
+      <a href="/" class="nav-title"> Daniel Mamuza </a>
+      <!-- <RichPresence /> -->
+    </div>
     <menu-button>
       <template>
         <button class="menu-button" aria-expanded="false">
@@ -432,5 +436,10 @@ const iconLinks: {
 
   .nav-blurred {
     backdrop-filter: blur(3px);
+  }
+
+  .name {
+    display: flex;
+    gap: 2rem;
   }
 </style>

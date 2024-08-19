@@ -19,10 +19,10 @@ const { title, OGTitle, description } = Astro.props;
 <html lang="en">
   <head>
     <MainHead title={title} description={description} OGTitle={OGTitle} />
-    <!-- <ViewTransitions /> -->
+    <ViewTransitions />
   </head>
   <body>
-    <!-- <ParticlesTest client:load /> -->
+    <ParticlesTest client:load />
     <div class="stack backgrounds">
       <Nav />
 
@@ -40,6 +40,7 @@ const { title, OGTitle, description } = Astro.props;
     </script>
 
     <style>
+     
       .slot {
         margin-top: 12rem;
       }
