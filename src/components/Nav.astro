@@ -3,6 +3,7 @@ import Icon from "./Icon.astro";
 import ThemeToggle from "./ThemeToggle.astro";
 import { ScrollProgress } from "./scroll-progress";
 import type { iconPaths } from "./IconPaths";
+import ProfilePic from "./ProfilePic.astro";
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
@@ -37,6 +38,7 @@ const iconLinks: {
 
 <nav>
   <div class="menu-header">
+    <ProfilePic height="300px" width="300px" small />
     <a href="/" class="nav-title"> Daniel Mamuza </a>
     <menu-button>
       <template>

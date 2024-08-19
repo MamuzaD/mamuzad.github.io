@@ -2,51 +2,58 @@
 interface Props {
   height: string;
   width: string;
+  small?: boolean;
 }
 
-const { height, width } = Astro.props;
+const { height, width, small } = Astro.props;
 ---
 
 <profile-pic>
-  <button class="profile-picture" aria-label="Change profile picture">
-    <img {height} {width} decoding="async" alt="Picture of me" />
-  </button>
+  {
+    small ? (
+      <button class="profile-picture-small" aria-label="Change profile picture">
+        <img decoding="async" alt="Picture of me" />
+      </button>
+    ) : (
+      <button class="profile-picture" aria-label="Change profile picture">
+        <img {height} {width} decoding="async" alt="Picture of me" />
+      </button>
+    )
+  }
 </profile-pic>
 
 <script>
-  // variables
-  let imageIndex = localStorage.getItem("imgIndex")
-    ? parseInt(localStorage.getItem("imgIndex")!)
-    : 0;
+  import { currentProfile, profiles, cycleProfile } from "../util/store";
 
-  const profilePics = [
-    { name: "me", path: "/assets/profile/portrait.webp" },
-    { name: "spiderman", path: "/assets/profile/spiderman.webp" },
-    { name: "minecraft me", path: "/assets/profile/minecraftme.webp" },
-  ];
-
-  // class
   class ProfilePic extends HTMLElement {
     constructor() {
       super();
 
-      const button = this.querySelector("button.profile-picture")!;
+      this.renderProfilePicture();
 
-      renderProfilePicture();
+      // Update the component whenever the profile changes
+      currentProfile.subscribe(() => this.renderProfilePicture());
 
-      button.addEventListener("click", (event) => {
-        event.preventDefault();
+      // Add event listener to cycle profiles on click
+      const button = this.querySelector("button");
+      if (button) {
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          cycleProfile();
+        });
+      }
+    }
 
-        imageIndex = (imageIndex + 1) % profilePics.length;
-        renderProfilePicture();
-        localStorage.setItem("imgIndex", imageIndex.toString());
-      });
+    renderProfilePicture() {
+      const currentProfileName = currentProfile.get();
+      const profile = profiles.find((p) => p.name === currentProfileName);
 
-      function renderProfilePicture() {
-        const img = button.querySelector("img");
-        if (img) {
-          img.src = profilePics[imageIndex].path;
-        }
+      const img = this.querySelector("img");
+      if (img && profile) {
+        img.src = profile.path;
+
+        // You may also want to change the theme based on the profile
+        currentProfile.set(profile.name);
       }
     }
   }
@@ -70,7 +77,7 @@ const { height, width } = Astro.props;
   }
 
   profile-pic:hover {
-    box-shadow: 6px -3px 0px 0px var(--accent-regular);
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   }
 
   .profile-picture {
@@ -87,6 +94,19 @@ const { height, width } = Astro.props;
   .profile-picture img {
     object-fit: cover;
     border-radius: 1.5rem;
+  }
+
+  .profile-picture-small {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+  }
+
+  .profile-picture-small img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    object-fit: cover;
   }
 
   @media (min-width: 50em) {
