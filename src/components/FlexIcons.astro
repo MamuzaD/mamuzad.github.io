@@ -27,21 +27,27 @@ const { icons } = Astro.props;
 </ul>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
+  const initObserver = () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
     });
-  });
 
-  const listElements = document.querySelectorAll("li");
-  listElements.forEach((el) => {
-    observer.observe(el);
-    el.addEventListener("mouseover", () => {
-      el.style.transitionDelay = "0s"; 
+    const listElements = document.querySelectorAll("li");
+
+    listElements.forEach((el) => {
+      observer.observe(el);
+      el.addEventListener("mouseover", () => {
+        el.style.transitionDelay = "0s";
+      });
     });
-  });
+  };
+
+  initObserver();
+  document.addEventListener("astro:after-swap", initObserver);
 </script>
 
 <style>

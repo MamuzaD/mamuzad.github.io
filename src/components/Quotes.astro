@@ -15,54 +15,60 @@ import Icon from "./Icon.astro";
 <script>
   import { quotes } from "./Quotes";
 
-  const prevBtn = document.querySelector(".prev-btn")!;
-  const nextBtn = document.querySelector(".next-btn")!;
-  let slideIndex = 0;
-  let autoplay = true;
+  const initFunc = () => {
+    const prevBtn = document.querySelector(".prev-btn")!;
+    const nextBtn = document.querySelector(".next-btn")!;
+    let slideIndex = 0;
+    let autoplay = true;
 
-  prevBtn.addEventListener("click", () => change(true, true));
-  nextBtn.addEventListener("click", () => change(true));
+    prevBtn.addEventListener("click", () => change(true, true));
+    nextBtn.addEventListener("click", () => change(true));
 
-  document.addEventListener("DOMContentLoaded", function () {
-    carousel();
-  });
+    document.addEventListener("DOMContentLoaded", function () {
+      carousel();
+    });
 
-  function carousel() {
-    if (autoplay) {
-      change();
-      setTimeout(carousel, 6000);
+    function carousel() {
+      if (autoplay) {
+        change();
+        setTimeout(carousel, 6000);
+      }
     }
-  }
 
-  function change(button?: boolean, decrease?: boolean) {
-    let quote = document.querySelector("q")!;
-    let author = document.getElementById("author")!;
-    quote.style.animation = "none"; //disable animation
-    author.style.animation = "none"; //disable animation
+    function change(button?: boolean, decrease?: boolean) {
+      let quote = document.querySelector("q")!;
+      let author = document.getElementById("author")!;
+      quote.style.animation = "none"; //disable animation
+      author.style.animation = "none"; //disable animation
 
-    setTimeout(() => {
-      quote.textContent = quotes[slideIndex].quote;
-      author.innerHTML =
-        "— " +
-        quotes[slideIndex].author +
-        ", <em>" +
-        quotes[slideIndex].media +
-        "</em>";
-      quote.style.animation = ""; //enable animation after text change
-      author.style.animation = ""; //enable animation after text change
-    }, 10);
-
-    if (decrease) slideIndex = (slideIndex - 1 + quotes.length) % quotes.length;
-    else slideIndex = (slideIndex + 1) % quotes.length;
-
-    if (button && autoplay) {
-      autoplay = false;
       setTimeout(() => {
-        autoplay = true;
-        carousel();
-      }, 6000);
+        quote.textContent = quotes[slideIndex].quote;
+        author.innerHTML =
+          "— " +
+          quotes[slideIndex].author +
+          ", <em>" +
+          quotes[slideIndex].media +
+          "</em>";
+        quote.style.animation = ""; //enable animation after text change
+        author.style.animation = ""; //enable animation after text change
+      }, 10);
+
+      if (decrease)
+        slideIndex = (slideIndex - 1 + quotes.length) % quotes.length;
+      else slideIndex = (slideIndex + 1) % quotes.length;
+
+      if (button && autoplay) {
+        autoplay = false;
+        setTimeout(() => {
+          autoplay = true;
+          carousel();
+        }, 6000);
+      }
     }
-  }
+  };
+
+  initFunc();
+  document.addEventListener("astro:after-swap", initFunc);
 </script>
 
 <style>
@@ -90,7 +96,7 @@ import Icon from "./Icon.astro";
       animation: none;
     }
   }
-  
+
   #quote q,
   p {
     animation: fade 2s ease-in-out;
@@ -138,6 +144,7 @@ import Icon from "./Icon.astro";
       font-size: var(--text-lg);
     }
     button {
+      z-index: 100;
       display: flex;
       justify-content: center;
       align-items: center;

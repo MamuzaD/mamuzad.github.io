@@ -9,13 +9,12 @@ type Game = {
   playtime_2weeks: number;
   playtime_forever: number;
   img_icon_url: string;
-  img_logo_url: string; 
+  img_logo_url: string;
 };
 
 const response = await fetch(apiUrl);
 const data = await response.json();
 const games: Game[] = data.response.games;
-
 ---
 
 <div class="games">
@@ -29,9 +28,13 @@ const games: Game[] = data.response.games;
         />
         <div>
           <h3>{game.name}</h3>
-          <p style="color: var(--accent-dark)">Playtime past two weeks:</p>
+          <p style="color: var(--accent-dark)">Past two weeks:</p>
           <p style="color: var(--accent-dark)">
             {(game.playtime_2weeks / 60).toFixed(2)} hours
+          </p>
+          <p style="color: var(--accent-dark)">Total:</p>
+          <p style="color: var(--accent-dark)">
+            {(game.playtime_forever / 60).toFixed(2)} hours
           </p>
         </div>
       </div>
@@ -40,16 +43,21 @@ const games: Game[] = data.response.games;
 </div>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
+  const initObserver = () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
     });
-  });
 
-  const gameElements = document.querySelectorAll(".game");
-  gameElements.forEach((el) => observer.observe(el));
+    const gameElements = document.querySelectorAll(".game");
+    gameElements.forEach((el) => observer.observe(el));
+  };
+
+  initObserver();
+  document.addEventListener("astro:after-swap", initObserver);
 </script>
 
 <style>
