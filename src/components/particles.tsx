@@ -37,14 +37,13 @@ export const ParticlesTest = () => {
   };
 
   useEffect(() => {
-    const unsubscribe = currentProfile.subscribe((profile) => {
+    const unsubscribe = currentProfile.subscribe(() => {
       const icons = getIcons();
       setParticleIcons(icons);
     });
 
-    // Cleanup subscription on component unmount
     return () => unsubscribe();
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []); 
 
   const options: ISourceOptions = useMemo(
     () => ({

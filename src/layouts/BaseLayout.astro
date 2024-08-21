@@ -23,27 +23,32 @@ const { title, OGTitle, description } = Astro.props;
   </head>
   <body>
     <ParticlesTest client:load />
-    <div class="stack backgrounds">
-      <Nav />
-
-      <div class="slot">
-        <slot />
-      </div>
-      <Footer />
+    <Nav />
+    <div class="mt-48">
+      <slot />
     </div>
+    <Footer />
 
     <script>
       // Add “loaded” class once the document has completely loaded.
       addEventListener("load", () =>
         document.documentElement.classList.add("loaded")
       );
+
+      const initClicker = () => {
+        const clickElements = document.querySelectorAll("button, a");
+
+        clickElements.forEach((element) => {
+          element.addEventListener("click", () => {
+            var sound = new Audio("/keyboard-sound.mp3");
+            sound.play();
+          });
+        });
+      };
+      initClicker();
+      document.addEventListener("astro:after-swap", initClicker);
     </script>
 
-    <style>
-     
-      .slot {
-        margin-top: 12rem;
-      }
-    </style>
+    <style></style>
   </body>
 </html>

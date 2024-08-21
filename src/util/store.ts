@@ -8,27 +8,27 @@ export const profiles = [
     name: "me",
     path: "/assets/profile/portrait.webp",
     icons: ["", "", ""],
-    audio: "/keyboard-sound.mp3"
+    audio: "",
   },
   {
     name: "spiderman",
     path: "/assets/profile/spiderman.webp",
     icons: [
-      "https://seeklogo.com/images/S/spider-man-across-the-spider-verse-logo-715279F78E-seeklogo.com.png",
-      "https://cdn.freebiesupply.com/logos/large/2x/spider-man-4-logo-png-transparent.png",
-      "https://www.pngkey.com/png/detail/799-7995924_into-the-spider-verse-png-spider-verse-spider.png",
+      "/assets/particles/spider-man/spidey-pod.webp",
+      "/assets/particles/spider-man/spidey-sense.webp",
+      "/assets/particles/spider-man/spidey-thinking.webp",
     ],
-    audio: "/spiderman sound effect short.mp3"
+    audio: "",
   },
   {
     name: "minecraft",
     path: "/assets/profile/minecraftme.webp",
     icons: [
-      "https://static.wikia.nocookie.net/minecraft/images/c/c5/Grass.png",
-      "https://static.wikia.nocookie.net/minecraft_gamepedia/images/4/44/Diamond_Sword_JE3_BE3.png",
-      "https://static.wikia.nocookie.net/minecraft_gamepedia/images/b/b5/Diamond_Ore_JE3_BE3.png",
+      "/assets/particles/minecraft/grassblock.webp",
+      "/assets/particles/minecraft/diamondsword.webp",
+      "/assets/particles/minecraft/diamondore.webp",
     ],
-    audio: "/Minecraft Damage (Oof) - Sound Effect (HD).mp3"
+    audio: "",
   },
 ];
 
