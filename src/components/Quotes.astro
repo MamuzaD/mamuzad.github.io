@@ -68,9 +68,8 @@ import Icon from "./Icon.astro";
   };
 
   initFunc();
-  document.addEventListener("astro:after-preparation", initFunc);
 
-  document.addEventListener("astro:after-swap", initFunc);
+  document.addEventListener("astro:page-load", initFunc);
 </script>
 
 <style>

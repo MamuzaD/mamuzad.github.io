@@ -47,9 +47,8 @@ const { icons } = Astro.props;
   };
 
   initObserver();
-  document.addEventListener("astro:after-preparation", initObserver);
 
-  document.addEventListener("astro:after-swap", initObserver);
+  document.addEventListener("astro:page-load", initObserver);
 </script>
 
 <style>

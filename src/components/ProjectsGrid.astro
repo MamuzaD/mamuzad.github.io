@@ -42,7 +42,7 @@ const projects = (await getCollection("projects"))
   };
   initObserver();
 
-  document.addEventListener("astro:after-swap", initObserver);
+  document.addEventListener("astro:page-load", initObserver);
 </script>
 
 <style>
