@@ -46,7 +46,7 @@ const { title, OGTitle, description } = Astro.props;
         });
       };
 
-      document.addEventListener("astro:after-swap", initClicker);
+      document.addEventListener("astro:page-load", initClicker);
       initClicker();
     </script>
 

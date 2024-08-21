@@ -41,7 +41,7 @@ const projects = (await getCollection("projects"))
     projects.forEach((el) => observer.observe(el));
   };
 
-  document.addEventListener("astro:after-swap", initObserver);
+  document.addEventListener("astro:page-load", initObserver);
   initObserver();
 </script>
 

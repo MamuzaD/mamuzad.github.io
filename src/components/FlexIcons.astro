@@ -46,7 +46,7 @@ const { icons } = Astro.props;
     });
   };
 
-  document.addEventListener("astro:after-swap", initObserver);
+  document.addEventListener("astro:page-load", initObserver);
   initObserver();
 </script>
 
