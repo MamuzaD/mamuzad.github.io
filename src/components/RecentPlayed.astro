@@ -57,6 +57,8 @@ const games: Game[] = data.response.games;
   };
 
   initObserver();
+  document.addEventListener("astro:after-preparation", initObserver);
+
   document.addEventListener("astro:after-swap", initObserver);
 </script>
 

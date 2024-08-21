@@ -88,7 +88,6 @@ const {
 
   // Ensure theme is re-applied before loading new page
   document.addEventListener("astro:after-swap", () => {
-    console.log("hi");
     const theme = getThemePreference();
     document.documentElement.classList[theme === "dark" ? "add" : "remove"](
       "theme-dark"

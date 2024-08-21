@@ -46,6 +46,8 @@ const { title, OGTitle, description } = Astro.props;
         });
       };
       initClicker();
+      document.addEventListener("astro:after-preparation", initClicker);
+
       document.addEventListener("astro:after-swap", initClicker);
     </script>
 
