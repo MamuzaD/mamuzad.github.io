@@ -26,7 +26,7 @@ const projects = (await getCollection("projects"))
   </Grid>
 </div>
 
-<script is:inline>
+<script>
   const initObserver = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, index) => {
@@ -40,9 +40,9 @@ const projects = (await getCollection("projects"))
     const projects = document.querySelectorAll("li");
     projects.forEach((el) => observer.observe(el));
   };
-  initObserver();
 
-  document.addEventListener("astro:page-load", initObserver);
+  document.addEventListener("astro:after-swap", initObserver);
+  initObserver();
 </script>
 
 <style>

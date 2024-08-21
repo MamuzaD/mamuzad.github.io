@@ -42,7 +42,7 @@ const games: Game[] = data.response.games;
   }
 </div>
 
-<script is:inline>
+<script>
   const initObserver = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -56,9 +56,8 @@ const games: Game[] = data.response.games;
     gameElements.forEach((el) => observer.observe(el));
   };
 
+  document.addEventListener("astro:after-swap", initObserver);
   initObserver();
-
-  document.addEventListener("astro:page-load", initObserver);
 </script>
 
 <style>
