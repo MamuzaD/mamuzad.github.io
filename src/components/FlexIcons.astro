@@ -26,7 +26,7 @@ const { icons } = Astro.props;
   }
 </ul>
 
-<script>
+<script is:inline>
   const initObserver = () => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
