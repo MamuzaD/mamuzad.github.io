@@ -6,8 +6,11 @@ import Icon from "./Icon.astro";
   <button class="prev-btn"><Icon icon="arrow-left" size="1.2rem" /></button>
   <div class="stack gap-2 lg:gap-4" id="quote">
     <h5>Some quotes from my favorite media:</h5>
-    <q>"Open your heart."</q>
-    <p id="author">-Kratos</p>
+    <q
+      >I knew a man once who said, 'Death smiles at us all. All a man can do is
+      smile back.'</q
+    >
+    <p id="author">-Maximus, <em>Gladiator</em></p>
   </div>
   <button class="next-btn"><Icon icon="arrow-right" size="1.2rem" /></button>
 </section>
@@ -100,6 +103,7 @@ import Icon from "./Icon.astro";
 
   #quote q,
   p {
+    z-index: 99;
     animation: fade 2s ease-in-out;
   }
 

@@ -1,4 +1,6 @@
 ---
+export const prerender = false;
+
 const api = import.meta.env.STEAM_API_KEY;
 const steamId = "76561197989108352";
 const apiUrl = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${api}&steamid=${steamId}&format=json&count=4`;
