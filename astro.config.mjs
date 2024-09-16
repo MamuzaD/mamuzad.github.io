@@ -9,9 +9,16 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   site: "https://danielmamuza.com",
   base: "/",
-  integrations: [react(), tailwind(), playformCompress(), sitemap({
-    filter: page => page !== "http://danielmamuza.com/old/" && page !== "https://danielmamuza.com/old/"
-  })],
+  integrations: [
+    react(),
+    tailwind(),
+    playformCompress(),
+    sitemap({
+      filter: (page) =>
+        page !== "http://danielmamuza.com/old/" &&
+        page !== "https://danielmamuza.com/old/",
+    }),
+  ],
   output: "hybrid",
-  adapter: vercel()
+  adapter: vercel({ webAnalytics: { enabled: true } }),
 });

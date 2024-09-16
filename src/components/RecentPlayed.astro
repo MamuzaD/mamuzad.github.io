@@ -21,26 +21,35 @@ const games: Game[] = data.response.games;
 
 <div class="games">
   {
-    games.map((game) => (
-      <div class="game">
-        <img
-          width="460px"
-          height="215px"
-          src={`https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${game.appid}/header.jpg`}
-        />
-        <div>
-          <h3>{game.name}</h3>
-          <p style="color: var(--accent-dark)">Past two weeks:</p>
-          <p style="color: var(--accent-dark)">
-            {(game.playtime_2weeks / 60).toFixed(2)} hours
-          </p>
-          <p style="color: var(--accent-dark)">Total:</p>
-          <p style="color: var(--accent-dark)">
-            {(game.playtime_forever / 60).toFixed(2)} hours
-          </p>
+    games ? (
+      games.map((game) => (
+        <div class="game">
+          <img
+            width="460px"
+            height="215px"
+            src={`https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/${game.appid}/header.jpg`}
+          />
+          <div>
+            <h3>{game.name}</h3>
+            <p style="color: var(--accent-dark)">Past two weeks:</p>
+            <p style="color: var(--accent-dark)">
+              {(game.playtime_2weeks / 60).toFixed(2)} hours
+            </p>
+            <p style="color: var(--accent-dark)">Total:</p>
+            <p style="color: var(--accent-dark)">
+              {(game.playtime_forever / 60).toFixed(2)} hours
+            </p>
+          </div>
         </div>
+      ))
+    ) : (
+      <div class="flex flex-col items-center justify-center p-6 border border-neutral-800 rounded-lg text-center">
+        <p class="text-xl font-semibold text-gray-700">Uh oh :(</p>
+        <p class="mt-2 text-gray-600">
+          I guess I haven't had time to play any games in the past two weeks.
+        </p>
       </div>
-    ))
+    )
   }
 </div>
 
