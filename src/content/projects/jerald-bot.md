@@ -8,7 +8,7 @@ description: |
 tags:
   - Python
   - DiscordAPI
-githubLink: https://github.com/NostalgicDani/JeraldBot
+githubLink: https://github.com/MamuzaD/JeraldBot
 liveLink: https://discord.com/oauth2/authorize?client_id=1239862738612785182&permissions=137439464512&scope=bot
 ---
 

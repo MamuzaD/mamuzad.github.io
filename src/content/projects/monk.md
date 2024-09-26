@@ -16,7 +16,7 @@ tags:
   - Prisma ORM
   - PostgreSQL
   - TypeScript
-githubLink: https://github.com/nostalgicdani/monk
+githubLink: https://github.com/MamuzaD/monk
 liveLink: https://monk-board.com
 ---
 

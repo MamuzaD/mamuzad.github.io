@@ -9,12 +9,12 @@ tags:
   - Unity
   - C#
   - Game Development
-githubLink: https://github.com/nostalgicdani/thelonelywizard
+githubLink: https://github.com/MamuzaD/thelonelywizard
 ---
 
 ### Development
 
-Creating The Lonely Wizard provided a difficult challenging not just for programming but also conceptually and design. Certain aspects such as the game's design and what type of art style played a major role. 
+Creating The Lonely Wizard provided a difficult challenging not just for programming but also conceptually and design. Certain aspects such as the game's design and what type of art style played a major role.
 
 In the end I decided to use some assets from Unity's store in order to stick to learning how to develop a 2d game. This led me to learn such things as enemy AI and how to incorporate a player's stats which different states such as walking, taking damage, and attacking.
 
