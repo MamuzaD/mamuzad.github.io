@@ -1,0 +1,21 @@
+---
+import { Icon } from "astro-icon/components"
+import { topSkills } from "@/content/skills"
+---
+
+<div
+  class="bg-muted flex max-h-32 w-full max-w-sm items-center justify-center gap-4 rounded-lg backdrop-blur-lg"
+>
+  {
+    topSkills.map((skill) => {
+      return (
+        <div class="flex flex-col items-center transition-transform hover:scale-110">
+          <span class="text-[3rem]">
+            <Icon name={skill.icon} />
+          </span>
+          <span class="text-xs">{skill.name}</span>
+        </div>
+      )
+    })
+  }
+</div>

@@ -1,22 +1,43 @@
+---
+import Navbar from "@/components/Navbar.astro"
+import ParticlesBG from "@/components/Particles"
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Daniel Mamuza – Software Engineer</title>
+  </head>
+  <body>
+    <ParticlesBG client:load />
+    <Navbar />
+    <div class="mx-6 md:mx-0">
+      <slot />
+    </div>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html {
+    tab-size: 2;
+  }
+
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* body {
+    background-image: url("/src/assets/background.svg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+  } */
 </style>
