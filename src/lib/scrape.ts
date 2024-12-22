@@ -1,11 +1,16 @@
-// src/lib/scrape.ts
+import chromium from "chrome-aws-lambda"
 import puppeteer from "puppeteer"
 
 export async function scrapeFilmDetails(url: string) {
   let browser
 
   try {
-    browser = await puppeteer.launch({ headless: true })
+    const browser = await puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath,
+      headless: chromium.headless,
+    })
     const page = await browser.newPage()
     await page.goto(url, { waitUntil: "load", timeout: 20000 })
 

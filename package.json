@@ -23,6 +23,7 @@
     "@types/react-dom": "^19.0.2",
     "astro": "^5.1.1",
     "astro-icon": "^1.1.4",
+    "chrome-aws-lambda": "^9.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-autoplay": "^8.5.1",
