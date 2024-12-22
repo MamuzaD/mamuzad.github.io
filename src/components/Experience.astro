@@ -5,19 +5,27 @@ import ExperienceCard from "./ExperienceCard.astro"
 
 <section class="z-50 w-full max-w-2xl">
   <div class="flex w-full flex-col md:flex-row md:gap-16">
-    <div class="flex w-full flex-col gap-6 md:w-1/2">
+    <div class="gap- flex w-full flex-col md:w-1/2 md:gap-16">
       {
         experiences
           .slice(0, Math.ceil(experiences.length / 2))
-          .map((experience) => <ExperienceCard {experience} />)
+          .map((experience, index) => (
+            <ExperienceCard {experience} {index} size={experiences.length} />
+          ))
       }
     </div>
 
-    <div class="flex w-full flex-col gap-4 pt-6 md:w-1/2 md:pt-16">
+    <div class="flex w-full flex-col gap-4 pt-6 md:w-1/2 md:gap-16 md:pt-16">
       {
         experiences
           .slice(Math.ceil(experiences.length / 2))
-          .map((experience) => <ExperienceCard {experience} />)
+          .map((experience, index) => (
+            <ExperienceCard
+              {experience}
+              index={Math.ceil(experiences.length / 2) + index}
+              size={experiences.length}
+            />
+          ))
       }
     </div>
   </div>

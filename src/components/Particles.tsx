@@ -3,7 +3,7 @@ import Particles, { initParticlesEngine } from "@tsparticles/react"
 import { type Container, type ISourceOptions } from "@tsparticles/engine"
 import { loadSlim } from "@tsparticles/slim" // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
 
-import { currentProfile, getIcons } from "@/utils/store"
+import { currentProfile, getIcons } from "@/lib/store"
 
 const ParticlesBG = () => {
   const [init, setInit] = useState(false)
@@ -99,17 +99,13 @@ const ParticlesBG = () => {
               src: icon,
               width: 64,
               height: 64,
-              particles: {
-                move: {
-                  direction: "none",
-                },
-              },
             })),
           },
         },
         size: {
           value: 16,
         },
+
       },
     }),
     [particleIcons]

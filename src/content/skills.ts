@@ -21,7 +21,7 @@ export const topSkills: skill[] = [
     icon: "skill-icons:python-dark",
   },
   {
-    name: "AWS Lambda",
+    name: "Lambda",
     icon: "skill-icons:aws-dark",
   },
 ]

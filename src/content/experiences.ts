@@ -38,11 +38,11 @@ export const experiences: experience[] = [
   },
   {
     name: "ai & data science club",
-    src: "/experiences/intellimind.png",
+    src: "/experiences/aiclub.png",
     href: "https://aiclub.cs.unlv.edu",
     role: "Webmaster",
     range: "Sep 2024 - now",
-    colors: ["#B10202", "#940202"],
-    transparents: ["177, 2, 2, 0.5", "148, 2, 2, 0.5"],
+    colors: ["#F1E9DE", "#9A9494"],
+    transparents: ["241, 233, 222, 0.5", "154, 148, 148, 0.5"],
   },
 ]

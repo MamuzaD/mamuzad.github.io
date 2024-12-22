@@ -26,7 +26,8 @@ const { height, width, small } = Astro.props
 </profile-pic>
 
 <script>
-  import { currentProfile, profiles, cycleProfile } from "@/utils/store"
+  import { profiles } from "@/content/profiles"
+  import { currentProfile, cycleProfile } from "@/lib/store"
 
   class ProfilePic extends HTMLElement {
     constructor() {

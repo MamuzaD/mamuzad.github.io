@@ -18,4 +18,8 @@ export default defineConfig({
     icon(),
   ],
   adapter: vercel(),
+  image: {
+    remotePatterns: [{ protocol: "https" }],
+    domains: ["api.microlink.io"],
+  },
 })

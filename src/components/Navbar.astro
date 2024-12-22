@@ -1,34 +1,40 @@
 ---
 import { Icon } from "astro-icon/components"
 import ProfilePic from "@/components/ProfilePic.astro"
+import { ModeToggle } from "@/components/ui/mode-toggle"
 import ScrollProgress from "./ui/scroll-progress"
 import { socials } from "@/content/socials"
+import { LinkPreview } from "./ui/link-preview"
 ---
 
 <nav
-  class="sticky top-0 z-[5555] flex w-full items-center justify-between gap-6 bg-gradient-to-b from-gray-200/80 from-40% to-transparent px-8 pb-6 pt-4 backdrop-blur-sm"
+  class="fixed top-0 z-[5555] flex w-full items-center justify-between gap-6 bg-gradient-to-b from-neutral-200/80 from-40% to-transparent px-8 pb-6 pt-4 backdrop-blur-sm dark:from-neutral-950/80"
 >
   <div class="flex items-center justify-between gap-4">
     <ProfilePic height="300px" width="300px" small />
-    <a href="/">Daniel Mamuza</a>
+    <a href="/" class="font-semibold">Daniel Mamuza</a>
   </div>
-  <span class="">Software Engineer</span>
-  <div class="flex gap-6">
+  <div class="font-semibold">
+    <span>Software Engineer • </span>
+    <a href="/work" class="group relative inline-block transition">
+      Work
+      <span
+        class="absolute bottom-0 left-0 block h-0.5 w-full max-w-0 origin-center bg-primary transition-all duration-500 group-hover:max-w-full"
+      ></span>
+    </a>
+  </div>
+  <div class="flex place-items-center gap-6">
     {
       socials.map((social, index) => (
-        <a
-          href={social.href}
-          class=""
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <LinkPreview url={social.href} target="_blank">
           <Icon
             name={social.icon}
-            class={`hover:text-primary text-2xl transition-all hover:scale-110 ${index % 2 === 0 ? "hover:rotate-12" : "hover:-rotate-12"}`}
+            class={`text-2xl transition-all hover:scale-110 hover:text-primary ${index % 2 === 0 ? "hover:rotate-12" : "hover:-rotate-12"}`}
           />
-        </a>
+        </LinkPreview>
       ))
     }
+    <ModeToggle client:load />
   </div>
   <ScrollProgress client:idle />
 </nav>

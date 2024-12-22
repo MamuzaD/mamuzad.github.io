@@ -21,29 +21,27 @@ const data = await response.json()
 const games: Game[] = data.response.games
 ---
 
-<div class="games">
-  <div
-    class="bg-muted grid max-h-48 w-full grid-cols-2 place-items-center gap-2 rounded-md p-2 backdrop-blur-lg"
-  >
-    {
-      games.map((game) => (
-        <Image
-          width={374}
-          height={488}
-          src={`https://cdn.cloudflare.steamstatic.com/steam/apps/${game.appid}/hero_capsule.jpg`}
-          alt={`${game.name}'s Picture`}
-          style={{ imageRendering: "crisp-edges" }}
-          class="max-h-[4.75rem] max-w-[4.75rem] transform rounded-lg object-cover transition-transform duration-300 ease-in-out hover:scale-110"
-        />
-      ))
-    }
+<div
+  class="grid h-full max-w-56 grid-cols-2 place-items-center gap-2 rounded-md bg-muted/90 p-2 backdrop-blur-lg"
+>
+  {
+    games.map((game) => (
+      <Image
+        width={374}
+        height={488}
+        src={`https://cdn.cloudflare.steamstatic.com/steam/apps/${game.appid}/hero_capsule.jpg`}
+        alt={`${game.name}'s Picture`}
+        style={{ imageRendering: "crisp-edges" }}
+        class="max-h-[4.75rem] max-w-[4.75rem] transform rounded-lg object-cover transition-transform duration-300 ease-in-out hover:scale-110"
+      />
+    ))
+  }
 
-    {/* Render empty squares if less than 4 games */}
-    {
-      games.length < 4 &&
-        Array.from({ length: 4 - games.length }).map((_, index) => (
-          <div class="h-[4.75rem] w-[4.75rem] rounded-lg bg-gray-200 transition-transform duration-300 ease-in-out hover:scale-110" />
-        ))
-    }
-  </div>
+  {/* Render empty squares if less than 4 games */}
+  {
+    games.length < 4 &&
+      Array.from({ length: 4 - games.length }).map((_, index) => (
+        <div class="h-[4.75rem] w-[4.75rem] rounded-lg bg-neutral-200 transition-transform duration-300 ease-in-out hover:scale-110 dark:bg-neutral-700" />
+      ))
+  }
 </div>
