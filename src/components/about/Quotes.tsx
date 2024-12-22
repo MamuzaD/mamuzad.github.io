@@ -5,7 +5,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel"
-import { LinkPreview } from "./ui/link-preview"
+import { LinkPreview } from "@/components/ui/link-preview"
 
 const Quotes = () => {
   return (

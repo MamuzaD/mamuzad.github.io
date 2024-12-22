@@ -7,9 +7,9 @@ export async function scrapeFilmDetails(url: string) {
   try {
     browser = await puppeteer.launch({ headless: true })
     const page = await browser.newPage()
-    await page.goto(url, { waitUntil: "load", timeout: 60000 })
+    await page.goto(url, { waitUntil: "load", timeout: 20000 })
 
-    await page.waitForSelector(".td-film-details", { timeout: 60000 })
+    await page.waitForSelector(".td-film-details", { timeout: 10000 })
 
     const filmDetails = await page.evaluate(() => {
       const filmElement = document.querySelector(".td-film-details")

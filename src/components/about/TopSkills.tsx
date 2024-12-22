@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 
 const TopSkills = () => {
   return (
-    <div className="z-10 col-span-2 flex max-w-sm flex-col flex-wrap items-center justify-center gap-4 rounded-lg bg-muted/90 py-1 backdrop-blur-lg">
+    <div className="z-10 col-span-2 flex max-w-sm flex-col flex-wrap items-center justify-center gap-4 rounded-lg bg-muted/60 py-1 backdrop-blur-lg">
       <span className="font-medium">most used technologies</span>
       <div className="flex flex-wrap gap-4">
         {topSkills.map((skill, i) => {

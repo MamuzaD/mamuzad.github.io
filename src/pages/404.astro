@@ -1,11 +1,8 @@
 ---
-import TypingAnimation from "@/components/ui/typing-animation"
+import NotFound from "@/components/NotFound"
 import Layout from "@/layouts/Layout.astro"
 ---
 
 <Layout>
-  <div class="flex min-h-screen items-center justify-center">
-    <TypingAnimation client:load>page not found...</TypingAnimation>
-    <h2 class="text-6xl font-semibold tracking-wider">404</h2>
-  </div>
+  <NotFound client:load />
 </Layout>

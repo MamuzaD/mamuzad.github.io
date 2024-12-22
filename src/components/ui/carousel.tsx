@@ -157,7 +157,7 @@ const CarouselContent = React.forwardRef<
   return (
     <div
       ref={carouselRef}
-      className="h-full overflow-hidden rounded-xl bg-muted/90"
+      className="h-full overflow-hidden rounded-xl bg-muted/60"
     >
       <div
         ref={ref}

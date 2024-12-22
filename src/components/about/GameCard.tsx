@@ -3,7 +3,7 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card"
-import type { Game } from "@/components/Games.astro"
+import type { Game } from "@/components/about/Games.astro"
 
 interface GameCardProps {
   game: Game
