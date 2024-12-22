@@ -1,16 +1,19 @@
-import chromium from "chrome-aws-lambda"
-import puppeteer from "puppeteer"
+import chromium from "@sparticuz/chromium"
+import puppeteer from "puppeteer-core"
 
 export async function scrapeFilmDetails(url: string) {
   let browser
+  
+  chromium.setHeadlessMode = true
 
   try {
     const browser = await puppeteer.launch({
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
-      executablePath: await chromium.executablePath,
-      headless: chromium.headless,
+      executablePath: await chromium.executablePath(),
+      ignoreHTTPSErrors: true,
     })
+
     const page = await browser.newPage()
     await page.goto(url, { waitUntil: "load", timeout: 20000 })
 
