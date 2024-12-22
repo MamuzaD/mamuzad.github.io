@@ -1,13 +1,13 @@
 ---
-export const prerender = false
+import GameCard from "@/components/GameCard"
 
-import { Image } from "astro:assets"
+export const prerender = false
 
 const api = import.meta.env.STEAM_API_KEY
 const steamId = "76561197989108352"
 const apiUrl = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${api}&steamid=${steamId}&format=json&count=4`
 
-type Game = {
+export type Game = {
   appid: number
   name: string
   playtime_2weeks: number
@@ -22,26 +22,15 @@ const games: Game[] = data.response.games
 ---
 
 <div
-  class="grid h-full max-w-56 grid-cols-2 place-items-center gap-2 rounded-md bg-muted/90 p-2 backdrop-blur-lg"
+  class="col-span-1 row-span-1 grid h-full w-full grid-cols-4 place-items-center gap-2 rounded-md bg-muted/90 p-2 backdrop-blur-lg md:max-w-56 md:grid-cols-2"
 >
-  {
-    games.map((game) => (
-      <Image
-        width={374}
-        height={488}
-        src={`https://cdn.cloudflare.steamstatic.com/steam/apps/${game.appid}/hero_capsule.jpg`}
-        alt={`${game.name}'s Picture`}
-        style={{ imageRendering: "crisp-edges" }}
-        class="max-h-[4.75rem] max-w-[4.75rem] transform rounded-lg object-cover transition-transform duration-300 ease-in-out hover:scale-110"
-      />
-    ))
-  }
+  {games.map((game) => <GameCard {game} client:idle />)}
 
   {/* Render empty squares if less than 4 games */}
   {
     games.length < 4 &&
       Array.from({ length: 4 - games.length }).map((_, index) => (
-        <div class="h-[4.75rem] w-[4.75rem] rounded-lg bg-neutral-200 transition-transform duration-300 ease-in-out hover:scale-110 dark:bg-neutral-700" />
+        <div class="h-16 w-16 rounded-lg bg-neutral-200 transition-transform duration-300 ease-in-out hover:scale-110 dark:bg-neutral-700 md:h-[4.75rem] md:w-[4.75rem]" />
       ))
   }
 </div>

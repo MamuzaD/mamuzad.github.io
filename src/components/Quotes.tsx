@@ -1,38 +1,33 @@
 import Autoplay from "embla-carousel-autoplay"
-import { Image } from "astro:assets"
 import { quotes } from "@/content/quotes"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel"
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card"
 import { LinkPreview } from "./ui/link-preview"
 
 const Quotes = () => {
   return (
     <Carousel
-      className="h-full w-full max-w-sm rounded-lg"
+      className="col-span-2 h-[176px] w-full max-w-sm rounded-lg"
       opts={{
         align: "center",
         loop: true,
       }}
       plugins={[
         Autoplay({
-          delay: 2000,
+          delay: 4500,
+          stopOnInteraction: false,
         }),
       ]}
     >
-      <CarouselContent className="h-full justify-between bg-muted px-4 backdrop-blur-lg">
+      <CarouselContent className="h-full justify-between px-4">
         {quotes.map((q, index) => (
           <CarouselItem key={index}>
             <div className="flex h-full flex-col gap-1 rounded-md p-4 font-light">
               <span className="mt-0.5 flex-grow text-lg font-normal">
-                {q.quote}
+                {`"${q.quote}"`}
               </span>
               <LinkPreview
                 noUrl

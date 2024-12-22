@@ -2,7 +2,7 @@ export const profiles = [
   {
     name: "me",
     path: "/profile/me.jpg",
-    icons: ["", "", ""],
+    icons: [],
     audio: "",
   },
   {

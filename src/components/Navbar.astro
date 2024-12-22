@@ -7,14 +7,15 @@ import { socials } from "@/content/socials"
 import { LinkPreview } from "./ui/link-preview"
 ---
 
+<!-- make hamburger -->
 <nav
-  class="fixed top-0 z-[5555] flex w-full items-center justify-between gap-6 bg-gradient-to-b from-neutral-200/80 from-40% to-transparent px-8 pb-6 pt-4 backdrop-blur-sm dark:from-neutral-950/80"
+  class="fixed top-0 z-[5555] flex w-full items-center justify-between gap-6 bg-gradient-to-b from-neutral-200/80 from-40% to-transparent px-2 pb-6 pt-4 font-semibold backdrop-blur-sm dark:from-neutral-950/80 md:px-8"
 >
   <div class="flex items-center justify-between gap-4">
     <ProfilePic height="300px" width="300px" small />
-    <a href="/" class="font-semibold">Daniel Mamuza</a>
+    <a href="/">Daniel Mamuza</a>
   </div>
-  <div class="font-semibold">
+  <div>
     <span>Software Engineer • </span>
     <a href="/work" class="group relative inline-block transition">
       Work
@@ -23,13 +24,13 @@ import { LinkPreview } from "./ui/link-preview"
       ></span>
     </a>
   </div>
-  <div class="flex place-items-center gap-6">
+  <div class="flex place-items-center gap-2 md:gap-6">
     {
       socials.map((social, index) => (
-        <LinkPreview url={social.href} target="_blank">
+        <LinkPreview imageSrc={social.src} target="_blank" isStatic client:load>
           <Icon
             name={social.icon}
-            class={`text-2xl transition-all hover:scale-110 hover:text-primary ${index % 2 === 0 ? "hover:rotate-12" : "hover:-rotate-12"}`}
+            class={`text-xl transition-all hover:scale-110 hover:text-primary md:text-2xl ${index % 2 === 0 ? "hover:rotate-12" : "hover:-rotate-12"}`}
           />
         </LinkPreview>
       ))

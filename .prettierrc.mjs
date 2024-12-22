@@ -16,4 +16,4 @@ export default {
   trailingComma: "es5", // Include trailing commas where valid in ES5
   bracketSpacing: true, // Spaces between brackets
   arrowParens: "always", // Include parentheses for single-arg arrow functions
-};
+}

@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@astrojs/react": "^4.1.2",
@@ -30,6 +31,7 @@
     "lucide-react": "^0.469.0",
     "motion": "^11.15.0",
     "nanostores": "^0.11.3",
+    "puppeteer": "^23.11.1",
     "qss": "^3.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

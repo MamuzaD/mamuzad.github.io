@@ -95,7 +95,7 @@ const ParticlesBG = () => {
         shape: {
           type: "image",
           options: {
-            image: particleIcons.map((icon, index) => ({
+            image: particleIcons.map((icon) => ({
               src: icon,
               width: 64,
               height: 64,
@@ -105,7 +105,6 @@ const ParticlesBG = () => {
         size: {
           value: 16,
         },
-
       },
     }),
     [particleIcons]

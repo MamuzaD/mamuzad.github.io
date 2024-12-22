@@ -9,6 +9,7 @@ export default {
           "rgba(0, 0, 0, 0.08) 0px 12px 24px 4px, rgba(0, 0, 0, 0.3) 0px 20px 50px 30px",
         "experiencard-card-dark":
           "rgba(0, 0, 0, 0.06) 0px 12px 24px 4px, rgba(0, 0, 0, 0.9) 0px 20px 50px 30px",
+        aboutcard: "rgba(0, 0, 0, 0.2) 0px 0px 50px 50px;",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -55,6 +56,15 @@ export default {
           3: "hsl(var(--chart-3))",
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 1s ease-in-out",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
       },
     },

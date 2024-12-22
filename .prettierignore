@@ -1,0 +1,15 @@
+build/
+dist/
+node_modules/
+
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+.env
+.env.* 
+
+*.min.js
+*.log
+coverage/
+*.snap

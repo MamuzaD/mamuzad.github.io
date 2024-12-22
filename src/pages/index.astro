@@ -1,17 +1,27 @@
 ---
-import "@/styles/global.css"
 import Layout from "@/layouts/Layout.astro"
 
 import Welcome from "@/components/Welcome"
-import About from "@/components/About.astro"
+import About from "@/components/About"
 import Experience from "@/components/Experience.astro"
 import Contact from "@/components/Contact.astro"
+import Games from "@/components/Games.astro"
+import Movies from "@/components/Movies"
+import Quotes from "@/components/Quotes"
+import TopSkills from "@/components/TopSkills"
+import MostRecent from "@/components/MostRecent.astro"
 ---
 
 <Layout>
-  <Welcome client:load/>
-  <div class="pb-40 flex flex-col items-center justify-center gap-24">
-    <About />
+  <Welcome client:load />
+  <div class="flex flex-col items-center justify-center gap-52 pb-40">
+    <About client:load>
+      <Quotes client:load />
+      <Games />
+      <Movies client:load />
+      <MostRecent />
+      <TopSkills client:idle />
+    </About>
     <Experience />
     <Contact />
   </div>

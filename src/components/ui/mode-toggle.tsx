@@ -34,7 +34,7 @@ export function ModeToggle() {
     <Button
       size="icon"
       onClick={toggleTheme}
-      className="h-7 w-7 rounded-full p-0 hover:bg-primary bg-foreground transition-colors duration-300"
+      className="h-7 w-7 rounded-full bg-foreground p-0 transition-colors duration-300 hover:bg-primary"
     >
       <Sun className="h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
       <Moon className="absolute h-4 w-4 -rotate-180 scale-0 transition-all dark:rotate-0 dark:scale-100" />
