@@ -1,3 +1,4 @@
+export const maxDuration = 20 // for vercel
 import { scrapeFilmDetails } from "../../lib/scrape"
 import type { APIRoute } from "astro"
 
