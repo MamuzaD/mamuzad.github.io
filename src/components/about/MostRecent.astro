@@ -1,8 +1,24 @@
 ---
-
+import recents from "@/content/recents"
 ---
 
-<div
-  class="z-10 col-span-1 row-span-2 flex max-w-sm flex-wrap items-center justify-center gap-4 rounded-lg bg-muted/60 backdrop-blur-lg"
+<section
+  class="z-10 col-span-1 row-span-2 flex max-w-sm flex-col gap-4 rounded-lg bg-muted/60 p-2 backdrop-blur-lg"
 >
-</div>
+  <h3 class="text-center font-medium">recent highlights</h3>
+  <div class="ml-3">
+    <ul class="list-inside list-disc space-y-2">
+      {
+        recents.length > 0 ? (
+          recents.map((recent, index) => (
+            <li class="text-sm text-muted-foreground">{recent.content}</li>
+          ))
+        ) : (
+          <li class="text-sm text-muted-foreground">
+            No recent highlights to display.
+          </li>
+        )
+      }
+    </ul>
+  </div>
+</section>

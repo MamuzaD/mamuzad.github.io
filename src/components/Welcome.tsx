@@ -6,7 +6,7 @@ import { motion } from "motion/react"
 
 export default function Welcome() {
   return (
-    <main className="mx-auto mb-16 flex max-w-md flex-col items-start justify-center px-4">
+    <main className="z-0 mx-auto mb-16 flex max-w-md flex-col items-start justify-center px-4">
       <div className="z-0 pt-80">
         <motion.div
           initial={{

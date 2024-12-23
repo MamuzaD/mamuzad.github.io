@@ -1,18 +1,19 @@
 import chromium from "@sparticuz/chromium"
-import puppeteer from "puppeteer-core"
+import puppeteer from "puppeteer"
 
 export async function scrapeFilmDetails(url: string) {
   let browser
-  
-  chromium.setHeadlessMode = true
-
   try {
-    const browser = await puppeteer.launch({
-      args: chromium.args,
-      defaultViewport: chromium.defaultViewport,
-      executablePath: await chromium.executablePath(),
-      ignoreHTTPSErrors: true,
-    })
+    if (process.env.NODE_ENV === "development") {
+      browser = await puppeteer.launch({ headless: true })
+    } else {
+      chromium.setHeadlessMode = true
+      browser = await puppeteer.launch({
+        args: chromium.args,
+        defaultViewport: chromium.defaultViewport,
+        executablePath: await chromium.executablePath(),
+      })
+    }
 
     const page = await browser.newPage()
     await page.goto(url, { waitUntil: "load", timeout: 20000 })
