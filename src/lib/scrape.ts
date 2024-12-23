@@ -4,9 +4,13 @@ import puppeteer from "puppeteer-core"
 export async function scrapeFilmDetails(url: string) {
   let browser
   try {
+    console.log("Starting browser launch...")
+
     if (process.env.NODE_ENV === "development") {
+      console.log("Launching in development mode...")
       browser = await puppeteer.launch({ headless: true })
     } else {
+      console.log("Launching in production mode with Chromium...")
       chromium.setHeadlessMode = true
       browser = await puppeteer.launch({
         args: chromium.args,
@@ -15,12 +19,20 @@ export async function scrapeFilmDetails(url: string) {
       })
     }
 
-    const page = await browser.newPage()
-    await page.goto(url, { waitUntil: "load", timeout: 20000 })
+    console.log("Browser launched successfully.")
 
+    const page = await browser.newPage()
+    console.log(`Navigating to URL: ${url}`)
+    await page.goto(url, { waitUntil: "load", timeout: 20000 })
+    console.log("Page loaded successfully.")
+
+    console.log("Waiting for the .td-film-details selector...")
     await page.waitForSelector(".td-film-details", { timeout: 10000 })
+    console.log("Element .td-film-details found.")
 
     const filmDetails = await page.evaluate(() => {
+      console.log("Scraping film details...")
+
       const filmElement = document.querySelector(".td-film-details")
       if (!filmElement) return null
 
@@ -37,11 +49,15 @@ export async function scrapeFilmDetails(url: string) {
       return { title, imageUrl, stars }
     })
 
+    console.log("Scraping completed.")
     return filmDetails
   } catch (error) {
     console.error("Error occurred while scraping:", error)
     return null
   } finally {
-    if (browser) await browser.close()
+    if (browser) {
+      console.log("Closing browser...")
+      await browser.close()
+    }
   }
 }
