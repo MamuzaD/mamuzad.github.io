@@ -31,6 +31,10 @@ interface ContactFormProps {
   setViewForm: (value: React.SetStateAction<boolean>) => void
 }
 
+const service = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID
+const template = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID
+const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
+
 export default function ContactForm({ setViewForm }: ContactFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState(false)
@@ -52,13 +56,6 @@ export default function ContactForm({ setViewForm }: ContactFormProps) {
       message: values.message,
     }
 
-    const service = import.meta.env.VITE_EMAILJS_SERVICE_ID
-    const template = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-
-    // console.log("Service:", service)
-    // console.log("Template:", template)
-    // console.log("Public Key:", publicKey)
 
     emailjs
       .send(service, template, templateParams, { publicKey: publicKey })
@@ -69,7 +66,7 @@ export default function ContactForm({ setViewForm }: ContactFormProps) {
             setViewForm(false)
           }, 2000)
         },
-        () => {
+        (error) => {
           setError(true)
         }
       )
@@ -77,19 +74,18 @@ export default function ContactForm({ setViewForm }: ContactFormProps) {
 
   return (
     <div>
+      <h3
+        className={`min-h-26 cursor-pointer, auto] z-50 mb-4 text-center text-4xl font-bold`}
+        onClick={() => setViewForm(false)}
+      >
+        contact me
+      </h3>
       {isSubmitted ? (
         <p className="text-2xl font-medium text-primary">
           sent! thanks for reaching out
         </p>
       ) : (
         <>
-          <h3
-            className={`min-h-26 cursor-pointer, auto] z-50 mb-4 text-center text-4xl font-bold`}
-            onClick={() => setViewForm(false)}
-          >
-            contact me
-          </h3>
-
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
