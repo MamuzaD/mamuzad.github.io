@@ -31,7 +31,7 @@ export default function Contact() {
             <DropdownMenuSeparator />
             <DropdownMenuItem
               onClick={() => setViewForm(true)}
-              className="flex items-center gap-2 text-lg"
+              className="flex items-center gap-2 text-lg cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

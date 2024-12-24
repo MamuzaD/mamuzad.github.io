@@ -10,7 +10,7 @@ import { LinkPreview } from "@/components/ui/link-preview"
 const Quotes = () => {
   return (
     <Carousel
-      className="col-span-2 h-[176px] w-full max-w-sm rounded-lg"
+      className="col-span-2 h-[176px] w-full rounded-lg"
       opts={{
         align: "center",
         loop: true,

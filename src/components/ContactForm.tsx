@@ -56,7 +56,6 @@ export default function ContactForm({ setViewForm }: ContactFormProps) {
       message: values.message,
     }
 
-
     emailjs
       .send(service, template, templateParams, { publicKey: publicKey })
       .then(
@@ -75,7 +74,7 @@ export default function ContactForm({ setViewForm }: ContactFormProps) {
   return (
     <div>
       <h3
-        className={`min-h-26 cursor-pointer, auto] z-50 mb-4 text-center text-4xl font-bold`}
+        className={`min-h-26 z-50 mb-4 cursor-pointer text-center text-4xl font-bold`}
         onClick={() => setViewForm(false)}
       >
         contact me
@@ -95,7 +94,7 @@ export default function ContactForm({ setViewForm }: ContactFormProps) {
                   <FormItem>
                     <FormLabel>name</FormLabel>
                     <FormControl>
-                      <Input type="text" placeholder="bob" {...field} />
+                      <Input type="text" placeholder="name" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -110,7 +109,7 @@ export default function ContactForm({ setViewForm }: ContactFormProps) {
                     <FormControl>
                       <Input
                         type="email"
-                        placeholder="bob@example.com"
+                        placeholder="name@example.com"
                         {...field}
                       />
                     </FormControl>

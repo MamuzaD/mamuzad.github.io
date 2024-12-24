@@ -3,13 +3,13 @@ import { motion } from "framer-motion"
 
 const TopSkills = () => {
   return (
-    <div className="z-10 col-span-2 flex max-w-sm flex-col flex-wrap items-center justify-center gap-4 rounded-lg bg-muted/60 py-1 backdrop-blur-lg">
+    <div className="z-10 col-span-2 flex w-full flex-col flex-wrap items-center justify-center gap-4 rounded-lg bg-muted/60 py-4 md:py-2 backdrop-blur-lg">
       <span className="font-medium">most used technologies</span>
       <div className="flex flex-wrap gap-4">
         {topSkills.map((skill, i) => {
           return (
             <div
-              className="mx-auto flex items-center justify-center gap-1 transition-transform hover:scale-110 focus:scale-90 md:flex-col"
+              className="mx-auto flex flex-col items-center justify-center gap-1 transition-transform hover:scale-110 focus:scale-90"
               key={i}
             >
               <motion.span
