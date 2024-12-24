@@ -26,14 +26,31 @@ export default function Welcome() {
             delay: 0,
           }}
         >
-          <TypingAnimation
-            className="mb-2 min-h-10 text-3xl font-bold"
-            as="h1"
-            duration={100}
-            delay={100}
-          >
-            hey, i'm daniel
-          </TypingAnimation>
+          <span className="flex">
+            <TypingAnimation
+              className="mb-2 min-h-10 text-3xl font-bold"
+              as="h1"
+              duration={100}
+              delay={100}
+            >
+              hey, i'm daniel
+            </TypingAnimation>
+            <motion.span
+              initial={{
+                opacity: 0,
+              }}
+              whileInView={{
+                opacity: 1,
+              }}
+              viewport={{ once: true }}
+              transition={{
+                opacity: { delay: 1.87, duration: 0.08 },
+              }}
+              className="ml-2.5 text-3xl"
+            >
+              🦒
+            </motion.span>
+          </span>
         </motion.div>
 
         <motion.h2

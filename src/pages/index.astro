@@ -4,9 +4,12 @@ import Layout from "@/layouts/Layout.astro"
 import Welcome from "@/components/Welcome"
 import About from "@/components/about/About"
 import Experience from "@/components/Experience.astro"
-import Contact from "@/components/Contact.astro"
+import Contact from "@/components/Contact"
 import Games from "@/components/about/Games.astro"
 import MostRecent from "@/components/about/MostRecent.astro"
+
+import { reachouts } from "@/content/socials"
+import { Icon } from "astro-icon/components"
 ---
 
 <Layout>
@@ -17,7 +20,7 @@ import MostRecent from "@/components/about/MostRecent.astro"
       <MostRecent />
     </About>
     <Experience />
-    <Contact />
+    <Contact client:load/>
   </div>
 </Layout>
 

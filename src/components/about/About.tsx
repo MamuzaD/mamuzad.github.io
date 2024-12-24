@@ -15,20 +15,20 @@ export default function About({ children }: AboutProps) {
       className="relative flex h-full min-h-[400px] w-full max-w-[785px] auto-rows-[176px] grid-cols-4 flex-col gap-4 rounded-xl bg-primary-foreground/50 p-4 shadow-aboutcard backdrop-blur-sm md:grid"
       initial={{
         opacity: 0,
-        rotateX: 50,
-        y: 300,
+        transform:
+          "perspective(1500px) translateY(400px) rotateX(75deg) scaleX(0.9)", // Initial state
       }}
       whileInView={{
-        rotateX: 0,
         opacity: 1,
-        y: 0,
+        transform:
+          "perspective(1500px) translateY(0px) rotateX(0deg) scaleX(1)", // Final state
       }}
       viewport={{ once: true, margin: "500px" }}
       transition={{
         type: "spring",
-        stiffness: 200,
-        damping: 100,
-        duration: 600,
+        stiffness: 90,
+        damping: 16,
+        duration: 300,
         delay: 0.6,
       }}
     >

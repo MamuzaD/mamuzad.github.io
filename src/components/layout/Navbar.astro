@@ -1,8 +1,8 @@
 ---
 import { Icon } from "astro-icon/components"
-import ProfilePic from "@/components/ProfilePic.astro"
+import ProfilePic from "@/components/layout/ProfilePic.astro"
 import { ModeToggle } from "@/components/ui/mode-toggle"
-import ScrollProgress from "./ui/scroll-progress"
+import ScrollProgress from "@/components/ui/scroll-progress"
 import { socials } from "@/content/socials"
 import { LinkPreview } from "@/components/ui/link-preview"
 ---
@@ -18,10 +18,10 @@ import { LinkPreview } from "@/components/ui/link-preview"
   </div>
   <div>
     <span>Software Engineer • </span>
-    <a href="/work" class="group relative inline-block transition">
+    <a href="/work" class="group relative inline-block transition-[max-width]">
       Work
       <span
-        class="absolute bottom-0 left-0 block h-0.5 w-full max-w-0 origin-center bg-primary transition-all duration-500 group-hover:max-w-full"
+        class="absolute bottom-0 left-0 block h-0.5 w-full max-w-0 origin-center bg-primary transition-[max-width] duration-500 group-hover:max-w-full"
       ></span>
     </a>
   </div>
@@ -37,7 +37,7 @@ import { LinkPreview } from "@/components/ui/link-preview"
         >
           <Icon
             name={social.icon}
-            class={`text-xl transition-all hover:scale-110 hover:text-primary md:text-2xl ${index % 2 === 0 ? "hover:rotate-12" : "hover:-rotate-12"}`}
+            class={`transition-all hover:scale-110 hover:text-primary md:h-7 md:w-7 ${index % 2 === 0 ? "hover:rotate-12" : "hover:-rotate-12"}`}
           />
         </LinkPreview>
       ))

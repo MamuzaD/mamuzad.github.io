@@ -123,7 +123,7 @@ export const LinkPreview = ({
                   scale: 1,
                   transition: {
                     type: "spring",
-                    stiffness: 260,
+                    stiffness: 400,
                     damping: 20,
                   },
                 }}
