@@ -1,0 +1,25 @@
+---
+export const prerender = true
+
+import { type CollectionEntry, getCollection } from "astro:content"
+import Layout from "@/layouts/Layout.astro"
+
+import { render } from "astro:content"
+
+interface Props {
+  entry: CollectionEntry<"work">
+}
+
+export async function getStaticPaths() {
+  const work = await getCollection("work")
+  return work.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { Content } = await render(entry)
+---
+
+<Layout />

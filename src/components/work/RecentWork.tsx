@@ -2,7 +2,7 @@ const RecentWork = () => {
   return(
     <section>
       <div>
-
+      
       </div>
       <div>
         

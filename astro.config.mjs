@@ -20,6 +20,7 @@ export default defineConfig({
   output: "server",
   adapter: vercel({
     maxDuration: 20,
+    webAnalytics: { enabled: true },
   }),
   image: {
     remotePatterns: [{ protocol: "https" }],

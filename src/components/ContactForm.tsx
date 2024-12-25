@@ -29,13 +29,17 @@ const formSchema = z.object({
 })
 interface ContactFormProps {
   setViewForm: (value: React.SetStateAction<boolean>) => void
+  setDropdownOpen: (value: React.SetStateAction<boolean>) => void
 }
 
 const service = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID
 const template = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID
 const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
 
-export default function ContactForm({ setViewForm }: ContactFormProps) {
+export default function ContactForm({
+  setViewForm,
+  setDropdownOpen,
+}: ContactFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState(false)
 
@@ -75,7 +79,10 @@ export default function ContactForm({ setViewForm }: ContactFormProps) {
     <div>
       <h3
         className={`min-h-26 z-50 mb-4 cursor-pointer text-center text-4xl font-bold`}
-        onClick={() => setViewForm(false)}
+        onClick={() => {
+          setViewForm(false)
+          setDropdownOpen(true)
+        }}
       >
         contact me
       </h3>
@@ -94,7 +101,12 @@ export default function ContactForm({ setViewForm }: ContactFormProps) {
                   <FormItem>
                     <FormLabel>name</FormLabel>
                     <FormControl>
-                      <Input type="text" placeholder="name" {...field} />
+                      <Input
+                        type="text"
+                        placeholder="name"
+                        {...field}
+                        className="bg-background/80 backdrop-blur"
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -111,6 +123,7 @@ export default function ContactForm({ setViewForm }: ContactFormProps) {
                         type="email"
                         placeholder="name@example.com"
                         {...field}
+                        className="bg-background/80 backdrop-blur"
                       />
                     </FormControl>
                     <FormMessage />
@@ -125,9 +138,9 @@ export default function ContactForm({ setViewForm }: ContactFormProps) {
                     <FormLabel>message</FormLabel>
                     <FormControl>
                       <Textarea
-                        className="w-96"
                         placeholder="hey i saw your portfolio..."
                         {...field}
+                        className="w-96 bg-background/80 backdrop-blur"
                       />
                     </FormControl>
                     <FormMessage />

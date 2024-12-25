@@ -1,7 +1,24 @@
 ---
+import { getCollection } from "astro:content"
 import Layout from "@/layouts/Layout.astro"
+import ProjectCard from "@/components/work/ProjectCard.astro"
+
+const projects = (await getCollection("work")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+)
 ---
 
 <Layout>
-  <div class="flex flex-col items-center justify-center gap-52 pb-40"></div>
+  <div class="mt-40 flex items-center justify-center gap-52 pb-40">
+    {
+      projects.map((project) => (
+        <li>
+          <ProjectCard {project} />
+        </li>
+      ))
+    }
+    <div class="flex flex-col gap-6"></div>
+    <div class="flex flex-col gap-6"></div>
+    <div class="flex flex-col gap-6"></div>
+  </div>
 </Layout>
