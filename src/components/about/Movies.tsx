@@ -1,7 +1,8 @@
-import { Loader2 } from "lucide-react"
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { Loader2 } from "lucide-react"
+import { useEffect, useState } from "react"
+
+import { Button } from "@/components/ui/button"
 
 interface FilmDetails {
   title: string | null
@@ -63,7 +64,7 @@ const Movies = () => {
 
   return (
     <div
-      className={`justifify-center row-span-1 flex h-full flex-col items-center gap-0.5 rounded-md bg-muted/60 py-4 md:p-2 backdrop-blur-lg ${loading && "gap-10"}`}
+      className={`justifify-center row-span-1 flex h-full flex-col items-center gap-0.5 rounded-md bg-muted/60 py-4 backdrop-blur-lg md:p-2 ${loading && "gap-10"}`}
     >
       <span className="font-semibold">recently watched</span>
       {loading && <Loader2 className="h-10 w-10 animate-spin" />}
@@ -82,7 +83,7 @@ const Movies = () => {
           />
           <div>
             <h2 className="text-md ml-1">{filmDetails.title}</h2>
-            <p className="text-lg tracking-widest text-center text-primary md:mt-1">
+            <p className="text-center text-lg tracking-widest text-primary md:mt-1">
               {filmDetails.stars}
             </p>
           </div>

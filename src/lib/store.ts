@@ -1,5 +1,6 @@
-import { profiles } from "@/content/profiles"
 import { persistentAtom } from "@nanostores/persistent"
+
+import { profiles } from "@/content/profiles"
 
 export const currentProfile = persistentAtom<string>("currentProfile", "me")
 

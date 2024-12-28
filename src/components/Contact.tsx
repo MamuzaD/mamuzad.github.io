@@ -1,7 +1,13 @@
 "use client"
 
+import { motion } from "framer-motion"
+import { Clipboard, Link2 } from "lucide-react"
 import { useState } from "react"
 
+import { reachouts } from "@/content/socials"
+
+import ContactForm from "@/components/ContactForm"
+import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,14 +17,18 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-import { reachouts } from "@/content/socials"
-import ContactForm from "./ContactForm"
-import { Clipboard, Link2 } from "lucide-react"
-import { Button } from "./ui/button"
-
 export default function Contact() {
   const [viewForm, setViewForm] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
+  const [copiedMessage, setCopiedMessage] = useState<string>("")
+
+  const handleCopy = (name: string, href: string) => {
+    navigator.clipboard.writeText(href)
+    setCopied(true)
+    setCopiedMessage(`saved ${name}`)
+    setTimeout(() => setCopied(false), 2000)
+  }
 
   return (
     <section className="z-50 flex flex-col items-center">
@@ -76,7 +86,7 @@ export default function Contact() {
                     size="icon"
                     variant="outline"
                     className="size-9 dark:hover:bg-primary-foreground"
-                    onClick={() => navigator.clipboard.writeText(r.href)}
+                    onClick={() => handleCopy(r.name, r.href)}
                   >
                     <Clipboard />
                   </Button>
@@ -91,6 +101,17 @@ export default function Contact() {
           setViewForm={setViewForm}
           setDropdownOpen={setDropdownOpen}
         />
+      )}
+      {copied && (
+        <motion.span
+          className="saved text-sm font-semibold text-primary"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
+        >
+          {copiedMessage}
+        </motion.span>
       )}
     </section>
   )

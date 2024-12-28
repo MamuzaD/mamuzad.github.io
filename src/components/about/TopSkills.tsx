@@ -1,9 +1,10 @@
-import { topSkills } from "@/content/skills"
 import { motion } from "framer-motion"
+
+import { topSkills } from "@/content/skills"
 
 const TopSkills = () => {
   return (
-    <div className="z-10 col-span-2 flex w-full flex-col flex-wrap items-center justify-center gap-4 rounded-lg bg-muted/60 py-4 md:py-2 backdrop-blur-lg">
+    <div className="z-10 col-span-2 flex w-full flex-col flex-wrap items-center justify-center gap-4 rounded-lg bg-muted/60 py-4 backdrop-blur-lg md:py-2">
       <span className="font-medium">most used technologies</span>
       <div className="flex flex-wrap gap-4">
         {topSkills.map((skill, i) => {

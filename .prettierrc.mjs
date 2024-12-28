@@ -1,6 +1,10 @@
 /** @type {import("prettier").Config} */
 export default {
-  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+  plugins: [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-astro",
+    "prettier-plugin-tailwindcss",
+  ],
   overrides: [
     {
       files: "*.astro",
@@ -16,4 +20,15 @@ export default {
   trailingComma: "es5", // Include trailing commas where valid in ES5
   bracketSpacing: true, // Spaces between brackets
   arrowParens: "always", // Include parentheses for single-arg arrow functions
+
+  importOrder: [
+    "<THIRD_PARTY_MODULES>",
+    "^@core/(.*)$",
+    "^@server/(.*)$",
+    "^@/(lib|utils|content)/(.*)$",
+    "^@/components/(.*)$",
+    "^[./]",
+  ],
+  importOrderSeparation: true,
+  importOrderSortSpecifiers: true,
 }

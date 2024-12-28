@@ -1,12 +1,8 @@
 const RecentWork = () => {
-  return(
+  return (
     <section>
-      <div>
-      
-      </div>
-      <div>
-        
-      </div>
+      <div></div>
+      <div></div>
     </section>
   )
 }

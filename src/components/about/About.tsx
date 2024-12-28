@@ -1,9 +1,11 @@
 "use client"
+
 import { motion } from "framer-motion"
 import type { ReactNode } from "react"
-import TopSkills from "@/components/about/TopSkills"
+
 import Movies from "@/components/about/Movies"
 import Quotes from "@/components/about/Quotes"
+import TopSkills from "@/components/about/TopSkills"
 
 interface AboutProps {
   children: ReactNode // This is the type for the content inside the component

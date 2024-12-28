@@ -1,5 +1,6 @@
-import { scrapeFilmDetails } from "../../lib/scrape"
 import type { APIRoute } from "astro"
+
+import { scrapeFilmDetails } from "@/lib/scrape"
 
 export const GET: APIRoute = async ({ request }) => {
   try {

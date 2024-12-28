@@ -1,8 +1,10 @@
 "use client"
-import { LinkPreview } from "@/components/ui/link-preview"
-import TypingAnimation from "@/components/ui/typing-animation"
+
 import { Link } from "lucide-react"
 import { motion } from "motion/react"
+
+import { LinkPreview } from "@/components/ui/link-preview"
+import TypingAnimation from "@/components/ui/typing-animation"
 
 export default function Welcome() {
   return (

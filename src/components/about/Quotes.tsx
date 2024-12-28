@@ -1,5 +1,7 @@
 import Autoplay from "embla-carousel-autoplay"
+
 import { quotes } from "@/content/quotes"
+
 import {
   Carousel,
   CarouselContent,
