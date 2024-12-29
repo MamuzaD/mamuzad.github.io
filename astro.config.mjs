@@ -17,9 +17,8 @@ export default defineConfig({
   ],
   output: "server",
   adapter: vercel({
-    maxDuration: 20,
+    maxDuration: 25,
     webAnalytics: { enabled: true },
-    isr: true,
     imageService: true,
   }),
   image: {
