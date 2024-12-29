@@ -1,19 +1,34 @@
 import { glob } from "astro/loaders"
-import { defineCollection, z } from "astro:content"
+import { type ImageFunction, defineCollection, z } from "astro:content"
 
-export const collections = {
-  work: defineCollection({
-    loader: glob({ base: "./src/content/work", pattern: "**/*.md" }),
-    schema: z.object({
+const imageSchema = (image: ImageFunction) =>
+  z.object({
+    src: image(),
+    alt: z.string().optional(),
+  })
+
+const work = defineCollection({
+  loader: glob({ base: "./src/content/work", pattern: "**/*.md" }),
+  schema: ({ image }) =>
+    z.object({
+      // basic
       title: z.string(),
       description: z.string(),
       publishDate: z.coerce.date(),
+
+      // links
       githubLink: z.string().optional(),
       demoLink: z.string().optional(),
       liveLink: z.string().optional(),
+
+      // tags
       tags: z.array(z.string()),
-      img: z.string(),
-      img_alt: z.string().optional(),
+
+      // images
+      banner: imageSchema(image),
+      card: imageSchema(image),
+      imgs: z.array(imageSchema(image)).optional(),
     }),
-  }),
-}
+})
+
+export const collections = { work }

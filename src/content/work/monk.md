@@ -1,21 +1,30 @@
 ---
 title: Monk
 publishDate: 2024-06-28 00:00:00
-img: /assets/monk.webp
-img_alt: Gif showcasing monk in action as a kanban board.
 description: |
   Created a kanban board and notes management web app.
+banner:
+  src: public/work/monk/monk.webp
+  alt: Monk Banner
+card:
+  src: public/work/monk/monk.webp
+  alt: Monk Banner
+# imgs:
+# - src: /work/monk/image-1.webp
+#   alt: test 1
+# - src: /work/monk/image-2.webp
+#   alt: test 2
 tags:
-  - Next.js 14
-  - React
+  - Next.js
   - ShadcnUI
-  - tailwindcss
+  - Tailwind CSS
   - Clerk
   - Stripe
   - Supabase
   - Prisma ORM
   - PostgreSQL
   - TypeScript
+
 githubLink: https://github.com/MamuzaD/monk
 liveLink: https://monk-board.com
 ---

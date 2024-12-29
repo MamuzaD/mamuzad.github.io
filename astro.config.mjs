@@ -19,6 +19,8 @@ export default defineConfig({
   adapter: vercel({
     maxDuration: 20,
     webAnalytics: { enabled: true },
+    isr: true,
+    imageService: true,
   }),
   image: {
     remotePatterns: [{ protocol: "https" }],

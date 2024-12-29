@@ -69,7 +69,7 @@ const Movies = () => {
       <span className="font-semibold">recently watched</span>
       {loading && <Loader2 className="h-10 w-10 animate-spin" />}
       {filmDetails && (
-        <div className="flex animate-fadeIn flex-wrap items-center justify-center gap-4 transition-opacity duration-500 ease-in-out md:items-end md:gap-1">
+        <div className="flex h-full animate-fadeIn flex-wrap items-center justify-center gap-4 transition-opacity duration-500 ease-in-out md:gap-1">
           <motion.img
             src={filmDetails.imageUrl || ""}
             alt={filmDetails.title || "Film image"}
@@ -81,7 +81,7 @@ const Movies = () => {
               whileTap: { duration: 100 },
             }}
           />
-          <div>
+          <div className="flex flex-col justify-center">
             <h2 className="text-md ml-1">{filmDetails.title}</h2>
             <p className="text-center text-lg tracking-widest text-primary md:mt-1">
               {filmDetails.stars}

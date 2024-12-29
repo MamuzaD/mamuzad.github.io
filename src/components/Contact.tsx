@@ -38,7 +38,9 @@ export default function Contact() {
           open={dropdownOpen}
           onOpenChange={setDropdownOpen}
         >
-          <DropdownMenuTrigger className="min-h-26 z-50 text-4xl font-bold">
+          <DropdownMenuTrigger
+            className={`min-h-26 z-50 text-4xl font-bold ${!copied && "pb-5"}`}
+          >
             contact me
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-full bg-muted/50 backdrop-blur-md">
@@ -108,7 +110,7 @@ export default function Contact() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.15 }}
+          transition={{ duration: 0.25 }}
         >
           {copiedMessage}
         </motion.span>

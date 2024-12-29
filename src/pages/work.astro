@@ -1,24 +1,36 @@
 ---
-import { getCollection } from "astro:content"
-import Layout from "@/layouts/Layout.astro"
 import ProjectCard from "@/components/work/ProjectCard.astro"
+import Layout from "@/layouts/Layout.astro"
+import { getCollection, type CollectionEntry } from "astro:content"
+
+type Work = CollectionEntry<"work">
 
 const projects = (await getCollection("work")).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+  (a: Work, b: Work) =>
+    b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 )
+
+const columns: Work[][] = [[], [], []]
+projects.forEach((project: Work, index: number) => {
+  columns[index % 3].push(project)
+})
 ---
 
 <Layout>
-  <div class="mt-40 flex items-center justify-center gap-52 pb-40">
+  <main class="pt-40"></main>
+  <div
+    class="z-10 col-start-1 col-end-13 grid justify-center gap-4 px-16 md:grid-cols-3"
+  >
     {
-      projects.map((project) => (
-        <li>
-          <ProjectCard {project} />
-        </li>
+      columns.map((column) => (
+        <div class="flex flex-col gap-6">
+          {column.map((project) => (
+            <div class="project">
+              <ProjectCard project={project} />
+            </div>
+          ))}
+        </div>
       ))
     }
-    <div class="flex flex-col gap-6"></div>
-    <div class="flex flex-col gap-6"></div>
-    <div class="flex flex-col gap-6"></div>
   </div>
 </Layout>

@@ -51,6 +51,7 @@
     "@trivago/prettier-plugin-sort-imports": "^5.2.0",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-astro-organize-imports": "^0.4.11",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "puppeteer": "^23.11.1"
   }

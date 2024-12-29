@@ -1,14 +1,21 @@
 ---
 title: The Lonely Wizard
 publishDate: 2024-02-01 00:00:00
-img: /assets/the-lonely-wizard.webp
-img_alt: Showcasing the video game in development.
+banner:
+  src: public/work/the-lonely-wizard/the-lonely-wizard.webp
+  alt: The Lonely Wizard Banner
+card:
+  src: public/work/the-lonely-wizard/the-lonely-wizard.webp
+  alt: The Lonely Wizard
+# imgs:
+#   -
 description: |
   Designed a 2d rogue-like shooter game over winter break.
 tags:
   - Unity
   - C#
   - Game Development
+
 githubLink: https://github.com/MamuzaD/thelonelywizard
 ---
 

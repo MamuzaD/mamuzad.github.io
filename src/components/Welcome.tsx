@@ -1,6 +1,5 @@
 "use client"
 
-import { Link } from "lucide-react"
 import { motion } from "motion/react"
 
 import { LinkPreview } from "@/components/ui/link-preview"
