@@ -8,6 +8,7 @@ export const GET: APIRoute = async ({ request }) => {
     const filmUrl = searchParams.get("url")
 
     if (!filmUrl) {
+      console.log("searchParams:", searchParams)
       return new Response("Missing URL parameter", { status: 400 })
     }
 
