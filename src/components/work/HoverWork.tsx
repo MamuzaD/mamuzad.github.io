@@ -1,4 +1,5 @@
 import type { CollectionEntry } from "astro:content"
+import { motion } from "framer-motion"
 import { useState } from "react"
 
 interface RecentWorkProps {
@@ -13,19 +14,29 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
       {/* image */}
       <div className="hidden h-[500px] w-[500px] flex-shrink-0 items-center justify-center rounded-3xl bg-primary-foreground/50 p-5 md:flex">
         {highlightedProject ? (
-          <div className="rounded-lg border p-4 shadow-md">
-            <img
+          <div className="rounded-lg p-4">
+            <motion.img
               src={highlightedProject.data.card.img.src}
               alt={
                 highlightedProject.data.card.alt ||
                 highlightedProject.data.title
               }
-              className="h-full w-full animate-fadeIn rounded-lg object-cover duration-200"
+              className="h-full w-full rounded-lg object-cover"
+              initial={{ opacity: 0, translateY: 25 }}
+              animate={{ opacity: 1, translateY: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+                duration: 3,
+                delay: 0.2,
+              }}
               style={{ viewTransitionName: highlightedProject.data.card.alt }}
             />
           </div>
         ) : (
-          <div className="duration-1500 animate-bounce rounded-lg border p-4 text-center text-neutral-500 transition-transform">
+          <div className="animate-bounce rounded-lg p-4 text-center text-neutral-500 transition-transform duration-1500">
             hover for a preview
           </div>
         )}
@@ -36,7 +47,7 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
           {projects.map((project) => (
             <li
               key={project.id}
-              className="cursor-pointer rounded-[2.5rem] border bg-muted/70 px-10 py-4 backdrop-blur hover:bg-primary/30 md:rounded-xl md:bg-transparent"
+              className="cursor-pointer rounded-[2.5rem] bg-muted/70 px-10 py-4 backdrop-blur transition duration-300 hover:bg-primary/30 md:rounded-xl md:bg-transparent"
               onMouseEnter={() => setHighlightedProject(project)}
               onMouseLeave={() => setHighlightedProject(null)}
             >
@@ -49,7 +60,7 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
               </div>
               <a
                 href={`/work/${project.id}`}
-                className="mt-4 block pb-3 transition-transform duration-200 hover:-translate-x-4 md:mt-0 md:pb-0"
+                className="mt-4 block pb-3 transition-transform delay-75 duration-200 hover:-translate-x-4 md:mt-0 md:pb-0"
               >
                 <h3 className="text-lg font-medium">{project.data.title}</h3>
                 <p className="text-base text-gray-600">

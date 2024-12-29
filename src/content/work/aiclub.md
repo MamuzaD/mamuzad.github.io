@@ -18,6 +18,7 @@ card:
 tags:
   - React
   - Tailwind CSS
+  - Google Analytics
 
 githubLink: https://github.com/aiunlv/website
 liveLink: https://aiclub.cs.unlv.edu

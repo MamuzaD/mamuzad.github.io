@@ -86,4 +86,48 @@ import ParticlesBG from "@/components/layout/Particles"
   document.addEventListener("astro:before-swap", (ev) => {
     setDarkMode(ev.newDocument)
   })
+
+  // sounds
+  const sounds = [
+    "/src/assets/sounds/click1.wav",
+    "/src/assets/sounds/click2.wav",
+    "/src/assets/sounds/click3.wav",
+    "/src/assets/sounds/click4.wav",
+  ]
+
+  let isPlaying = false
+  let sound = new Audio()
+
+  const playRandomSound = () => {
+    const randomSound = sounds[Math.floor(Math.random() * sounds.length)]
+
+    if (isPlaying) {
+      sound.pause()
+      sound.currentTime = 0
+    }
+
+    sound.src = randomSound
+
+    isPlaying = true
+    sound.play()
+
+    sound.addEventListener(
+      "ended",
+      () => {
+        isPlaying = false
+      },
+      { once: true }
+    )
+  }
+
+  const initClicker = () => {
+    const clickElements = document.querySelectorAll("button, a")
+
+    clickElements.forEach((element) => {
+      element.addEventListener("click", playRandomSound)
+    })
+  }
+
+  document.addEventListener("astro:page-load", initClicker)
+  initClicker()
 </script>
