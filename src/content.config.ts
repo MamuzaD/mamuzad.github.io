@@ -3,7 +3,7 @@ import { type ImageFunction, defineCollection, z } from "astro:content"
 
 const imageSchema = (image: ImageFunction) =>
   z.object({
-    src: image(),
+    img: image(),
     alt: z.string().optional(),
   })
 
@@ -13,6 +13,7 @@ const work = defineCollection({
     z.object({
       // basic
       title: z.string(),
+      caption: z.string(),
       description: z.string(),
       publishDate: z.coerce.date(),
 

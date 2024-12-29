@@ -1,45 +1,22 @@
 ---
-title: Monk
-publishDate: 2024-06-28 00:00:00
-banner:
-  src: public/work/monk/monk.webp
-  alt: Monk Banner
-card:
-  src: public/work/monk/monk.webp
-  alt: Monk Banner
-# imgs:
-# - src: /work/monk/image-1.webp
-#   alt: test 1
-# - src: /work/monk/image-2.webp
-#   alt: test 2
+title: Lord of the Rings Esolang
+caption: Interpreted Language
 description: |
-  Created a kanban board and notes management web app.
+  Developed an esoteric language based on a small Lord of the Rings phase from winter 2024.
+publishDate: 2024-02-14 00:00:00
+banner:
+  img: public/work/lotr-esolang/lotr-esolang.webp
+  alt: Esolang Banner
+card:
+  img: public/work/lotr-esolang/lotr-esolang.webp
+  alt: Esolang Card
 tags:
-  - Next.js
-  - ShadcnUI
-  - Tailwind CSS
-  - Clerk
-  - Stripe
-  - Supabase
-  - Prisma ORM
-  - PostgreSQL
   - TypeScript
-
-githubLink: https://github.com/MamuzaD/monk
-liveLink: https://monk-board.com
-# title: Lord of the Rings Esolang
-# publishDate: 2024-02-14 00:00:00
-# img: /work/lotr-esolang.webp
-# img_alt: A code snippet of the LOTR esolang
-# description: |
-#   Developed an esoteric language based on a small Lord of the Rings phase from winter 2024.
-# tags:
-#   - Development
-#   - TypeScript
-#   - Parser
-#   - Evaluater
-#   - Lexer
-# githubLink: https://github.com/MamuzaD/Lord-of-The-Rings-Esolang
+  - Interpreter Design
+  - Parser
+  - Lexer
+  - Evaluater
+githubLink: https://github.com/MamuzaD/Lord-of-The-Rings-Esolang
 ---
 
 ### Development

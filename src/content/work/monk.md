@@ -1,22 +1,23 @@
 ---
 title: Monk
-publishDate: 2024-06-28 00:00:00
+caption: Kanban Board
 description: |
   Created a kanban board and notes management web app.
+publishDate: 2024-06-28 00:00:00
 banner:
-  src: public/work/monk/monk.webp
+  img: public/work/monk/monk.webp
   alt: Monk Banner
 card:
-  src: public/work/monk/monk.webp
-  alt: Monk Banner
+  img: public/work/monk/monk.webp
+  alt: Monk Card
 # imgs:
-# - src: /work/monk/image-1.webp
+# - img: /work/monk/image-1.webp
 #   alt: test 1
-# - src: /work/monk/image-2.webp
+# - img: /work/monk/image-2.webp
 #   alt: test 2
 tags:
   - Next.js
-  - ShadcnUI
+  - SaaS & CRUD
   - Tailwind CSS
   - Clerk
   - Stripe

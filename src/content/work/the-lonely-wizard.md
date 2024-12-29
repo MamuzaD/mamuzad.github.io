@@ -1,16 +1,17 @@
 ---
 title: The Lonely Wizard
-publishDate: 2024-02-01 00:00:00
-banner:
-  src: public/work/the-lonely-wizard/the-lonely-wizard.webp
-  alt: The Lonely Wizard Banner
-card:
-  src: public/work/the-lonely-wizard/the-lonely-wizard.webp
-  alt: The Lonely Wizard
-# imgs:
-#   -
+caption: 2D Unity Game
 description: |
   Designed a 2d rogue-like shooter game over winter break.
+publishDate: 2024-02-01 00:00:00
+banner:
+  img: public/work/the-lonely-wizard/the-lonely-wizard.webp
+  alt: The Lonely Wizard Banner
+card:
+  img: public/work/the-lonely-wizard/the-lonely-wizard.webp
+  alt: The Lonely Wizard Card
+# imgs:
+#   -
 tags:
   - Unity
   - C#

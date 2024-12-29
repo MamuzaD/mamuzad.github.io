@@ -2,12 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-::selection {
-  background-color: #ebebeb;
-  color: #338a37; /* Customize the text color */
+@layer components {
+  .hover-underline-animation {
+    @apply relative inline-block;
+  }
+
+  .hover-underline-animation::after {
+    content: "";
+    @apply absolute bottom-0 left-0 h-0.5 w-full bg-primary;
+    transform: scaleX(0);
+    transition: transform 0.25s ease-out;
+    transform-origin: bottom center;
+  }
+
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom center;
+  }
 }
 
 @layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+  }
+
+  ::selection {
+    background-color: #ebebeb;
+    color: #338a37;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;

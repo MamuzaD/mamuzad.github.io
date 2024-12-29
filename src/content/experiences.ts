@@ -10,7 +10,7 @@ export type experience = {
 
 export const experiences: experience[] = [
   {
-    name: "intellimind",
+    name: "Intellimind",
     src: "/experiences/intellimind.png",
     href: "https://intellimind.com",
     role: "Software Engineer Intern",
@@ -19,7 +19,7 @@ export const experiences: experience[] = [
     transparents: ["5, 125, 162, 0.5", "29, 29, 27, 0.5"],
   },
   {
-    name: "unlv",
+    name: "UNLV",
     src: "/experiences/unlv.png",
     href: "https://unlv.edu",
     role: "CS Teaching Assistant",
@@ -28,7 +28,7 @@ export const experiences: experience[] = [
     transparents: ["177, 2, 2, 0.5", "148, 2, 2, 0.5"],
   },
   {
-    name: "acm",
+    name: "ACM",
     src: "/experiences/acm.png",
     href: "https://acm.cs.unlv.edu",
     role: "Webmaster",
@@ -37,7 +37,7 @@ export const experiences: experience[] = [
     transparents: ["177, 2, 2, 0.5", "102, 102, 102, 0.5"],
   },
   {
-    name: "ai & data science club",
+    name: "AI & Data Science Club",
     src: "/experiences/aiclub.png",
     href: "https://aiclub.cs.unlv.edu",
     role: "Webmaster",
