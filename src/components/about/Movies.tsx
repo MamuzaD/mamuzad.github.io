@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { Loader2 } from "lucide-react"
+import { Loader2, RotateCcw } from "lucide-react"
 import { useEffect, useState } from "react"
 
 import { Button } from "@/components/ui/button"
@@ -66,9 +66,9 @@ const Movies = () => {
     <div
       className={`justifify-center row-span-1 flex h-full flex-col items-center gap-0.5 rounded-md bg-muted/60 py-4 backdrop-blur-lg md:p-2 ${loading && "gap-10"}`}
     >
-      <span className="font-semibold">recently watched</span>
+      <span className="font-medium text-base">recently watched</span>
       {loading && <Loader2 className="h-10 w-10 animate-spin" />}
-      {filmDetails && (
+      {filmDetails && !loading && (
         <div className="flex h-full animate-fadeIn flex-wrap items-center justify-center gap-4 transition-opacity duration-500 ease-in-out md:gap-1">
           <motion.img
             src={filmDetails.imageUrl || ""}
@@ -87,6 +87,7 @@ const Movies = () => {
               {filmDetails.stars}
             </p>
           </div>
+          <RotateCcw className="size-5" onClick={retry} />
         </div>
       )}
       {!filmDetails && !loading && (
