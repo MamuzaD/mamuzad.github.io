@@ -19,7 +19,7 @@ const GameCard = ({ game }: GameCardProps) => {
           src={`https://cdn.cloudflare.steamstatic.com/steam/apps/${game.appid}/hero_capsule.jpg`}
           alt={`${game.name}'s Picture`}
           style={{ imageRendering: "crisp-edges" }}
-          className="h-16 w-16 transform rounded-lg object-cover transition-transform duration-300 ease-in-out hover:scale-110 md:h-[4.75rem] md:w-[4.75rem]"
+          className="no-sound h-16 w-16 transform rounded-lg object-cover transition-transform duration-300 ease-in-out hover:scale-110 md:h-[4.75rem] md:w-[4.75rem]"
         />
       </HoverCardTrigger>
       <HoverCardContent

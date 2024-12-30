@@ -124,7 +124,8 @@ import ParticlesBG from "@/components/layout/Particles"
     const clickElements = document.querySelectorAll("button, a")
 
     clickElements.forEach((element) => {
-      element.addEventListener("click", playRandomSound)
+      if (!element.classList.contains("no-sound"))
+        element.addEventListener("click", playRandomSound)
     })
   }
 

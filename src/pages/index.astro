@@ -1,12 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro"
 
-import Contact from "@/components/Contact"
-import Experience from "@/components/Experience.astro"
-import Welcome from "@/components/Welcome"
 import About from "@/components/about/About"
 import Games from "@/components/about/Games.astro"
 import MostRecent from "@/components/about/MostRecent.astro"
+import Contact from "@/components/contact/Contact"
+import Experience from "@/components/Experience.astro"
+import Skills from "@/components/Skills"
+import Welcome from "@/components/Welcome"
 import RecentWork from "@/components/work/RecentWork.astro"
 ---
 
@@ -19,6 +20,7 @@ import RecentWork from "@/components/work/RecentWork.astro"
     </About>
     <Experience />
     <RecentWork />
+    <Skills client:idle />
     <Contact client:load />
   </div>
 </Layout>

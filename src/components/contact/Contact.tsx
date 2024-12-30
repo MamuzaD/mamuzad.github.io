@@ -6,7 +6,7 @@ import { useState } from "react"
 
 import { reachouts } from "@/content/socials"
 
-import ContactForm from "@/components/ContactForm"
+import ContactForm from "@/components/contact/ContactForm"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -39,7 +39,7 @@ export default function Contact() {
           onOpenChange={setDropdownOpen}
         >
           <DropdownMenuTrigger
-            className={`min-h-26 z-50 text-4xl font-bold ${!copied && "pb-5"}`}
+            className={`min-h-26 z-50 text-4xl font-bold ${!copied && "pb-5"} hover-underline-animation`}
           >
             contact me
           </DropdownMenuTrigger>
