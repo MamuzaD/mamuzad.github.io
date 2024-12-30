@@ -2,6 +2,7 @@
 
 import emailjs from "@emailjs/browser"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { motion } from "framer-motion"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -76,9 +77,9 @@ export default function ContactForm({
   }
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <h3
-        className={`min-h-26 z-50 mb-4 cursor-pointer text-center text-4xl font-bold`}
+        className={`min-h-26 hover-underline-animation z-50 mb-4 cursor-pointer pb-5 text-center text-4xl font-bold`}
         onClick={() => {
           setViewForm(false)
           setDropdownOpen(true)
@@ -140,7 +141,7 @@ export default function ContactForm({
                       <Textarea
                         placeholder="hey i saw your portfolio..."
                         {...field}
-                        className="w-96 bg-background/80 backdrop-blur"
+                        className="w-[22rem] md:w-96 bg-background/80 backdrop-blur"
                       />
                     </FormControl>
                     <FormMessage />

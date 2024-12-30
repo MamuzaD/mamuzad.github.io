@@ -4,9 +4,9 @@ import { topSkills } from "@/content/skills"
 
 const TopSkills = () => {
   return (
-    <div className="z-10 col-span-2 flex w-full flex-col flex-wrap items-center justify-center gap-4 rounded-lg bg-muted/60 py-4 backdrop-blur-lg md:py-2">
+    <div className="z-10 col-span-2 flex w-full flex-col flex-wrap items-center justify-start gap-4 rounded-lg bg-muted/60 py-4 backdrop-blur-lg md:py-2">
       <span className="font-medium">most used technologies</span>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4 md:mt-4">
         {topSkills.map((skill, i) => {
           return (
             <div
@@ -14,7 +14,7 @@ const TopSkills = () => {
               key={i}
             >
               <motion.span
-                className="h-11 w-11 md:h-12 md:w-12"
+                className="h-10 w-10 md:h-12 md:w-12"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{

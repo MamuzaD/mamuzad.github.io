@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Clipboard, Link2 } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { reachouts } from "@/content/socials"
 
@@ -22,6 +22,7 @@ export default function Contact() {
   const [dropdownOpen, setDropdownOpen] = useState(false)
   const [copied, setCopied] = useState(false)
   const [copiedMessage, setCopiedMessage] = useState<string>("")
+  const formRef = useRef<HTMLDivElement | null>(null)
 
   const handleCopy = (name: string, href: string) => {
     navigator.clipboard.writeText(href)
@@ -29,6 +30,11 @@ export default function Contact() {
     setCopiedMessage(`saved ${name}`)
     setTimeout(() => setCopied(false), 2000)
   }
+
+  useEffect(() => {
+    if (viewForm && formRef.current)
+      formRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
+  }, [viewForm])
 
   return (
     <section className="z-50 flex flex-col items-center">
@@ -49,7 +55,9 @@ export default function Contact() {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem
-              onClick={() => setViewForm(true)}
+              onClick={() => {
+                setViewForm(true)
+              }}
               className="flex cursor-pointer items-center gap-2 text-lg"
             >
               <svg
@@ -99,10 +107,12 @@ export default function Contact() {
         </DropdownMenu>
       )}
       {viewForm && (
-        <ContactForm
-          setViewForm={setViewForm}
-          setDropdownOpen={setDropdownOpen}
-        />
+        <div ref={formRef}>
+          <ContactForm
+            setViewForm={setViewForm}
+            setDropdownOpen={setDropdownOpen}
+          />
+        </div>
       )}
       {copied && (
         <motion.span

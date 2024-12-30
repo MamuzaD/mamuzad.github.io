@@ -68,7 +68,7 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
               >
                 <a
                   href={`/work/${project.id}`}
-                  className={`group mt-4 block cursor-pointer rounded-[2.5rem] px-10 py-5 backdrop-blur-sm transition-[background_color] duration-300 md:mt-0 md:rounded-xl md:hover:bg-primary/30 ${highlightedProject && highlightedProject.id === project.id ? "bg-primary/40" : "bg-muted/70 md:bg-transparent"}`}
+                  className={`group mt-4 block cursor-pointer rounded-[2.5rem] px-10 py-5 backdrop-blur-sm transition-[background_color] duration-300 md:mt-0 md:rounded-xl md:hover:bg-primary/30 ${highlightedProject && highlightedProject.id === project.id ? "bg-primary/40 dark:bg-primary/20" : "bg-muted/70 md:bg-transparent"}`}
                 >
                   <div className="mt-4 block rounded-lg shadow-md md:hidden">
                     <img
@@ -103,7 +103,7 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
         </div>
       </div>
       <Button>
-        <a href="/work" className="">
+        <a href="/work" className="text-lg">
           view all
         </a>
       </Button>

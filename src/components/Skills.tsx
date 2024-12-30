@@ -6,7 +6,7 @@ const Skills = () => {
   const rows: skill[][] = [languages, technologies, tools]
 
   return (
-    <section className="z-10 rounded-xl bg-primary-foreground/80 p-10 px-16 backdrop-blur-md">
+    <section className="z-10 rounded-3xl bg-primary-foreground/80 p-10 px-4 md:px-16 backdrop-blur-md">
       <div className="space-y-4">
         {rows.map((skills, rI) => {
           let title
@@ -17,7 +17,7 @@ const Skills = () => {
           return (
             <div key={rI}>
               <h4 className="text-center font-medium mb-3">{title}</h4>
-              <div className="flex flex-wrap justify-center gap-2">
+              <div className="flex flex-wrap justify-center gap-2 w-full">
                 {skills.map((skill, i) => {
                   return (
                     <motion.div
@@ -33,7 +33,7 @@ const Skills = () => {
                         transform:
                           "perspective(1500px) translateY(0px) rotateX(0deg) scaleX(1)",
                       }}
-                      viewport={{ once: true, margin: "500px" }}
+                      viewport={{ once: true, margin: "-100px" }}
                       transition={{
                         type: "spring",
                         stiffness: 90,
@@ -43,7 +43,7 @@ const Skills = () => {
                       }}
                     >
                       <motion.span
-                        className="size-14"
+                        className="size-12 md:size-14"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         transition={{

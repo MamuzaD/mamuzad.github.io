@@ -55,7 +55,7 @@ export default function Welcome() {
         </motion.div>
 
         <motion.h2
-          className="flex items-center text-2xl"
+          className="text-2xl"
           initial={{
             x: -200,
             opacity: 0,
@@ -80,7 +80,7 @@ export default function Welcome() {
             height={80}
             width={80}
             isStatic
-            className="ml-1.5 inline-block cursor-default"
+            className=" cursor-default"
             side="right"
             sideOffset={20}
             align="center"

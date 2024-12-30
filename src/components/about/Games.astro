@@ -22,7 +22,7 @@ const games: Game[] = data.response.games
 ---
 
 <div
-  class="col-span-1 row-span-1 grid h-full w-full grid-cols-4 py-4 md:py-2 place-items-center gap-2 rounded-md bg-muted/60 p-2 backdrop-blur-lg md:max-w-56 md:grid-cols-2"
+  class="col-span-1 row-span-1 grid h-full w-full grid-cols-4 py-4 md:py-2 place-items-center gap-2 rounded-xl bg-muted/60 p-2 backdrop-blur-lg md:max-w-56 md:grid-cols-2"
 >
   {games.map((game) => <GameCard {game} client:idle />)}
 

@@ -15,11 +15,11 @@ const { height, width, small } = Astro.props
         class="profile-picture-small glow-on-hover"
         aria-label="Change profile picture"
       >
-        <img decoding="async" alt="Me" loading="eager" />
+        <img decoding="async" alt="" loading="eager" class="bg-muted-foreground/50 animate-fadeIn"/>
       </button>
     ) : (
       <button class="profile-picture" aria-label="Change profile picture">
-        <img {height} {width} decoding="async" alt="Me" loading="eager" />
+        <img {height} {width} decoding="async" alt="" loading="eager" />
       </button>
     )
   }

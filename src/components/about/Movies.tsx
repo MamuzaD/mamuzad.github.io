@@ -64,7 +64,7 @@ const Movies = () => {
 
   return (
     <div
-      className={`justifify-center row-span-1 flex h-full flex-col items-center gap-0.5 rounded-md bg-muted/60 py-4 backdrop-blur-lg md:p-2 ${loading && "gap-10"}`}
+      className={`justifify-center row-span-1 flex h-full flex-col items-center gap-0.5 rounded-xl bg-muted/60 py-4 backdrop-blur-lg md:p-2 ${loading && "gap-10"}`}
     >
       <span className="font-medium text-base">recently watched</span>
       {loading && <Loader2 className="h-10 w-10 animate-spin" />}
