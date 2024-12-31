@@ -9,6 +9,7 @@ import { currentProfile, getIcons } from "@/lib/store"
 const ParticlesBG = () => {
   const [init, setInit] = useState(false)
   const [particleIcons, setParticleIcons] = useState<string[]>([])
+  const [sound, setSound] = useState<HTMLAudioElement | null>(null)
 
   // this should be run only once per application lifetime
   useEffect(() => {
@@ -25,10 +26,6 @@ const ParticlesBG = () => {
     })
   }, [])
 
-  const particlesLoaded = async (container?: Container): Promise<void> => {
-    //  console.log(container);
-  }
-
   useEffect(() => {
     const unsubscribe = currentProfile.subscribe(() => {
       const icons = getIcons()
@@ -36,6 +33,61 @@ const ParticlesBG = () => {
     })
 
     return () => unsubscribe()
+  }, [])
+
+  useEffect(() => {
+    setSound(new Audio())
+  }, [])
+
+  // sounds
+  const sounds = [
+    "/sounds/click1.wav",
+    "/sounds/click2.wav",
+    "/sounds/click3.wav",
+    "/sounds/click4.wav",
+  ]
+
+  let isPlaying = false
+
+  const playRandomSound = () => {
+    if (!sound) return
+    const randomSound = sounds[Math.floor(Math.random() * sounds.length)]
+
+    if (isPlaying) {
+      sound.pause()
+      sound.currentTime = 0
+    }
+
+    sound.src = randomSound
+    sound.volume = 0.3
+    isPlaying = true
+    sound.play()
+
+    sound.addEventListener(
+      "ended",
+      () => {
+        isPlaying = false
+      },
+      { once: true }
+    )
+  }
+
+  const particlesLoaded = async (
+    container: Container | undefined
+  ): Promise<void> => {
+    if (container) {
+      container.interactivity.element?.addEventListener("click", () => {
+        playRandomSound()
+      })
+    }
+  }
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine)
+    }).then(() => {
+      setInit(true)
+    })
   }, [])
 
   const options: ISourceOptions = useMemo(

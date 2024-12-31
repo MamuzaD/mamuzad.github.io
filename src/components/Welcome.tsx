@@ -80,7 +80,7 @@ export default function Welcome() {
             height={80}
             width={80}
             isStatic
-            className=" cursor-default"
+            className="cursor-default"
             side="right"
             sideOffset={20}
             align="center"

@@ -66,7 +66,7 @@ const Movies = () => {
     <div
       className={`justifify-center row-span-1 flex h-full flex-col items-center gap-0.5 rounded-xl bg-muted/60 py-4 backdrop-blur-lg md:p-2 ${loading && "gap-10"}`}
     >
-      <span className="font-medium text-base">recently watched</span>
+      <span className="text-base font-medium">recently watched</span>
       {loading && <Loader2 className="h-10 w-10 animate-spin" />}
       {filmDetails && !loading && (
         <div className="flex h-full animate-fadeIn flex-wrap items-center justify-center gap-4 transition-opacity duration-500 ease-in-out md:gap-1">
@@ -87,7 +87,9 @@ const Movies = () => {
               {filmDetails.stars}
             </p>
           </div>
-          <RotateCcw className="size-5" onClick={retry} />
+          <Button variant="ghost" size="icon" onClick={retry}>
+            <RotateCcw className="size-5" />
+          </Button>
         </div>
       )}
       {!filmDetails && !loading && (

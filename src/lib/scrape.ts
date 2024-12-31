@@ -41,7 +41,10 @@ export async function scrapeFilmDetails(url: string) {
       const title = titleElement ? titleElement.textContent?.trim() : null
 
       const imgElement = filmElement.querySelector("img")
-      const imageUrl = imgElement ? imgElement.getAttribute("src") : null
+      let imageUrl = imgElement
+        ? imgElement.getAttribute("src")?.replace("35", "100")
+        : null
+      imageUrl = imageUrl?.replace(/-0-(\d+)-0-(\d+)/, "-0-100-0-150")
 
       const starsElement = document.querySelector("span.rating")
       const stars = starsElement ? starsElement.textContent?.trim() : null
@@ -50,6 +53,7 @@ export async function scrapeFilmDetails(url: string) {
     })
 
     console.log("Scraping completed.")
+    console.log("Film details:", filmDetails)
     return filmDetails
   } catch (error) {
     console.error("Error occurred while scraping:", error)
@@ -58,6 +62,7 @@ export async function scrapeFilmDetails(url: string) {
     if (browser) {
       console.log("Closing browser...")
       await browser.close()
+      console.log("Browser closed")
     }
   }
 }

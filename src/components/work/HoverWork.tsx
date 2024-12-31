@@ -13,10 +13,6 @@ interface RecentWorkProps {
 const HoverWork = ({ projects }: RecentWorkProps) => {
   const [highlightedProject, setHighlightedProject] = useState<any | null>(null)
 
-  useEffect(() => {
-    console.log(highlightedProject)
-  }, [highlightedProject])
-
   return (
     <section className="z-50 flex flex-col items-center justify-center gap-12">
       <h3 className="block text-3xl font-semibold md:hidden">recent work</h3>

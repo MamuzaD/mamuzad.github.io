@@ -141,7 +141,7 @@ export default function ContactForm({
                       <Textarea
                         placeholder="hey i saw your portfolio..."
                         {...field}
-                        className="w-[22rem] md:w-96 bg-background/80 backdrop-blur"
+                        className="w-[22rem] bg-background/80 backdrop-blur md:w-96"
                       />
                     </FormControl>
                     <FormMessage />

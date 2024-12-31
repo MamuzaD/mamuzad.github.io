@@ -6,7 +6,7 @@ const Skills = () => {
   const rows: skill[][] = [languages, technologies, tools]
 
   return (
-    <section className="z-10 rounded-3xl bg-primary-foreground/80 p-10 px-4 md:px-16 backdrop-blur-md">
+    <section className="z-10 rounded-3xl bg-primary-foreground/80 p-10 px-4 backdrop-blur-md md:px-16">
       <div className="space-y-4">
         {rows.map((skills, rI) => {
           let title
@@ -16,8 +16,8 @@ const Skills = () => {
 
           return (
             <div key={rI}>
-              <h4 className="text-center font-medium mb-3">{title}</h4>
-              <div className="flex flex-wrap justify-center gap-2 w-full">
+              <h4 className="mb-3 text-center font-medium">{title}</h4>
+              <div className="flex w-full flex-wrap justify-center gap-2">
                 {skills.map((skill, i) => {
                   return (
                     <motion.div
@@ -26,12 +26,11 @@ const Skills = () => {
                       initial={{
                         opacity: 0,
                         transform:
-                          "perspective(1500px) translateY(25px) rotateX(75deg) scaleX(0.75)",
+                          "translateY(35px) rotateX(80deg) scaleX(0.75)",
                       }}
                       whileInView={{
                         opacity: 1,
-                        transform:
-                          "perspective(1500px) translateY(0px) rotateX(0deg) scaleX(1)",
+                        transform: "translateY(0px) rotateX(0deg) scaleX(1)",
                       }}
                       viewport={{ once: true, margin: "-100px" }}
                       transition={{
