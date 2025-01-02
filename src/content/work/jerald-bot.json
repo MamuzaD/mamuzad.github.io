@@ -1,0 +1,17 @@
+{
+  "title": "Jerald Bot",
+  "caption": "Discord Chat Bot",
+  "description": ["Created a Discord chatbot to answer any plant related questions."],
+  "publishDate": "2024-05-28T00:00:00Z",
+  "banner": {
+    "img": "public/work/jerald-bot/jerald-bot.webp",
+    "alt": "Jerald Bot Banner"
+  },
+  "card": {
+    "img": "public/work/jerald-bot/jerald-bot.webp",
+    "alt": "Jerald Bot Card"
+  },
+  "tags": ["Python", "Discord", "OpenAI"],
+  "githubLink": "https://github.com/MamuzaD/JeraldBot",
+  "liveLink": "https://discord.com/oauth2/authorize?client_id=1239862738612785182&permissions=137439464512&scope=bot"
+}

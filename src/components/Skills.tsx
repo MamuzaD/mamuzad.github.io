@@ -6,7 +6,7 @@ const Skills = () => {
   const rows: skill[][] = [languages, technologies, tools]
 
   return (
-    <section className="z-10 rounded-3xl bg-primary-foreground/80 p-10 px-4 backdrop-blur-md md:px-16">
+    <section className="z-10 rounded-3xl bg-primary-foreground/80 p-10 px-4 shadow-aboutcard backdrop-blur-md md:px-16">
       <div className="space-y-4">
         {rows.map((skills, rI) => {
           let title
@@ -26,13 +26,14 @@ const Skills = () => {
                       initial={{
                         opacity: 0,
                         transform:
-                          "translateY(35px) rotateX(80deg) scaleX(0.75)",
+                          "perspective(500px) translateY(35px) rotateX(120deg) scale(0.75)",
                       }}
                       whileInView={{
                         opacity: 1,
-                        transform: "translateY(0px) rotateX(0deg) scaleX(1)",
+                        transform:
+                          "perspective(500px) translateY(0px) rotateX(0deg) scale(1)",
                       }}
-                      viewport={{ once: true, margin: "-100px" }}
+                      viewport={{ once: true, margin: "-50px" }}
                       transition={{
                         type: "spring",
                         stiffness: 90,

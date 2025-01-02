@@ -1,0 +1,17 @@
+{
+  "title": "ACM UNLV",
+  "caption": "Club Website",
+  "description": ["Created a kanban board and notes management web app."],
+  "publishDate": "2024-08-28T00:00:00Z",
+  "banner": {
+    "img": "public/work/acm/acm.png",
+    "alt": "ACM Banner"
+  },
+  "card": {
+    "img": "public/work/acm/acm.png",
+    "alt": "ACM Card"
+  },
+  "tags": ["Next.js", "Shadcn UI", "Tailwind CSS"],
+  "githubLink": "https://github.com/acmunlv/www",
+  "liveLink": "https://acm.cs.unlv.edu"
+}

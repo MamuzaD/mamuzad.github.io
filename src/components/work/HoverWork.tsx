@@ -1,6 +1,6 @@
 import type { CollectionEntry } from "astro:content"
 import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ArrowRightCircle } from "lucide-react"
 import { useEffect, useState } from "react"
 
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card"
@@ -22,35 +22,38 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
           {highlightedProject ? (
             <CardContainer className="rounded-lg p-4">
               <CardBody>
-                <CardItem translateZ="100">
-                  <motion.img
-                    key={highlightedProject?.data.card.img.src}
-                    src={highlightedProject.data.card.img.src}
-                    alt={
-                      highlightedProject.data.card.alt ||
-                      highlightedProject.data.title
-                    }
-                    className="h-full w-full rounded-lg object-cover"
-                    initial={{ opacity: 0, translateY: 25 }}
-                    animate={{ opacity: 1, translateY: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 100,
-                      damping: 10,
-                      duration: 3,
-                      delay: 0.2,
-                    }}
-                    style={{
-                      viewTransitionName: highlightedProject.data.card.alt,
-                    }}
-                  />
+                <CardItem translateZ="125" className="">
+                  <a href={`/work/${highlightedProject.id}`}>
+                    <motion.img
+                      key={highlightedProject?.data.card.img.src}
+                      src={highlightedProject.data.card.img.src}
+                      alt={
+                        highlightedProject.data.card.alt ||
+                        highlightedProject.data.title
+                      }
+                      className="duration-250 hover:shadow-mac-lg shadow-mac-md h-full w-full rounded-lg object-cover transition-[box-shadow]"
+                      initial={{ opacity: 0, translateY: 25 }}
+                      animate={{ opacity: 1, translateY: 0 }}
+                      exit={{ opacity: 0 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 100,
+                        damping: 10,
+                        duration: 3,
+                        delay: 0.2,
+                      }}
+                      style={{
+                        viewTransitionName: highlightedProject.data.card.alt,
+                      }}
+                    />
+                  </a>
                 </CardItem>
               </CardBody>
             </CardContainer>
           ) : (
             <div className="animate-bounce rounded-lg p-4 text-center text-neutral-500 transition-transform duration-1500">
               hover over a project
+              <ArrowRightCircle className="ml-2 inline-block size-5"/>
             </div>
           )}
         </div>

@@ -1,0 +1,16 @@
+{
+  "title": "Lord of the Rings Esolang",
+  "caption": "Interpreted Language",
+  "description": ["Developed an esoteric language based on a small Lord of the Rings phase from winter 2024."],
+  "publishDate": "2024-02-14T00:00:00Z",
+  "banner": {
+    "img": "public/work/lotr-esolang/lotr-esolang.webp",
+    "alt": "Esolang Banner"
+  },
+  "card": {
+    "img": "public/work/lotr-esolang/lotr-esolang.webp",
+    "alt": "Esolang Card"
+  },
+  "tags": ["TypeScript", "Interpreter Design", "Parser", "Lexer", "Evaluater"],
+  "githubLink": "https://github.com/MamuzaD/Lord-of-The-Rings-Esolang"
+}

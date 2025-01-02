@@ -1,0 +1,17 @@
+{
+  "title": "AI & Data Science Club",
+  "caption": "Club Website",
+  "description": ["Created a kanban board and notes management web app."],
+  "publishDate": "2024-11-28T00:00:00Z",
+  "banner": {
+    "img": "public/work/aiclub/aiclub.png",
+    "alt": "AIClub Banner"
+  },
+  "card": {
+    "img": "public/work/aiclub/aiclub.png",
+    "alt": "AIClub Card"
+  },
+  "tags": ["React", "Tailwind CSS", "Google Analytics"],
+  "githubLink": "https://github.com/aiunlv/website",
+  "liveLink": "https://aiclub.cs.unlv.edu"
+}

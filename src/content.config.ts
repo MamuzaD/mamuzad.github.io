@@ -8,13 +8,13 @@ const imageSchema = (image: ImageFunction) =>
   })
 
 const work = defineCollection({
-  loader: glob({ base: "./src/content/work", pattern: "**/*.md" }),
+  loader: glob({ base: "./src/content/work", pattern: "**/*.json" }),
   schema: ({ image }) =>
     z.object({
       // basic
       title: z.string(),
       caption: z.string(),
-      description: z.string(),
+      description: z.array(z.string()),
       publishDate: z.coerce.date(),
 
       // links

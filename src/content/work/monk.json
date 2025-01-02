@@ -1,0 +1,31 @@
+{
+  "title": "Monk",
+  "caption": "Kanban Board",
+  "description": [
+    "Developing Monk taught me Next.js, server actions for Supabase, and best practices for building SaaS and CRUD apps. I used Prisma ORM for database tasks, Clerk for authentication, and Stripe’s API for a pro-tier feature.",
+    "Inspired by Trello and Notion, Monk combines their best features into a fast, efficient app for managing notes and tasks."
+  ],
+  "publishDate": "2024-06-28",
+  "githubLink": "https://github.com/MamuzaD/monk",
+  "liveLink": "https://monk-board.com",
+  "tags": [
+    "Next.js",
+    "SaaS & CRUD",
+    "Tailwind CSS",
+    "Clerk",
+    "Stripe",
+    "Supabase",
+    "Prisma ORM",
+    "PostgreSQL",
+    "TypeScript"
+  ],
+  "banner": {
+    "img": "public/work/monk/monk.webp",
+    "alt": "Monk Banner"
+  },
+  "card": {
+    "img": "public/work/monk/monk.webp",
+    "alt": "Monk Card"
+  },
+  "imgs": []
+}
