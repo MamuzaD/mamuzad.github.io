@@ -38,7 +38,7 @@ const Quotes = () => {
                 isStatic
                 className="ml-1 cursor-default font-light"
                 side="top"
-                sideOffset={-20}
+                sideOffset={10}
                 align="center"
                 alignOffset={0}
               >

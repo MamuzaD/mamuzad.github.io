@@ -6,6 +6,8 @@ import { useEffect, useState } from "react"
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card"
 import { Button } from "@/components/ui/button"
 
+import { LinkPreview } from "../ui/link-preview"
+
 interface RecentWorkProps {
   projects: CollectionEntry<"work">[]
 }
@@ -31,7 +33,7 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
                         highlightedProject.data.card.alt ||
                         highlightedProject.data.title
                       }
-                      className="duration-250 hover:shadow-mac-lg shadow-mac-md h-full w-full rounded-lg object-cover transition-[box-shadow]"
+                      className="duration-250 h-full w-full rounded-lg object-cover shadow-mac-md transition-[box-shadow] hover:shadow-mac-lg"
                       initial={{ opacity: 0, translateY: 25 }}
                       animate={{ opacity: 1, translateY: 0 }}
                       exit={{ opacity: 0 }}
@@ -53,7 +55,7 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
           ) : (
             <div className="animate-bounce rounded-lg p-4 text-center text-neutral-500 transition-transform duration-1500">
               hover over a project
-              <ArrowRightCircle className="ml-2 inline-block size-5"/>
+              <ArrowRightCircle className="ml-2 inline-block size-5" />
             </div>
           )}
         </div>
@@ -102,9 +104,15 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
         </div>
       </div>
       <Button>
-        <a href="/work" className="text-lg">
+        <LinkPreview
+          url="/work"
+          isStatic
+          imageSrc="/socials/work.jpg"
+          side="bottom"
+          sideOffset={25}
+        >
           view all
-        </a>
+        </LinkPreview>
       </Button>
     </section>
   )

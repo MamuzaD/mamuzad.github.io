@@ -23,7 +23,7 @@ const GameCard = ({ game }: GameCardProps) => {
         />
       </HoverCardTrigger>
       <HoverCardContent
-        className="z-[999] flex h-40 w-full flex-col place-items-center justify-between bg-primary-foreground/80 backdrop-blur-lg"
+        className="z-[999] flex h-40 w-full flex-col place-items-center justify-between bg-primary-foreground/80 backdrop-blur-xl"
         side="top"
       >
         <img

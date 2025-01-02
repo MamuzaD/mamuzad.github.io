@@ -14,13 +14,14 @@ export default {
       },
     },
   ],
-  semi: false, // No semicolons
-  singleQuote: false, // Use double quotes
-  tabWidth: 2, // Tab space of 2
-  useTabs: false, // Use spaces instead of tabs
-  trailingComma: "es5", // Include trailing commas where valid in ES5
-  bracketSpacing: true, // Spaces between brackets
-  arrowParens: "always", // Include parentheses for single-arg arrow functions
+  semi: false,
+  singleQuote: false,
+  tabWidth: 2,
+  useTabs: false,
+  trailingComma: "es5",
+  bracketSpacing: true,
+  arrowParens: "always",
+  printWidth: 120,
 
   importOrder: [
     "<THIRD_PARTY_MODULES>",

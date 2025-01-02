@@ -6,7 +6,7 @@ const recents = [
     content: "started position at Intellimind as software engineer intern",
   },
   {
-    content: "competed at South California's ICPC for unlv",
+    content: "competed at South California's ICPC for UNLV",
   },
 ]
 

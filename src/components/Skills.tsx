@@ -44,8 +44,8 @@ const Skills = () => {
                     >
                       <motion.span
                         className="size-12 md:size-14"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
+                        whileHover={{ scale: 1.15 }}
+                        whileTap={{ scale: 0.8 }}
                         transition={{
                           whileHover: { duration: 500 },
                           whileTap: { duration: 100 },
@@ -53,7 +53,9 @@ const Skills = () => {
                       >
                         {skill.icon}
                       </motion.span>
-                      <span className="text-center text-xs">{skill.name}</span>
+                      <span className="font-medium text-center text-xs">
+                        {skill.name}
+                      </span>
                     </motion.div>
                   )
                 })}

@@ -19,16 +19,16 @@ export const socials: social[] = [
     src: "/socials/resume.jpg",
   },
   {
-    name: "GitHub",
-    icon: "mdi--github",
-    href: "https://github.com/mamuzad",
-    src: "/socials/github.jpg",
-  },
-  {
     name: "LinkedIn",
     icon: "mdi--linkedin",
     href: "https://linkedin.com/in/daniel-mamuza",
     src: "/socials/linkedin.jpg",
+  },
+  {
+    name: "GitHub",
+    icon: "mdi--github",
+    href: "https://github.com/mamuzad",
+    src: "/socials/github.jpg",
   },
 ]
 

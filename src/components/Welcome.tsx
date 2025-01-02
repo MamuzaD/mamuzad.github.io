@@ -45,9 +45,9 @@ export default function Welcome() {
               }}
               viewport={{ once: true }}
               transition={{
-                opacity: { delay: 1.87, duration: 0.08 },
+                opacity: { delay: 1.8, duration: 0.08 },
               }}
-              className="ml-2.5 text-3xl"
+              className="ml-3 text-3xl"
             >
               🦒
             </motion.span>
