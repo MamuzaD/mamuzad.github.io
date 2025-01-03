@@ -92,17 +92,10 @@ const Movies = () => {
                       : filmDetails.title
                   : ""}
               </h2>
-              <p className="text-center text-lg tracking-widest text-primary md:mt-1">
-                {filmDetails.stars}
-              </p>
+              <p className="text-center text-lg tracking-widest text-primary md:mt-1">{filmDetails.stars}</p>
             </div>
           </div>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={retry}
-            className="absolute bottom-1 right-1 rounded-full"
-          >
+          <Button variant="ghost" size="icon" onClick={retry} className="absolute bottom-1 right-1 rounded-full">
             <RotateCcw className="size-5" />
           </Button>
         </>

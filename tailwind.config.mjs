@@ -5,13 +5,11 @@ export default {
   theme: {
     extend: {
       boxShadow: {
-        "experiencard-card-light":
-          "rgba(0, 0, 0, 0.08) 0px 12px 24px 4px, rgba(0, 0, 0, 0.3) 0px 20px 50px 30px",
-        "experiencard-card-dark":
-          "rgba(0, 0, 0, 0.06) 0px 12px 24px 4px, rgba(0, 0, 0, 0.9) 0px 20px 50px 30px",
-        aboutcard: "rgba(0, 0, 0, 0.2) 0px 0px 50px 50px;",
-        "mac-lg": "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;",
-        "mac-md": "rgba(0, 0, 0, 0.2) 0px 20px 30px;",
+        "experiencard-card-light": "rgba(0, 0, 0, 0.08) 0px 12px 24px 4px, rgba(0, 0, 0, 0.3) 0px 20px 50px 30px",
+        "experiencard-card-dark": "rgba(0, 0, 0, 0.06) 0px 12px 24px 4px, rgba(0, 0, 0, 0.9) 0px 20px 50px 30px",
+        aboutcard: "rgba(0, 0, 0, 0.2) 0px 0px 50px 50px ",
+        "mac-lg": "rgba(0, 0, 0, 0.56) 0px 22px 70px 4px",
+        "mac-md": "rgba(0, 0, 0, 0.2) 0px 20px 30px",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,4 +78,4 @@ export default {
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
+}

@@ -32,27 +32,20 @@ export default function Contact() {
   }
 
   useEffect(() => {
-    if (viewForm && formRef.current)
-      formRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
+    if (viewForm && formRef.current) formRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
   }, [viewForm])
 
   return (
     <section className="z-50 flex flex-col items-center">
       {!viewForm && (
-        <DropdownMenu
-          modal={false}
-          open={dropdownOpen}
-          onOpenChange={setDropdownOpen}
-        >
+        <DropdownMenu modal={false} open={dropdownOpen} onOpenChange={setDropdownOpen}>
           <DropdownMenuTrigger
             className={`min-h-26 z-50 text-4xl font-bold ${!copied && "pb-5"} hover-underline-animation`}
           >
             contact me
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-full bg-muted/50 backdrop-blur-md">
-            <DropdownMenuLabel className="text-center">
-              your preference
-            </DropdownMenuLabel>
+            <DropdownMenuLabel className="text-center">your preference</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem
               onClick={() => {
@@ -60,12 +53,7 @@ export default function Contact() {
               }}
               className="flex cursor-pointer items-center gap-2 text-lg"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
                   d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2M7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7zm10 2h-6v-2h6zm0-4h-6v-2h6zm0-4h-6V7h6z"
@@ -74,20 +62,13 @@ export default function Contact() {
               <span>contact form</span>
             </DropdownMenuItem>
             {reachouts.map((r) => (
-              <DropdownMenuItem
-                key={r.name}
-                className="items-center justify-between gap-10 text-lg"
-              >
+              <DropdownMenuItem key={r.name} className="items-center justify-between gap-10 text-lg">
                 <div className="flex items-center gap-2">
                   {r.icon}
                   <span>{r.name}</span>
                 </div>
                 <div className="flex gap-1">
-                  <Button
-                    size="icon"
-                    variant="outline"
-                    className="size-9 dark:hover:bg-primary-foreground"
-                  >
+                  <Button size="icon" variant="outline" className="size-9 dark:hover:bg-primary-foreground">
                     <a href={r.href} target="_blank" rel="noopener noreferrer">
                       <Link2 />
                     </a>
@@ -108,10 +89,7 @@ export default function Contact() {
       )}
       {viewForm && (
         <div ref={formRef}>
-          <ContactForm
-            setViewForm={setViewForm}
-            setDropdownOpen={setDropdownOpen}
-          />
+          <ContactForm setViewForm={setViewForm} setDropdownOpen={setDropdownOpen} />
         </div>
       )}
       {copied && (

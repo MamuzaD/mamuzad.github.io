@@ -5,10 +5,7 @@ import { type CollectionEntry, getCollection } from "astro:content"
 type Work = CollectionEntry<"work">
 
 const projects = (await getCollection("work"))
-  .sort(
-    (a: Work, b: Work) =>
-      b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-  )
+  .sort((a: Work, b: Work) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
   .slice(0, 4)
 ---
 

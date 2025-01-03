@@ -6,8 +6,7 @@ import { getCollection, type CollectionEntry } from "astro:content"
 type Work = CollectionEntry<"work">
 
 const projects = (await getCollection("work")).sort(
-  (a: Work, b: Work) =>
-    b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+  (a: Work, b: Work) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 )
 
 const columns: Work[][] = [[], [], []]
@@ -17,7 +16,7 @@ projects.forEach((project: Work, index: number) => {
 ---
 
 <Layout>
-  <main class="pt-32">
+  <main class="min-h-[calc(90vh)] pt-32">
     <div class="hidden gap-4 px-8 sm:grid sm:grid-cols-2 lg:grid-cols-3">
       {
         columns.map((column) => (

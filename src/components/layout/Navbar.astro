@@ -10,7 +10,7 @@ import { Icon } from "astro-icon/components"
 <!-- make hamburger -->
 <nav
   transition:persist
-  class="fixed top-0 z-[100] flex w-full animate-slideDown items-center justify-between gap-6 bg-gradient-to-b from-neutral-200/80 from-40% to-transparent px-2 pb-6 pt-4 font-semibold backdrop-blur-sm dark:from-neutral-950/80 md:px-8"
+  class="fixed top-0 z-[100] flex max-h-24 w-full animate-slideDown items-center justify-between gap-6 bg-gradient-to-b from-neutral-200/80 from-40% to-transparent px-2 pb-6 pt-4 font-semibold backdrop-blur-sm dark:from-neutral-950/80 md:px-8"
 >
   <div class="flex items-center justify-between gap-4">
     <ProfilePic height="300px" width="300px" small />
@@ -23,13 +23,7 @@ import { Icon } from "astro-icon/components"
   <div class="flex place-items-center gap-2 md:gap-6">
     {
       socials.map((social, index) => (
-        <LinkPreview
-          imageSrc={social.src}
-          url={social.href}
-          target="_blank"
-          isStatic
-          client:load
-        >
+        <LinkPreview imageSrc={social.src} url={social.href} target="_blank" isStatic client:load>
           <Icon
             name={social.icon}
             class={`transition-all hover:scale-110 hover:text-primary md:h-7 md:w-7 ${index % 2 === 0 ? "hover:rotate-12" : "hover:-rotate-12"}`}

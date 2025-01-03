@@ -25,13 +25,11 @@ const Skills = () => {
                       key={i}
                       initial={{
                         opacity: 0,
-                        transform:
-                          "perspective(500px) translateY(35px) rotateX(120deg) scale(0.75)",
+                        transform: "perspective(500px) translateY(35px) rotateX(120deg) scale(0.75)",
                       }}
                       whileInView={{
                         opacity: 1,
-                        transform:
-                          "perspective(500px) translateY(0px) rotateX(0deg) scale(1)",
+                        transform: "perspective(500px) translateY(0px) rotateX(0deg) scale(1)",
                       }}
                       viewport={{ once: true, margin: "-50px" }}
                       transition={{
@@ -53,9 +51,7 @@ const Skills = () => {
                       >
                         {skill.icon}
                       </motion.span>
-                      <span className="font-medium text-center text-xs">
-                        {skill.name}
-                      </span>
+                      <span className="text-center text-xs font-medium">{skill.name}</span>
                     </motion.div>
                   )
                 })}

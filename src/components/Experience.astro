@@ -9,9 +9,7 @@ import { experiences } from "@/content/experiences"
       {
         experiences
           .slice(0, Math.ceil(experiences.length / 2))
-          .map((experience, index) => (
-            <ExperienceCard {experience} {index} size={experiences.length} />
-          ))
+          .map((experience, index) => <ExperienceCard {experience} {index} size={experiences.length} />)
       }
     </div>
 
@@ -20,11 +18,7 @@ import { experiences } from "@/content/experiences"
         experiences
           .slice(Math.ceil(experiences.length / 2))
           .map((experience, index) => (
-            <ExperienceCard
-              {experience}
-              index={Math.ceil(experiences.length / 2) + index}
-              size={experiences.length}
-            />
+            <ExperienceCard {experience} index={Math.ceil(experiences.length / 2) + index} size={experiences.length} />
           ))
       }
     </div>

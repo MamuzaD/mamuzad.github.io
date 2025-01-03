@@ -8,14 +8,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 import { Button } from "@/components/ui/button"
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
@@ -37,10 +30,7 @@ const service = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID
 const template = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID
 const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
 
-export default function ContactForm({
-  setViewForm,
-  setDropdownOpen,
-}: ContactFormProps) {
+export default function ContactForm({ setViewForm, setDropdownOpen }: ContactFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState(false)
 
@@ -61,19 +51,17 @@ export default function ContactForm({
       message: values.message,
     }
 
-    emailjs
-      .send(service, template, templateParams, { publicKey: publicKey })
-      .then(
-        () => {
-          setIsSubmitted(true)
-          setTimeout(() => {
-            setViewForm(false)
-          }, 2000)
-        },
-        (error) => {
-          setError(true)
-        }
-      )
+    emailjs.send(service, template, templateParams, { publicKey: publicKey }).then(
+      () => {
+        setIsSubmitted(true)
+        setTimeout(() => {
+          setViewForm(false)
+        }, 2000)
+      },
+      (error) => {
+        setError(true)
+      }
+    )
   }
 
   return (
@@ -88,9 +76,7 @@ export default function ContactForm({
         contact me
       </h3>
       {isSubmitted ? (
-        <p className="text-2xl font-medium text-primary">
-          sent! thanks for reaching out
-        </p>
+        <p className="text-2xl font-medium text-primary">sent! thanks for reaching out</p>
       ) : (
         <>
           <Form {...form}>
@@ -102,12 +88,7 @@ export default function ContactForm({
                   <FormItem>
                     <FormLabel>name</FormLabel>
                     <FormControl>
-                      <Input
-                        type="text"
-                        placeholder="name"
-                        {...field}
-                        className="bg-background/80 backdrop-blur"
-                      />
+                      <Input type="text" placeholder="name" {...field} className="bg-background/80 backdrop-blur" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -150,16 +131,8 @@ export default function ContactForm({
               />
               <div className="flex place-items-center justify-between gap-4">
                 <Button type="submit">Submit</Button>
-                {error && (
-                  <div className="mb-4 text-center font-medium text-red-600">
-                    {"something went wrong :("}
-                  </div>
-                )}
-                <Button
-                  type="button"
-                  variant="secondary"
-                  onClick={() => setViewForm(false)}
-                >
+                {error && <div className="mb-4 text-center font-medium text-red-600">{"something went wrong :("}</div>}
+                <Button type="button" variant="secondary" onClick={() => setViewForm(false)}>
                   Cancel
                 </Button>
               </div>

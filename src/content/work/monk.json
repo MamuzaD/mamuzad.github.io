@@ -27,5 +27,18 @@
     "img": "public/work/monk/monk.webp",
     "alt": "Monk Card"
   },
-  "imgs": []
+  "imgs": [
+    {
+      "img": "public/work/monk/board.webp",
+      "alt": "Board animated image"
+    },
+    {
+      "img": "public/work/monk/notes.webp",
+      "alt": "Notes animated image"
+    },
+    {
+      "img": "public/work/monk/hero.jpg",
+      "alt": "Hero image"
+    }
+  ]
 }

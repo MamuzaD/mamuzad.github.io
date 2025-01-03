@@ -29,10 +29,7 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
                     <motion.img
                       key={highlightedProject?.data.card.img.src}
                       src={highlightedProject.data.card.img.src}
-                      alt={
-                        highlightedProject.data.card.alt ||
-                        highlightedProject.data.title
-                      }
+                      alt={highlightedProject.data.card.alt || highlightedProject.data.title}
                       className="duration-250 h-full w-full rounded-lg object-cover shadow-mac-md transition-[box-shadow] hover:shadow-mac-lg"
                       initial={{ opacity: 0, translateY: 25 }}
                       animate={{ opacity: 1, translateY: 0 }}
@@ -63,10 +60,7 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
         <div className="flex-1 md:max-w-md">
           <ul className="space-y-10">
             {projects.map((project) => (
-              <li
-                key={project.id}
-                onMouseEnter={() => setHighlightedProject(project)}
-              >
+              <li key={project.id} onMouseEnter={() => setHighlightedProject(project)}>
                 <a
                   href={`/work/${project.id}`}
                   className={`group mt-4 block cursor-pointer rounded-[2.5rem] px-10 py-5 backdrop-blur-sm transition-[background_color] duration-300 md:mt-0 md:rounded-xl md:hover:bg-primary/30 ${highlightedProject && highlightedProject.id === project.id ? "bg-primary/40 dark:bg-primary/20" : "bg-muted/70 md:bg-transparent"}`}
@@ -83,9 +77,7 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
                       <h3 className="text-lg font-medium text-neutral-950 transition-none dark:text-neutral-50">
                         {project.data.title}
                       </h3>
-                      <p className="text-base text-neutral-500 dark:text-neutral-600">
-                        {project.data.caption}
-                      </p>
+                      <p className="text-base text-neutral-500 dark:text-neutral-600">{project.data.caption}</p>
                     </span>
                     <p className="flex items-center text-sm text-neutral-500 dark:text-neutral-600">
                       <span className="transition-[transform_opacity] duration-200 md:group-hover:opacity-0">
@@ -103,17 +95,16 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
           </ul>
         </div>
       </div>
-      <Button>
-        <LinkPreview
-          url="/work"
-          isStatic
-          imageSrc="/socials/work.jpg"
-          side="bottom"
-          sideOffset={25}
-        >
-          view all
-        </LinkPreview>
-      </Button>
+      <LinkPreview
+        url="/work"
+        isStatic
+        imageSrc="/socials/work.jpg"
+        side="bottom"
+        sideOffset={25}
+        className="rounded-lg bg-primary px-4 py-2 text-primary-foreground hover:bg-primary/90"
+      >
+        view all
+      </LinkPreview>
     </section>
   )
 }

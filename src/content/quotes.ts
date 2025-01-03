@@ -13,15 +13,13 @@ export const quotes: quote[] = [
     src: "/media/geralt.jpg",
   },
   {
-    quote:
-      "I knew a man once who said, 'Death smiles at us all. All a man can do is smile back.'",
+    quote: "I knew a man once who said, 'Death smiles at us all. All a man can do is smile back.'",
     author: "Maximus",
     media: "Gladiator",
     src: "/media/gladiator.jpg",
   },
   {
-    quote:
-      "This player dreamed of sunlight and trees. Of fire and water. It dreamed it created.",
+    quote: "This player dreamed of sunlight and trees. Of fire and water. It dreamed it created.",
     author: "Julian Gough",
     media: "Minecraft",
     src: "/media/minecraft1.jpg",
@@ -46,8 +44,7 @@ export const quotes: quote[] = [
     src: "/media/minecraft2.jpg",
   },
   {
-    quote:
-      "All we have to decide is what to do with the time that is given to us.",
+    quote: "All we have to decide is what to do with the time that is given to us.",
     author: "Gandalf",
     media: "The Lord of the Rings",
     src: "/media/gandalf1.jpg",

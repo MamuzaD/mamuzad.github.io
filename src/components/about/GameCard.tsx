@@ -1,9 +1,5 @@
 import type { Game } from "@/components/about/Games.astro"
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card"
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 
 interface GameCardProps {
   game: Game

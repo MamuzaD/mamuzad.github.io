@@ -2,11 +2,7 @@ import Autoplay from "embla-carousel-autoplay"
 
 import { quotes } from "@/content/quotes"
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import { LinkPreview } from "@/components/ui/link-preview"
 
 const Quotes = () => {
@@ -28,9 +24,7 @@ const Quotes = () => {
         {quotes.map((q, index) => (
           <CarouselItem key={index}>
             <div className="flex h-full flex-col gap-1 rounded-md p-4 font-light">
-              <span className="mt-0.5 flex-grow text-lg font-normal">
-                {`"${q.quote}"`}
-              </span>
+              <span className="mt-0.5 flex-grow text-lg font-normal">{`"${q.quote}"`}</span>
               <LinkPreview
                 noUrl
                 imageSrc={q.src}

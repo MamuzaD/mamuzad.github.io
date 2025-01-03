@@ -56,15 +56,10 @@ import ParticlesBG from "@/components/layout/Particles"
 <script is:inline>
   function setDarkMode(document) {
     const getThemePreference = () => {
-      if (
-        typeof localStorage !== "undefined" &&
-        localStorage.getItem("theme")
-      ) {
+      if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
         return localStorage.getItem("theme")
       }
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "theme-light"
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "theme-light"
     }
     const isDark = getThemePreference() === "dark"
     document.documentElement.classList[isDark ? "add" : "remove"]("dark")
@@ -88,12 +83,7 @@ import ParticlesBG from "@/components/layout/Particles"
   })
 
   // sounds
-  const sounds = [
-    "/sounds/click1.wav",
-    "/sounds/click2.wav",
-    "/sounds/click3.wav",
-    "/sounds/click4.wav",
-  ]
+  const sounds = ["/sounds/click1.wav", "/sounds/click2.wav", "/sounds/click3.wav", "/sounds/click4.wav"]
 
   let isPlaying = false
   let sound = new Audio()
@@ -124,8 +114,7 @@ import ParticlesBG from "@/components/layout/Particles"
     const clickElements = document.querySelectorAll("button, a")
 
     clickElements.forEach((element) => {
-      if (!element.classList.contains("no-sound"))
-        element.addEventListener("click", playRandomSound)
+      if (!element.classList.contains("no-sound")) element.addEventListener("click", playRandomSound)
     })
   }
 

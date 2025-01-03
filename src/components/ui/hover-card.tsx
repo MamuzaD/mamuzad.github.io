@@ -9,11 +9,7 @@ const HoverCardTrigger = React.forwardRef<
   React.ElementRef<typeof HoverCardPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof HoverCardPrimitive.Trigger>
 >(({ className, ...props }, ref) => (
-  <HoverCardPrimitive.Trigger
-    ref={ref}
-    className={cn("no-sound", className)}
-    {...props}
-  />
+  <HoverCardPrimitive.Trigger ref={ref} className={cn("no-sound", className)} {...props} />
 ))
 
 HoverCardTrigger.displayName = HoverCardPrimitive.Trigger.displayName

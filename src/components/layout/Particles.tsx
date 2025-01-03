@@ -40,12 +40,7 @@ const ParticlesBG = () => {
   }, [])
 
   // sounds
-  const sounds = [
-    "/sounds/click1.wav",
-    "/sounds/click2.wav",
-    "/sounds/click3.wav",
-    "/sounds/click4.wav",
-  ]
+  const sounds = ["/sounds/click1.wav", "/sounds/click2.wav", "/sounds/click3.wav", "/sounds/click4.wav"]
 
   let isPlaying = false
 
@@ -72,9 +67,7 @@ const ParticlesBG = () => {
     )
   }
 
-  const particlesLoaded = async (
-    container: Container | undefined
-  ): Promise<void> => {
+  const particlesLoaded = async (container: Container | undefined): Promise<void> => {
     if (container) {
       container.interactivity.element?.addEventListener("click", () => {
         playRandomSound()
@@ -164,14 +157,7 @@ const ParticlesBG = () => {
   )
 
   if (init && particleIcons.length > 0) {
-    return (
-      <Particles
-        id="tsparticles"
-        particlesLoaded={particlesLoaded}
-        options={options}
-        className="absolute"
-      />
-    )
+    return <Particles id="tsparticles" particlesLoaded={particlesLoaded} options={options} className="absolute" />
   }
 
   return <></>

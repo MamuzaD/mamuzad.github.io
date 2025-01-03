@@ -36,14 +36,11 @@ export async function scrapeFilmDetails(url: string) {
       const filmElement = document.querySelector(".td-film-details")
       if (!filmElement) return null
 
-      const titleElement =
-        filmElement.parentElement?.querySelector("h3.headline-3 a")
+      const titleElement = filmElement.parentElement?.querySelector("h3.headline-3 a")
       const title = titleElement ? titleElement.textContent?.trim() : null
 
       const imgElement = filmElement.querySelector("img")
-      let imageUrl = imgElement
-        ? imgElement.getAttribute("src")?.replace("35", "100")
-        : null
+      let imageUrl = imgElement ? imgElement.getAttribute("src")?.replace("35", "100") : null
       imageUrl = imageUrl?.replace(/-0-(\d+)-0-(\d+)/, "-0-100-0-150")
 
       const starsElement = document.querySelector("span.rating")

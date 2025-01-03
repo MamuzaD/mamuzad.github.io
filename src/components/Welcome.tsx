@@ -28,12 +28,7 @@ export default function Welcome() {
           }}
         >
           <span className="flex">
-            <TypingAnimation
-              className="mb-2 min-h-10 text-3xl font-bold"
-              as="h1"
-              duration={100}
-              delay={100}
-            >
+            <TypingAnimation className="mb-2 min-h-10 text-3xl font-bold" as="h1" duration={100} delay={100}>
               hey, i'm daniel
             </TypingAnimation>
             <motion.span
