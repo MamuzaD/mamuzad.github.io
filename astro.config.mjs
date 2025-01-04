@@ -1,19 +1,23 @@
 // @ts-check
 import react from "@astrojs/react"
+import sitemap from "@astrojs/sitemap"
 import tailwind from "@astrojs/tailwind"
 import vercel from "@astrojs/vercel"
+import compressor from "astro-compressor"
 import icon from "astro-icon"
 import { defineConfig } from "astro/config"
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://danielmamuza.com",
   integrations: [
     react(),
     tailwind({
       applyBaseStyles: false,
     }),
-    ,
     icon(),
+    sitemap(),
+    compressor(),
   ],
   output: "server",
   adapter: vercel({

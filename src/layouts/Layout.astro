@@ -11,7 +11,7 @@ interface Props {
   title?: string
   OGimg?: string
   description?: string
-} 
+}
 
 const { title, OGimg, description } = Astro.props
 ---
@@ -29,29 +29,29 @@ const { title, OGimg, description } = Astro.props
         basic: {
           title: title ?? "Daniel Mamuza",
           type: "website",
-          image: OGimg ?? "https://danielmamuza.com/waves.png", 
-          url: "https://danielmamuza.com", 
+          image: OGimg ?? "https://danielmamuza.com/waves.png",
+          url: "https://danielmamuza.com",
         },
         optional: {
-          siteName: "Daniel Mamuza"
-        }
+          siteName: "Daniel Mamuza",
+        },
       }}
-      twitter={
-      {
+      twitter={{
         card: "summary_large_image",
         image: "https://danielmamuza.com/waves.png",
         description: description,
-      }
-      }
+      }}
       extend={{
-        link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+        link: [
+          { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+          { rel: "sitemap", href: "/sitemap-index.xml" },
+        ],
         meta: [
           {
             name: "twitter:image",
             content: "https://danielmamuza.com/waves.png",
           },
           { property: "twitter:title", content: "Daniel Mamuza – Software Engineer" },
-
         ],
       }}
     />
