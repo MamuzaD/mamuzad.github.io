@@ -24,7 +24,9 @@ const { entry } = Astro.props
 const { data: project } = entry
 ---
 
-<Layout>
+<Layout title={project.title}
+
+>
   <main class="relative pt-24">
     <div class="w-full md:px-24">
       {/* Banner Image */}
@@ -118,10 +120,10 @@ const { data: project } = entry
             })
         }
 
-        <div class="col-start-1 col-end-13 mt-16 space-y-8 md:space-y-16 md:col-start-5">
+        <div class="col-start-1 col-end-13 mt-16 space-y-8 md:col-start-5 md:space-y-16">
           {
             project.imgs?.map((img) => (
-              <div class="overflow-hidden rounded-3xl border bg-primary-foreground/90 p-4 backdrop-blur md:p-10 w-full h-auto">
+              <div class="h-auto w-full overflow-hidden rounded-3xl border bg-primary-foreground/90 p-4 backdrop-blur md:p-10">
                 <Image
                   src={img.img}
                   alt={img.alt || ""}

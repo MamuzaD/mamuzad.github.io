@@ -5,20 +5,53 @@ import { ClientRouter } from "astro:transitions"
 import Footer from "@/components/layout/Footer.astro"
 import Navbar from "@/components/layout/Navbar.astro"
 import ParticlesBG from "@/components/layout/Particles"
+import { SEO } from "astro-seo"
+
+interface Props {
+  title?: string | undefined
+  OGTitle?: string | undefined
+  description?: string | undefined
+}
+
+const { title, OGTitle, description } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Daniel Mamuza – Software Engineer</title>
 
-    <link rel="preload" href="/profile/spiderman.jpg" as="image" />
-    <link rel="preload" href="/profile/me.jpg" as="image" />
-    <link rel="preload" href="/profile/minecraft.jpg" as="image" />
+    <SEO
+      title={title}
+      titleTemplate="%s - Daniel Mamuza"
+      description={description}
+      openGraph={{
+        basic: {
+          title: "Daniel Mamuza – Software Engineer",
+          type: "website",
+          image: "https://example.com/path/to/your-image.jpg", // Replace with an actual image URL
+          url: "https://danielmamuza.com", // Replace with your website URL
+        },
+      }}
+      extend={{
+        link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+        meta: [
+          {
+            name: "twitter:image",
+            content: "https://example.com/path/to/your-image.jpg", // Replace with your image URL
+          },
+          { name: "twitter:title", content: "Daniel Mamuza – Software Engineer" },
+          {
+            name: "twitter:description",
+            content:
+              "",
+          },
+        ],
+      }}
+    />
+
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
     <ClientRouter />
   </head>
   <body>
