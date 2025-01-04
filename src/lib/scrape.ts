@@ -1,5 +1,5 @@
 import chromium from "@sparticuz/chromium"
-import puppeteer from "puppeteer"
+import puppeteer from "puppeteer-core"
 
 export async function scrapeFilmDetails(url: string) {
   let browser

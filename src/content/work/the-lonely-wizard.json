@@ -1,16 +1,19 @@
 {
   "title": "The Lonely Wizard",
   "caption": "2D Unity Game",
-  "description": ["Designed a 2d rogue-like shooter game over winter break."],
-  "publishDate": "2024-02-01T00:00:00Z",
+  "description": [
+    "After taking an Intro to C++ programming course at UNLV, I decided to transfer my knowledge to C# for designing a 2D rogue-like shooter game over winter break. Through this project, I learned key game development concepts like the gameplay loop, animation triggers, player controls, and inheritance.",
+    "I also gained experience in integrating player stats and enemy AI behaviors. The project helped me sharpen my problem-solving skills, particularly when addressing animation-related physics issues."
+  ],
+  "duration": { "start": "2024-01-10", "end": "2024-02-01" },
   "banner": {
-    "img": "public/work/the-lonely-wizard/the-lonely-wizard.webp",
+    "img": "public/work/the-lonely-wizard/banner.jpg",
     "alt": "The Lonely Wizard Banner"
   },
   "card": {
-    "img": "public/work/the-lonely-wizard/the-lonely-wizard.webp",
+    "img": "public/work/the-lonely-wizard/card.jpg",
     "alt": "The Lonely Wizard Card"
   },
   "tags": ["Unity", "C#", "Game Development"],
-  "githubLink": "https://github.com/MamuzaD/thelonelywizard"
+  "links": [{ "name": "github", "url": "//github.com/MamuzaD/thelonelywizard" }]
 }

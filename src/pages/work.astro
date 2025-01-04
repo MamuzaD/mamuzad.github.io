@@ -6,7 +6,7 @@ import { getCollection, type CollectionEntry } from "astro:content"
 type Work = CollectionEntry<"work">
 
 const projects = (await getCollection("work")).sort(
-  (a: Work, b: Work) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+  (a: Work, b: Work) => b.data.duration.start.valueOf() - a.data.duration.start.valueOf()
 )
 
 const columns: Work[][] = [[], [], []]

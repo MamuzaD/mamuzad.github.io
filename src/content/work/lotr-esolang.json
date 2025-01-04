@@ -1,8 +1,11 @@
 {
   "title": "Lord of the Rings Esolang",
   "caption": "Interpreted Language",
-  "description": ["Developed an esoteric language based on a small Lord of the Rings phase from winter 2024."],
-  "publishDate": "2024-02-14T00:00:00Z",
+  "description": [
+    "Developed an esoteric programming language in TypeScript, including a lexer, AST, parser, and evaluator, inspired by a Lord of the Rings phase during winter 2024. ",
+    "This project enhanced my understanding of language design and compiler construction while gaining hands-on experience with TypeScript's type system. I implemented a lexer for tokenization, an abstract syntax tree (AST) for structure, and a parser and evaluator to interpret and execute code."
+  ],
+  "duration": { "start": "2024-02-14T00:00:00Z" },
   "banner": {
     "img": "public/work/lotr-esolang/lotr-esolang.webp",
     "alt": "Esolang Banner"
@@ -12,5 +15,5 @@
     "alt": "Esolang Card"
   },
   "tags": ["TypeScript", "Interpreter Design", "Parser", "Lexer", "Evaluater"],
-  "githubLink": "https://github.com/MamuzaD/Lord-of-The-Rings-Esolang"
+  "links": [{ "name": "github", "url": "//github.com/MamuzaD/Lord-of-The-Rings-Esolang" }]
 }

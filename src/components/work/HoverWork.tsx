@@ -81,7 +81,7 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
                     </span>
                     <p className="flex items-center text-sm text-neutral-500 dark:text-neutral-600">
                       <span className="transition-[transform_opacity] duration-200 md:group-hover:opacity-0">
-                        {project.data.publishDate.toLocaleDateString("en-US", {
+                        {project.data.duration.start.toLocaleDateString("en-US", {
                           month: "short",
                           year: "numeric",
                         })}
