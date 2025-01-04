@@ -1,3 +1,5 @@
+"use client"
+
 import { Moon, Sun } from "lucide-react"
 import { useEffect, useState } from "react"
 
@@ -7,13 +9,19 @@ export function ModeToggle() {
   const [theme, setThemeState] = useState<"theme-light" | "dark" | "system">("system")
 
   useEffect(() => {
-    const isDarkMode = document.documentElement.classList.contains("dark")
-    setThemeState(isDarkMode ? "dark" : "theme-light")
+    const storedTheme = localStorage.getItem("theme") as "theme-light" | "dark" | "system" | null
+    if (storedTheme) {
+      setThemeState(storedTheme)
+    } else {
+      const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+      setThemeState(isDarkMode ? "dark" : "theme-light")
+    }
   }, [])
 
   useEffect(() => {
     const isDark = theme === "dark" || (theme === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches)
     document.documentElement.classList[isDark ? "add" : "remove"]("dark")
+    localStorage.setItem("theme", theme) // persist theme
   }, [theme])
 
   const toggleTheme = () => {
