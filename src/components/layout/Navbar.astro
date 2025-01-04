@@ -7,20 +7,19 @@ import { socials } from "@/content/socials"
 import { Icon } from "astro-icon/components"
 ---
 
-<!-- make hamburger -->
 <nav
   transition:persist
   class="fixed top-0 z-[100] flex max-h-24 w-full animate-slideDown items-center justify-between gap-6 bg-gradient-to-b from-neutral-200/80 from-40% to-transparent px-2 pb-6 pt-4 font-semibold backdrop-blur-sm dark:from-neutral-950/80 md:px-8"
 >
-  <div class="flex items-center justify-between gap-4">
+  <div class="z-[70] flex items-center justify-between gap-4">
     <ProfilePic height="300px" width="300px" small />
     <a href="/" class="hover-underline-animation"> Daniel Mamuza </a>
   </div>
-  <div>
+  <div class="hidden md:block">
     <span>Software Engineer • </span>
     <a href="/work" class="hover-underline-animation"> Work </a>
   </div>
-  <div class="flex place-items-center gap-2 md:gap-6">
+  <div class="hidden place-items-center gap-2 md:flex md:gap-6">
     {
       socials.map((social, index) => (
         <LinkPreview imageSrc={social.src} url={social.href} target="_blank" isStatic client:load>
@@ -33,5 +32,75 @@ import { Icon } from "astro-icon/components"
     }
     <ModeToggle client:load />
   </div>
+  <!-- mobile -->
+  <menu-button class="flex md:hidden">
+    <template>
+      <button
+        aria-expanded="false"
+        class="z-[100] flex size-10 items-center rounded-full p-2 hover:bg-accent hover:text-accent-foreground"
+      >
+        <span class="sr-only">Menu</span>
+        <Icon name="mdi--menu" class="size-8" />
+      </button>
+    </template>
+  </menu-button>
   <ScrollProgress client:idle />
+
+  <div
+    id="menu-content"
+    class="fixed left-0 top-0 z-50 flex w-full -translate-y-full transform justify-between gap-4 rounded-b-3xl border-b bg-background/80 px-4 pb-10 pt-28 shadow-lg backdrop-blur-sm transition-transform duration-500 ease-in-out md:hidden"
+  >
+    <a href="/work" class="text-center text-base font-medium">Work</a>
+    <div class="flex items-center gap-4">
+      {
+        socials.map((social) => (
+          <a href={social.href}>
+            <Icon name={social.icon} class="size-7 transition-all hover:scale-110 hover:text-primary" />
+          </a>
+        ))
+      }
+    </div>
+    <ModeToggle client:load />
+  </div>
 </nav>
+
+<script>
+  class MenuButton extends HTMLElement {
+    constructor() {
+      super()
+
+      // Inject menu toggle button when JS runs.
+      this.appendChild(this.querySelector("template")!.content.cloneNode(true))
+      const btn = this.querySelector("button")!
+
+      const menu = document.getElementById("menu-content")!
+
+      const setExpanded = (expand: boolean) => {
+        btn.setAttribute("aria-expanded", expand ? "true" : "false")
+
+        if (expand) {
+          menu.classList.remove("hidden")
+
+          menu.classList.remove("-translate-y-full")
+        } else {
+          menu.classList.remove("hidden")
+
+          menu.classList.add("-translate-y-full")
+          setTimeout(function () {}, 500)
+        }
+      }
+
+      btn.addEventListener("click", () => setExpanded(menu.classList.contains("-translate-y-full")))
+
+      // Hide menu button for large screens.
+      const handleViewports = (e: MediaQueryList | MediaQueryListEvent) => {
+        setExpanded(e.matches)
+        btn.hidden = e.matches
+      }
+      const mediaQueries = window.matchMedia("(min-width: 50em)")
+      handleViewports(mediaQueries)
+      mediaQueries.addEventListener("change", handleViewports)
+    }
+  }
+  customElements.define("menu-button", MenuButton)
+</script>
