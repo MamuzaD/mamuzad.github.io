@@ -21,6 +21,7 @@ const work = defineCollection({
       title: z.string(),
       caption: z.string(),
       description: z.array(z.string()),
+      seoDescription: z.string(),
       duration: durationSchema,
 
       // links

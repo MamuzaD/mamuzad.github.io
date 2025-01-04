@@ -5,6 +5,7 @@
     "Developed an esoteric programming language in TypeScript, including a lexer, AST, parser, and evaluator, inspired by a Lord of the Rings phase during winter 2024. ",
     "This project enhanced my understanding of language design and compiler construction while gaining hands-on experience with TypeScript's type system. I implemented a lexer for tokenization, an abstract syntax tree (AST) for structure, and a parser and evaluator to interpret and execute code."
   ],
+  "seoDescription": "Lord of the Rings Esolang is an esoteric language interpreter built with TypeScript and Deno. It supports a REPL mode and transcribes '.lotr' files into executable code.",
   "duration": { "start": "2024-02-14T00:00:00Z" },
   "banner": {
     "img": "public/work/lotr-esolang/lotr-esolang.webp",

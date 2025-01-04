@@ -25,7 +25,8 @@ const { data: project } = entry
 ---
 
 <Layout title={project.title}
-
+  description={project.seoDescription}
+  OGimg={project.card.img.src}
 >
   <main class="relative pt-24">
     <div class="w-full md:px-24">

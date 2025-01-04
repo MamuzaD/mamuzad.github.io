@@ -5,6 +5,7 @@
     "After taking an Intro to C++ programming course at UNLV, I decided to transfer my knowledge to C# for designing a 2D rogue-like shooter game over winter break. Through this project, I learned key game development concepts like the gameplay loop, animation triggers, player controls, and inheritance.",
     "I also gained experience in integrating player stats and enemy AI behaviors. The project helped me sharpen my problem-solving skills, particularly when addressing animation-related physics issues."
   ],
+  "seoDescription": "The Lonely Wizard is a 2D top-down rogue-like shooter game created with C# and Unity. It features engaging game mechanics, enemy AI, and a leveling system for a dynamic gameplay experience.",
   "duration": { "start": "2024-01-10", "end": "2024-02-01" },
   "banner": {
     "img": "public/work/the-lonely-wizard/banner.jpg",
