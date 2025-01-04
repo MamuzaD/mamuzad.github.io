@@ -17,7 +17,7 @@ export default function About({ children }: AboutProps) {
       className="relative flex h-full min-h-[400px] w-full max-w-[785px] auto-rows-[176px] grid-cols-4 flex-col gap-4 rounded-xl bg-primary-foreground/50 p-4 shadow-aboutcard backdrop-blur-sm md:grid"
       initial={{
         opacity: 0,
-        transform: "perspective(1500px) translateY(400px) rotateX(75deg) scaleX(0.9)", // Initial state
+        transform: "perspective(1500px) translateY(400px) rotateX(45deg) scaleX(0.9)", // Initial state
       }}
       whileInView={{
         opacity: 1,
