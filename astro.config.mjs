@@ -6,6 +6,7 @@ import vercel from "@astrojs/vercel"
 import compressor from "astro-compressor"
 import icon from "astro-icon"
 import { defineConfig } from "astro/config"
+import { sitemapCopier } from "./sitemap-copier"
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +20,7 @@ export default defineConfig({
     icon(),
     sitemap(),
     compressor(),
+    sitemapCopier(),
   ],
   output: "server",
   adapter: vercel({
