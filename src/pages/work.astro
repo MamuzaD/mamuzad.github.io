@@ -1,0 +1,44 @@
+---
+import ProjectCard from "@/components/work/ProjectCard.astro"
+import Layout from "@/layouts/Layout.astro"
+import { getCollection, type CollectionEntry } from "astro:content"
+
+type Work = CollectionEntry<"work">
+
+const projects = (await getCollection("work")).sort(
+  (a: Work, b: Work) => b.data.duration.start.valueOf() - a.data.duration.start.valueOf()
+)
+
+const columns: Work[][] = [[], [], []]
+projects.forEach((project: Work, index: number) => {
+  columns[index % 3].push(project)
+})
+---
+
+<Layout title="Work" description="">
+  <main class="min-h-[calc(90vh)] pt-32">
+    <div class="hidden gap-4 px-8 sm:grid sm:grid-cols-2 lg:grid-cols-3">
+      {
+        columns.map((column) => (
+          <div class="flex flex-shrink-0 flex-col gap-6">
+            {column.map((project) => (
+              <div class="z-10">
+                <ProjectCard {project} />
+              </div>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="flex flex-col gap-12 sm:hidden">
+      {
+        projects.map((project) => (
+          <div class="z-10">
+            <ProjectCard {project} />
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</Layout>

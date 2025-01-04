@@ -1,0 +1,36 @@
+---
+import GameCard from "@/components/about/GameCard"
+
+export const prerender = false
+
+const api = import.meta.env.STEAM_API_KEY
+const steamId = "76561197989108352"
+const apiUrl = `http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${api}&steamid=${steamId}&format=json&count=4`
+
+export type Game = {
+  appid: number
+  name: string
+  playtime_2weeks: number
+  playtime_forever: number
+  img_icon_url: string
+  img_logo_url: string
+}
+
+const response = await fetch(apiUrl)
+const data = await response.json()
+const games: Game[] = data.response.games
+---
+
+<div
+  class="z-50 col-span-1 row-span-1 grid h-full w-full grid-cols-4 place-items-center gap-2 rounded-xl bg-muted/60 p-2 py-4 backdrop-blur-lg md:max-w-56 md:grid-cols-2 md:py-2"
+>
+  {games.map((game) => <GameCard {game} client:idle />)}
+
+  {/* Render empty squares if less than 4 games */}
+  {
+    games.length < 4 &&
+      Array.from({ length: 4 - games.length }).map((_, index) => (
+        <div class="h-16 w-16 rounded-lg bg-neutral-200 transition-transform duration-300 ease-in-out hover:scale-110 dark:bg-neutral-700 md:h-[4.75rem] md:w-[4.75rem]" />
+      ))
+  }
+</div>

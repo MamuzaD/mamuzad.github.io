@@ -1,0 +1,162 @@
+---
+import "@/styles/global.css"
+import { ClientRouter } from "astro:transitions"
+
+import Footer from "@/components/layout/Footer.astro"
+import Navbar from "@/components/layout/Navbar.astro"
+import ParticlesBG from "@/components/layout/Particles"
+import { SEO } from "astro-seo"
+
+interface Props {
+  title?: string
+  OGimg?: string
+  description?: string
+} 
+
+const { title, OGimg, description } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <SEO
+      title={title}
+      titleTemplate="%s - Daniel Mamuza"
+      description={description}
+      openGraph={{
+        basic: {
+          title: title ?? "Daniel Mamuza",
+          type: "website",
+          image: OGimg ?? "https://danielmamuza.com/waves.png", 
+          url: "https://danielmamuza.com", 
+        },
+        optional: {
+          siteName: "Daniel Mamuza"
+        }
+      }}
+      twitter={
+      {
+        card: "summary_large_image",
+        image: "https://danielmamuza.com/waves.png",
+        description: description,
+      }
+      }
+      extend={{
+        link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+        meta: [
+          {
+            name: "twitter:image",
+            content: "https://danielmamuza.com/waves.png",
+          },
+          { property: "twitter:title", content: "Daniel Mamuza – Software Engineer" },
+
+        ],
+      }}
+    />
+
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <ClientRouter />
+  </head>
+  <body>
+    <ParticlesBG client:load />
+    <Navbar />
+    <div class="mx-6 md:mx-0">
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  html {
+    tab-size: 2;
+  }
+
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* body {
+    background-image: url("/src/assets/background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+  } */
+</style>
+
+<script is:inline>
+  function setDarkMode(document) {
+    const getThemePreference = () => {
+      if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+        return localStorage.getItem("theme")
+      }
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "theme-light"
+    }
+    const isDark = getThemePreference() === "dark"
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark")
+
+    if (typeof localStorage !== "undefined") {
+      const observer = new MutationObserver(() => {
+        const isDark = document.documentElement.classList.contains("dark")
+        localStorage.setItem("theme", isDark ? "dark" : "theme-light")
+      })
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ["class"],
+      })
+    }
+  }
+
+  setDarkMode(document)
+
+  document.addEventListener("astro:before-swap", (ev) => {
+    setDarkMode(ev.newDocument)
+  })
+
+  // sounds
+  const sounds = ["/sounds/click1.wav", "/sounds/click2.wav", "/sounds/click3.wav", "/sounds/click4.wav"]
+
+  let isPlaying = false
+  let sound = new Audio()
+
+  const playRandomSound = () => {
+    const randomSound = sounds[Math.floor(Math.random() * sounds.length)]
+
+    if (isPlaying) {
+      sound.pause()
+      sound.currentTime = 0
+    }
+
+    sound.src = randomSound
+
+    isPlaying = true
+    sound.play()
+
+    sound.addEventListener(
+      "ended",
+      () => {
+        isPlaying = false
+      },
+      { once: true }
+    )
+  }
+
+  const initClicker = () => {
+    const clickElements = document.querySelectorAll("button, a")
+
+    clickElements.forEach((element) => {
+      if (!element.classList.contains("no-sound")) element.addEventListener("click", playRandomSound)
+    })
+  }
+
+  document.addEventListener("astro:page-load", initClicker)
+  initClicker()
+</script>

@@ -1,0 +1,14 @@
+---
+import HoverWork from "@/components/work/HoverWork"
+import { type CollectionEntry, getCollection } from "astro:content"
+
+type Work = CollectionEntry<"work">
+
+const projects = (await getCollection("work"))
+  .sort((a: Work, b: Work) => b.data.duration.start.valueOf() - a.data.duration.start.valueOf())
+  .slice(0, 4)
+---
+
+<>
+  <HoverWork projects={projects} client:load />
+</>

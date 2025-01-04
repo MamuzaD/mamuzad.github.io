@@ -1,0 +1,142 @@
+---
+export const prerender = true
+
+import { type CollectionEntry, getCollection } from "astro:content"
+
+import Layout from "@/layouts/Layout.astro"
+import { Icon } from "astro-icon/components"
+import { Image } from "astro:assets"
+
+type Work = CollectionEntry<"work">
+interface Props {
+  entry: Work
+}
+
+export async function getStaticPaths() {
+  const work = await getCollection("work")
+  return work.map((entry: Work) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { data: project } = entry
+---
+
+<Layout title={project.title}
+  description={project.seoDescription}
+  OGimg={project.card.img.src}
+>
+  <main class="relative pt-24">
+    <div class="w-full md:px-24">
+      {/* Banner Image */}
+      <div class="mb-16 flex justify-center overflow-hidden">
+        <Image
+          src={project.banner.img}
+          alt={project.banner.alt || ""}
+          class={`max-w-[${project.banner.img.width}] h-full rounded-2xl border`}
+          transition:name={project.card.alt}
+          transition:animate="fade"
+        />
+      </div>
+
+      <div class="grid grid-cols-12 gap-8">
+        {/* Project Title & Caption (fixed) */}
+        <div class="col-span-full h-fit md:sticky md:top-32 md:col-end-4">
+          <h1 class="font-mono text-3xl font-light">{project.title}</h1>
+          <p class="mt-2 text-xl text-neutral-500">{project.caption}</p>
+        </div>
+
+        <div class="col-start-1 col-end-13 md:col-start-5 md:col-end-13 md:columns-2">
+          <div class="gap-8 font-medium">
+            {project.description.map((paragraph) => <p class="md:hidden">{paragraph}</p>)}
+
+            <div class="hidden md:block">
+              {
+                project.description
+                  .slice(0, Math.ceil(project.description.length / 2))
+                  .map((paragraph) => <p>{paragraph}</p>)
+              }
+              {
+                project.description
+                  .slice(Math.ceil(project.description.length / 2))
+                  .map((paragraph) => <p>{paragraph}</p>)
+              }
+            </div>
+          </div>
+        </div>
+
+        <hr class="col-start-1 col-end-13 border md:col-start-5" />
+
+        {
+          project.duration && (
+            <div class="col-start-1 col-end-7 md:col-start-5 md:col-end-8 md:mb-8">
+              <h3 class="mb-1 text-sm uppercase tracking-wider text-neutral-500">Duration</h3>
+              <p class="mt-1 text-base font-medium">
+                {`${new Intl.DateTimeFormat("en-US", { month: "long" }).format(project.duration.start)} ${project.duration.start.getFullYear()}`}
+                {project.duration.end &&
+                  ` - ${new Intl.DateTimeFormat("en-US", { month: "long" }).format(project.duration.end)} ${project.duration.end.getFullYear()}`}
+              </p>
+            </div>
+          )
+        }
+
+        {
+          project.tags && (
+            <div class="col-start-7 col-end-13 md:col-start-8 md:col-end-12 md:mb-8">
+              <h3 class="mb-1 text-sm uppercase tracking-wider text-neutral-500">Tags</h3>
+              <div class="flex flex-wrap items-center justify-start gap-1 text-base font-medium">
+                {project.tags.map((tag) => (
+                  <p class="rounded-full border px-2.5 py-[0.25rem] text-sm transition-transform duration-300 ease-in-out hover:-translate-y-0.5">
+                    {tag}
+                  </p>
+                ))}
+              </div>
+            </div>
+          )
+        }
+
+        {
+          project.links &&
+            project.links.length > 0 &&
+            project.links.map((link, index) => {
+              const colStart = Math.ceil(5 + index * 3.5) // Dynamically set the column start for each link
+              const icon = link.name === "live" ? "mdi--link" : `mdi--${link.name}`
+              return (
+                <div class={`md:col-start-${colStart} relative col-span-full w-full md:col-span-4`}>
+                  <a
+                    href={link.url}
+                    class="group inline-block w-full rounded-xl border bg-primary-foreground/60 p-4 backdrop-blur transition-[background-color] duration-200 hover:bg-primary-foreground/90"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span class="flex items-center justify-center gap-8 text-center text-lg font-medium uppercase tracking-wider transition-transform duration-300 group-hover:scale-110">
+                      {link.name}
+                      <Icon name={icon} class="inline-block size-7" />
+                    </span>
+                  </a>
+                </div>
+              )
+            })
+        }
+
+        <div class="col-start-1 col-end-13 mt-16 space-y-8 md:col-start-5 md:space-y-16">
+          {
+            project.imgs?.map((img) => (
+              <div class="h-auto w-full overflow-hidden rounded-3xl border bg-primary-foreground/90 p-4 backdrop-blur md:p-10">
+                <Image
+                  src={img.img}
+                  alt={img.alt || ""}
+                  width={1200}
+                  height={675}
+                  class="w-full rounded-lg shadow-mac-md transition-[box-shadow] duration-300 hover:shadow-mac-lg"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
