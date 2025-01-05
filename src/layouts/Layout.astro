@@ -22,8 +22,8 @@ const { title, OGimg, description } = Astro.props
     <meta charset="UTF-8" />
 
     <SEO
-      title={title}
-      titleTemplate="%s - Daniel Mamuza"
+      title={title === "Home" ? "Daniel Mamuza" : title}
+      titleTemplate={title === "Home" ? undefined : "%s - Daniel Mamuza"}
       description={description}
       openGraph={{
         basic: {

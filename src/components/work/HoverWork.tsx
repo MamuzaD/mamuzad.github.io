@@ -72,12 +72,12 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
                       className="h-full w-full rounded-3xl object-cover"
                     />
                   </div>
-                  <span className="flex w-full flex-row justify-between gap-6">
+                  <span className="flex w-full flex-row justify-between gap-6 md:mt-0 mt-4">
                     <span className="">
-                      <h3 className="text-lg font-medium text-neutral-950 transition-none dark:text-neutral-50">
+                      <h3 className="md:text-lg text-base font-medium text-neutral-950 transition-none dark:text-neutral-50">
                         {project.data.title}
                       </h3>
-                      <p className="text-base text-neutral-500 dark:text-neutral-600">{project.data.caption}</p>
+                      <p className="md:text-base text-sm text-neutral-500 dark:text-neutral-600">{project.data.caption}</p>
                     </span>
                     <p className="flex items-center text-sm text-neutral-500 dark:text-neutral-600">
                       <span className="transition-[transform_opacity] duration-200 md:group-hover:opacity-0">
