@@ -16,6 +16,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { Portal } from "@radix-ui/react-dropdown-menu"
 
 export default function Contact() {
   const [viewForm, setViewForm] = useState(false)
@@ -35,12 +36,15 @@ export default function Contact() {
     if (viewForm && formRef.current) formRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
   }, [viewForm])
 
+  useEffect(() => {
+
+  })
+
   return (
     <section className="z-50 flex flex-col items-center">
       {!viewForm && (
         <DropdownMenu modal={false} open={dropdownOpen} onOpenChange={setDropdownOpen}>
           <DropdownMenuTrigger
-          onClick={() => setDropdownOpen((prev) => !prev)}
             className={`min-h-26 z-50 text-4xl font-bold ${!copied && "pb-5"} hover-underline-animation`}
           >
             contact me
