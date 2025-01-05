@@ -16,11 +16,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Portal } from "@radix-ui/react-dropdown-menu"
 
 export default function Contact() {
   const [viewForm, setViewForm] = useState(false)
-  const [dropdownOpen, setDropdownOpen] = useState(false)
+  const [dropdownOpen, setDropdownOpen] = useState(true)
   const [copied, setCopied] = useState(false)
   const [copiedMessage, setCopiedMessage] = useState<string>("")
   const formRef = useRef<HTMLDivElement | null>(null)
@@ -37,8 +36,8 @@ export default function Contact() {
   }, [viewForm])
 
   useEffect(() => {
-
-  })
+    setDropdownOpen(false)
+  }, [])
 
   return (
     <section className="z-50 flex flex-col items-center">
