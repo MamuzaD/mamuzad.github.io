@@ -35,13 +35,13 @@ export default function Contact() {
     if (viewForm && formRef.current) formRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
   }, [viewForm])
 
-
   return (
     <section className="z-50 flex flex-col items-center">
       {!viewForm && (
-        <DropdownMenu open={dropdownOpen} onOpenChange={setDropdownOpen}>
+        <DropdownMenu modal={false} open={dropdownOpen}>
           <DropdownMenuTrigger
-            className={`min-h-26 z-50 text-4xl font-bold ${!copied && "pb-5"}`}
+            onClick={() => setDropdownOpen((val) => !val)}
+            className={`min-h-26 z-50 text-4xl font-bold ${!copied && "pb-5"} hover-underline-animation`}
           >
             contact me
           </DropdownMenuTrigger>
