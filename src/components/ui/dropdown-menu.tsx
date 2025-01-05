@@ -4,8 +4,18 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-const DropdownMenu = DropdownMenuPrimitive.Root
+const DropdownMenu: React.FC<DropdownMenuPrimitive.DropdownMenuProps> = (props) => {
+  // This is a hack to prevent the dropdown from rendering on the server side
+  const [mounted, setMounted] = React.useState(false);
 
+  React.useEffect(() => {
+    setMounted(true); // Set to true after the component mounts on the client
+  }, []);
+
+  if (!mounted) return null; // Return null on server side render
+
+  return <DropdownMenuPrimitive.Root {...props} />;
+};
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
 
 const DropdownMenuGroup = DropdownMenuPrimitive.Group
