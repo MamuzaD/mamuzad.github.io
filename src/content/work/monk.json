@@ -6,6 +6,7 @@
     "Prisma ORM and Supabase handled database tasks, while Clerk streamlined user authentication and organization management. To offer a pro-tier feature, I integrated Stripe’s API and created a modal to provide users with unlimited access. Inspired by tools like Trello and Notion, Monk combines the best features of both to offer a fast, efficient app for managing notes and tasks."
   ],
   "seoDescription": "Monk is a productivity tool combining Kanban boards and notes, built with Next.js, TypeScript, and PostgreSQL. Features include user authentication, Stripe subscriptions, and intuitive task management.",
+  "ogImg": "public/work/monk/monk.webp",
   "duration": { "start": "2024-06-28", "end": "2024-07-28" },
   "links": [
     { "name": "github", "url": "https://github.com/MamuzaD/monk" },

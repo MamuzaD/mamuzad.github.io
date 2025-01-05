@@ -6,6 +6,7 @@
     "Focused on creating a responsive and user-friendly layout. The site streamlines information sharing and enhances club engagement."
   ],
   "seoDescription": "Built the AI & Data Science Club website using React and Tailwind CSS, featuring events, projects, and analytics integration for enhanced engagement.",
+  "ogImg": "public/work/aiclub/aiclub.jpg",
   "duration": { "start": "2024-09-28", "end": "2024-11-16" },
   "banner": {
     "img": "public/work/aiclub/aiclub.jpg",

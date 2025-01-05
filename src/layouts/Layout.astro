@@ -8,9 +8,9 @@ import ParticlesBG from "@/components/layout/Particles"
 import { SEO } from "astro-seo"
 
 interface Props {
-  title?: string
+  title: string
   OGimg?: string
-  description?: string
+  description: string
 }
 
 const { title, OGimg, description } = Astro.props
@@ -27,17 +27,19 @@ const { title, OGimg, description } = Astro.props
       description={description}
       openGraph={{
         basic: {
-          title: title ?? "Daniel Mamuza",
+          title: title,
           type: "website",
           image: OGimg ?? "https://danielmamuza.com/waves.png",
           url: "https://danielmamuza.com",
         },
         optional: {
+          description: description.split(".")[0],
           siteName: "Daniel Mamuza",
         },
       }}
       twitter={{
         card: "summary_large_image",
+        title: "Daniel Mamuza – Software Engineer",
         image: "https://danielmamuza.com/waves.png",
         description: description,
       }}
@@ -46,13 +48,7 @@ const { title, OGimg, description } = Astro.props
           { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
           { rel: "sitemap", href: "/sitemap-index.xml" },
         ],
-        meta: [
-          {
-            name: "twitter:image",
-            content: "https://danielmamuza.com/waves.png",
-          },
-          { property: "twitter:title", content: "Daniel Mamuza – Software Engineer" },
-        ],
+        meta: [],
       }}
     />
 

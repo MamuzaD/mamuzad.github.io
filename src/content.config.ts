@@ -21,9 +21,11 @@ const work = defineCollection({
       title: z.string(),
       caption: z.string(),
       description: z.array(z.string()),
-      seoDescription: z.string(),
       duration: durationSchema,
-
+      
+      seoDescription: z.string(),
+      ogImg: z.string(),
+      
       // links
       links: z.array(linkSchema),
 

@@ -16,10 +16,10 @@ const TopSkills = () => {
               <motion.span
                 className="h-10 w-10 md:h-12 md:w-12"
                 whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                whileTap={{ scale: 0.6 }}
                 transition={{
                   whileHover: { duration: 500 },
-                  whileTap: { duration: 100 },
+                  whileTap: { duration: 10 },
                 }}
               >
                 {skill.icon}

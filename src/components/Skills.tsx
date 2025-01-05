@@ -21,21 +21,24 @@ const Skills = () => {
                 {skills.map((skill, i) => {
                   return (
                     <motion.div
-                      className="flex w-20 flex-col items-center justify-center gap-1 transition-transform hover:scale-110 focus:scale-90"
+                      className="flex w-20 flex-col items-center justify-center gap-1"
                       key={i}
                       initial={{
+                        y: 45,
+                        rotateX: "80deg",
+                        perspective: "1500px",
                         opacity: 0,
-                        transform: "perspective(500px) translateY(35px) rotateX(120deg) scale(0.75)",
                       }}
                       whileInView={{
+                        y: 0,
+                        rotateX: "0deg",
+                        perspective: "1500px",
                         opacity: 1,
-                        transform: "perspective(500px) translateY(0px) rotateX(0deg) scale(1)",
                       }}
                       viewport={{ once: true, margin: "-50px" }}
                       transition={{
                         type: "spring",
-                        stiffness: 90,
-                        damping: 16,
+                        stiffness: 150,
                         duration: 0.15,
                         delay: 0.25 * (rI + 1) + 0.25 * i,
                       }}
@@ -46,7 +49,7 @@ const Skills = () => {
                         whileTap={{ scale: 0.8 }}
                         transition={{
                           whileHover: { duration: 500 },
-                          whileTap: { duration: 100 },
+                          whileTap: { duration: 25 },
                         }}
                       >
                         {skill.icon}

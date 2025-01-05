@@ -74,7 +74,7 @@ const Movies = () => {
             <motion.img
               src={filmDetails.imageUrl || ""}
               alt={filmDetails.title || "Film image"}
-              className="w-12 rounded-lg bg-muted-foreground/30"
+              className="w-12 rounded-lg bg-muted-foreground/30 text-[8px]"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
               transition={{
