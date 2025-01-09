@@ -109,7 +109,7 @@ const ParticlesBG = () => {
             duration: 2,
             opacity: 1,
             size: 24,
-            speed: 5,
+            speed: 15,
           },
           push: {
             quantity: 1,

@@ -63,7 +63,7 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
               <li key={project.id} onMouseEnter={() => setHighlightedProject(project)}>
                 <a
                   href={`/work/${project.id}`}
-                  className={`group mt-4 block cursor-pointer rounded-[2.5rem] px-10 py-5 backdrop-blur-sm transition-[background_color] duration-300 md:mt-0 md:rounded-xl md:hover:bg-primary/30 hover:bg-muted/50 ${highlightedProject && highlightedProject.id === project.id ? "md:bg-primary/40 md:dark:bg-primary/20 bg-muted/70" : "bg-muted/70 md:bg-transparent"}`}
+                  className={`group mt-4 block cursor-pointer rounded-[2.5rem] px-10 py-5 backdrop-blur-sm transition-[background_color] duration-300 hover:bg-muted/50 md:mt-0 md:rounded-xl md:hover:bg-primary/30 ${highlightedProject && highlightedProject.id === project.id ? "bg-muted/70 md:bg-primary/40 md:dark:bg-primary/20" : "bg-muted/70 md:bg-transparent"}`}
                 >
                   <div className="mt-4 block rounded-lg shadow-md md:hidden">
                     <img
@@ -72,12 +72,14 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
                       className="h-full w-full rounded-3xl object-cover"
                     />
                   </div>
-                  <span className="flex w-full flex-row justify-between gap-6 md:mt-0 mt-4">
+                  <span className="mt-4 flex w-full flex-row justify-between gap-6 md:mt-0">
                     <span className="">
-                      <h3 className="md:text-lg text-base font-medium text-neutral-950 transition-none dark:text-neutral-50">
+                      <h3 className="text-base font-medium text-neutral-950 transition-none dark:text-neutral-50 md:text-lg">
                         {project.data.title}
                       </h3>
-                      <p className="md:text-base text-sm text-neutral-500 dark:text-neutral-600">{project.data.caption}</p>
+                      <p className="text-sm text-neutral-500 dark:text-neutral-600 md:text-base">
+                        {project.data.caption}
+                      </p>
                     </span>
                     <p className="flex items-center text-sm text-neutral-500 dark:text-neutral-600">
                       <span className="transition-[transform_opacity] duration-200 md:group-hover:opacity-0">

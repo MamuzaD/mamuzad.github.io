@@ -24,10 +24,7 @@ const { entry } = Astro.props
 const { data: project } = entry
 ---
 
-<Layout title={project.title}
-  description={project.seoDescription}
-  OGimg={project.ogImg}
->
+<Layout title={project.title} description={project.seoDescription} OGimg={project.ogImg}>
   <main class="relative pt-24">
     <div class="w-full md:px-24">
       {/* Banner Image */}

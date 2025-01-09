@@ -97,7 +97,7 @@ export const LinkPreview = ({
             "no-sound": noUrl,
           })}
           target={target}
-          {...(noUrl ? { } : { href: url })}
+          {...(noUrl ? {} : { href: url })}
         >
           {children}
         </HoverCardPrimitive.Trigger>

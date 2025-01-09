@@ -1,9 +1,5 @@
-import { glob } from "astro/loaders";
-import { type ImageFunction, defineCollection, z } from "astro:content";
-
-
-
-
+import { glob } from "astro/loaders"
+import { type ImageFunction, defineCollection, z } from "astro:content"
 
 const imageSchema = (image: ImageFunction) =>
   z.object({
@@ -22,10 +18,10 @@ const work = defineCollection({
       caption: z.string(),
       description: z.array(z.string()),
       duration: durationSchema,
-      
+
       seoDescription: z.string(),
       ogImg: z.string(),
-      
+
       // links
       links: z.array(linkSchema),
 

@@ -12,10 +12,7 @@ import RecentWork from "@/components/work/RecentWork.astro"
 import texts from "@/content/texts"
 ---
 
-<Layout
-  title={texts.index.title}
-  description={texts.index.description}
->
+<Layout title={texts.index.title} description={texts.index.description}>
   <Welcome client:load />
   <div class="flex flex-col items-center justify-center gap-52 pb-40">
     <About client:load>

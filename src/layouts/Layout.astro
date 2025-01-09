@@ -29,7 +29,7 @@ const { title, OGimg, description } = Astro.props
         basic: {
           title: title,
           type: "website",
-          image: OGimg ?? "https://danielmamuza.com/waves.png",
+          image: OGimg ?? "https://danielmamuza.com/preview.jpg",
           url: "https://danielmamuza.com",
         },
         optional: {
@@ -40,12 +40,12 @@ const { title, OGimg, description } = Astro.props
       twitter={{
         card: "summary_large_image",
         title: "Daniel Mamuza – Software Engineer",
-        image: "https://danielmamuza.com/waves.png",
+        image: "https://danielmamuza.com/preview.jpg",
         description: description,
       }}
       extend={{
         link: [
-          { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+          { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
           { rel: "sitemap", href: "/sitemap-index.xml" },
         ],
         meta: [],
