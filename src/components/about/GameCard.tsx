@@ -30,7 +30,11 @@ const GameCard = ({ game }: GameCardProps) => {
           style={{ imageRendering: "crisp-edges" }}
           className="w-full rounded-lg object-cover transition-transform duration-300 ease-in-out hover:scale-110"
         />
-        <span className="font-semibold">{`i've played ${(game.playtime_forever / 60.0).toFixed(1)} hrs total`}</span>
+        <span className="font-semibold">{`i've played ${
+          game.playtime_2weeks < 120
+            ? `${game.playtime_2weeks} mins`
+            : `${(game.playtime_2weeks / 60.0).toFixed(1)} hrs`
+        }  hrs recently`}</span>
       </HoverCardContent>
     </HoverCard>
   )

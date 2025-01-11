@@ -3,7 +3,6 @@ export const prerender = true
 import { Icon } from "astro-icon/components"
 
 const currentYear = new Date().getFullYear()
-const lastUpdated = new Date().toISOString().split("T")[0]
 ---
 
 <footer
@@ -21,6 +20,6 @@ const lastUpdated = new Date().toISOString().split("T")[0]
   </div>
   <div class="z-50 flex items-center justify-center gap-4 text-sm md:text-base">
     <p class="rounded-full border border-primary bg-primary/50 px-2.5 py-0.5 backdrop-blur">v3.0.4</p>
-    <p class="font-mono">LAST UPDATED {lastUpdated}</p>
+    <p class="font-mono">LAST UPDATED 2025-1-10</p>
   </div>
 </footer>
