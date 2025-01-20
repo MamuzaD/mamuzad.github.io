@@ -18,7 +18,7 @@ export type Game = {
 
 const response = await fetch(apiUrl)
 const data = await response.json()
-const games: Game[] = data.response.games
+const games: Game[] = data.response.games.slice(0, 4)
 ---
 
 <div
