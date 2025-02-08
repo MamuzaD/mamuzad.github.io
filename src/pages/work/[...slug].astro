@@ -104,7 +104,7 @@ const { data: project } = entry
                 <div class={`md:col-start-${colStart} relative col-span-full w-full md:col-span-4`}>
                   <a
                     href={link.url}
-                    class="group inline-block w-full rounded-xl border bg-primary-foreground/60 p-4 backdrop-blur transition-[background-color] duration-200 hover:bg-primary-foreground/90"
+                    class="group inline-block w-full rounded-xl border bg-primary-foreground/60 p-4 backdrop-blur-sm transition-[background-color] duration-200 hover:bg-primary-foreground/90"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -121,7 +121,7 @@ const { data: project } = entry
         <div class="col-start-1 col-end-13 mt-16 space-y-8 md:col-start-5 md:space-y-16">
           {
             project.imgs?.map((img) => (
-              <div class="h-auto w-full overflow-hidden rounded-3xl border bg-primary-foreground/90 p-4 backdrop-blur md:p-10">
+              <div class="h-auto w-full overflow-hidden rounded-3xl border bg-primary-foreground/90 p-4 backdrop-blur-sm md:p-10">
                 <Image
                   src={img.img}
                   alt={img.alt || ""}

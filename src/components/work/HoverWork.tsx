@@ -20,7 +20,7 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
       <h3 className="block text-3xl font-semibold md:hidden">recent work</h3>
       <div className="flex gap-8">
         {/* image */}
-        <div className="z-50 hidden h-[500px] w-[500px] flex-shrink-0 items-center justify-center rounded-3xl bg-primary-foreground/50 p-5 shadow-experiencard-card-light backdrop-blur dark:shadow-experiencard-card-dark md:flex">
+        <div className="z-50 hidden h-[500px] w-[500px] shrink-0 items-center justify-center rounded-3xl bg-primary-foreground/50 p-5 shadow-experiencard-card-light backdrop-blur-sm dark:shadow-experiencard-card-dark md:flex">
           {highlightedProject ? (
             <CardContainer className="rounded-lg p-4">
               <CardBody>
@@ -63,7 +63,7 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
               <li key={project.id} onMouseEnter={() => setHighlightedProject(project)}>
                 <a
                   href={`/work/${project.id}`}
-                  className={`group mt-4 block cursor-pointer rounded-[2.5rem] px-10 py-5 backdrop-blur-sm transition-[background_color] duration-300 hover:bg-muted/50 md:mt-0 md:rounded-xl md:hover:bg-primary/30 ${highlightedProject && highlightedProject.id === project.id ? "bg-muted/70 md:bg-primary/40 md:dark:bg-primary/20" : "bg-muted/70 md:bg-transparent"}`}
+                  className={`group mt-4 block cursor-pointer rounded-[2.5rem] px-10 py-5 backdrop-blur-xs transition-[background_color] duration-300 hover:bg-muted/50 md:mt-0 md:rounded-xl md:hover:bg-primary/30 ${highlightedProject && highlightedProject.id === project.id ? "bg-muted/70 md:bg-primary/40 md:dark:bg-primary/20" : "bg-muted/70 md:bg-transparent"}`}
                 >
                   <div className="mt-4 block rounded-lg shadow-md md:hidden">
                     <img

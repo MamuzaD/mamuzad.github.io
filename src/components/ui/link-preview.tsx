@@ -103,7 +103,7 @@ export const LinkPreview = ({
         </HoverCardPrimitive.Trigger>
 
         <HoverCardPrimitive.Content
-          className="z-[9999] [transform-origin:var(--radix-hover-card-content-transform-origin)]"
+          className="z-9999 [transform-origin:var(--radix-hover-card-content-transform-origin)]"
           side={side}
           align={align}
           alignOffset={alignOffset}
@@ -140,7 +140,7 @@ export const LinkPreview = ({
                     width={width}
                     height={height}
                     className="rounded-lg"
-                    alt="preview image z-[999]"
+                    alt="preview image z-999"
                   />
                 </a>
               </motion.div>

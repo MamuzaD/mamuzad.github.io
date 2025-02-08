@@ -1,7 +1,7 @@
 // @ts-check
 import react from "@astrojs/react"
 import sitemap from "@astrojs/sitemap"
-import tailwind from "@astrojs/tailwind"
+import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel"
 import compressor from "astro-compressor"
 import icon from "astro-icon"
@@ -9,15 +9,14 @@ import { defineConfig } from "astro/config"
 
 import { sitemapCopier } from "./sitemap-copier"
 
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://danielmamuza.com",
   base: "/",
+
   integrations: [
     react(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
     icon(),
     sitemap(),
     compressor(),
@@ -32,5 +31,8 @@ export default defineConfig({
   image: {
     remotePatterns: [{ protocol: "https" }],
     domains: ["api.microlink.io"],
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
 })
