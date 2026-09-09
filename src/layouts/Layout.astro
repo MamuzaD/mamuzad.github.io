@@ -5,9 +5,9 @@ import { ClientRouter } from "astro:transitions"
 import Footer from "@/components/layout/Footer.astro"
 import Navbar from "@/components/layout/Navbar.astro"
 import ParticlesBG from "@/components/layout/Particles"
+import ShaderOverlay from "@/components/layout/ShaderOverlay"
 import PostHog from "@/components/PostHog.astro"
 import { SEO } from "astro-seo"
-import ShaderOverlay from "@/components/layout/ShaderOverlay"
 
 interface Props {
   title: string
@@ -79,7 +79,8 @@ const canonical = currentPath === "/" ? siteURL : `${siteURL}${currentPath}`
     <script is:inline>
       ;(function () {
         const stored = typeof localStorage !== "undefined" ? localStorage.getItem("theme") : null
-        const isDark = stored === "dark" || (stored !== "theme-light" && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        const isDark =
+          stored === "dark" || (stored !== "theme-light" && window.matchMedia("(prefers-color-scheme: dark)").matches)
         document.documentElement.classList[isDark ? "add" : "remove"]("dark")
       })()
     </script>
@@ -137,7 +138,8 @@ const canonical = currentPath === "/" ? siteURL : `${siteURL}${currentPath}`
 <script is:inline>
   function setDarkMode(document) {
     const stored = localStorage.getItem("theme")
-    const isDark = stored === "dark" || (stored !== "theme-light" && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    const isDark =
+      stored === "dark" || (stored !== "theme-light" && window.matchMedia("(prefers-color-scheme: dark)").matches)
     document.documentElement.classList[isDark ? "add" : "remove"]("dark")
 
     if (window.__themeObserver) window.__themeObserver.disconnect()

@@ -71,7 +71,7 @@ export function SettingsMenu() {
               className={cn(
                 "no-sound h-7 flex-1 gap-1.5 rounded-lg text-xs font-medium",
                 !isMuted
-                  ? "bg-background text-foreground shadow-sm dark:shadow-sm shadow-md"
+                  ? "bg-background text-foreground shadow-md shadow-sm dark:shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
               )}
               onClick={() => setIsMuted(false)}
@@ -88,7 +88,7 @@ export function SettingsMenu() {
               className={cn(
                 "no-sound h-7 flex-1 gap-1.5 rounded-lg text-xs font-medium",
                 isMuted
-                  ? "bg-background text-foreground shadow-sm dark:shadow-sm shadow-md"
+                  ? "bg-background text-foreground shadow-md shadow-sm dark:shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
               )}
               onClick={() => setIsMuted(true)}
@@ -115,7 +115,7 @@ export function SettingsMenu() {
               className={cn(
                 "h-7 w-7 flex-1 rounded-lg",
                 theme === "theme-light"
-                  ? "bg-background text-foreground shadow-sm dark:shadow-sm shadow-md"
+                  ? "bg-background text-foreground shadow-md shadow-sm dark:shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
               )}
               onClick={() => setThemeState("theme-light")}
@@ -131,7 +131,7 @@ export function SettingsMenu() {
               className={cn(
                 "h-7 w-7 flex-1 rounded-lg",
                 theme === "dark"
-                  ? "bg-background text-foreground shadow-sm dark:shadow-sm shadow-md"
+                  ? "bg-background text-foreground shadow-md shadow-sm dark:shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
               )}
               onClick={() => setThemeState("dark")}
@@ -147,7 +147,7 @@ export function SettingsMenu() {
               className={cn(
                 "h-7 w-7 flex-1 rounded-lg",
                 theme === "system"
-                  ? "bg-background text-foreground shadow-sm dark:shadow-sm shadow-md"
+                  ? "bg-background text-foreground shadow-md shadow-sm dark:shadow-sm"
                   : "text-muted-foreground hover:text-foreground"
               )}
               onClick={() => setThemeState("system")}

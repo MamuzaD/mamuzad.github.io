@@ -15,8 +15,16 @@ import texts from "@/content/texts"
 <Layout title={texts.index.title} description={texts.index.description}>
   <Welcome client:load />
   <div class="flex flex-col items-center justify-center gap-52 pb-40">
-    <About client:load>
-      <Games />
+    <About client:visible>
+      <Games server:defer>
+        <div
+          slot="fallback"
+          aria-label="Loading favorite games"
+          class="bg-muted-foreground/10 dark:bg-muted/60 z-50 col-span-1 row-span-1 grid h-full w-full animate-pulse grid-cols-4 place-items-center gap-2 rounded-xl p-2 py-4 backdrop-blur-lg md:max-w-56 md:grid-cols-2 md:py-2"
+        >
+          {Array.from({ length: 4 }).map(() => <div class="bg-muted-foreground/10 size-16 rounded-lg md:size-19" />)}
+        </div>
+      </Games>
       <MostRecent />
     </About>
     <Experience />

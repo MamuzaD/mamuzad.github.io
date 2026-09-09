@@ -90,7 +90,7 @@ function dataHasChanged(cached: FilmDetails, fresh: FilmDetails): boolean {
 }
 
 export async function getFilmDetails(): Promise<FilmDetails | null> {
-  const cacheKey = "portfolio_film"
+  const cacheKey = "film:latest"
   const cachedData = await getCachedData<FilmDetails>(cacheKey)
 
   const scrapePromise = scrapeFilmDetails()

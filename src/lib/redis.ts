@@ -2,6 +2,9 @@ import { Redis } from "@upstash/redis"
 
 let redis: Redis | null = null
 
+const cacheNamespace = import.meta.env.CACHE_NAMESPACE?.trim() || (import.meta.env.PROD ? "prod" : "dev")
+const namespacedKey = (key: string) => `portfolio:${cacheNamespace}:${key}`
+
 export function getRedisClient(): Redis | null {
   if (!redis) {
     if (!import.meta.env.KV_REST_API_URL || !import.meta.env.KV_REST_API_TOKEN) {
@@ -26,13 +29,15 @@ export async function cacheData(key: string, data: any, expirySeconds?: number):
   const client = getRedisClient()
   if (!client) return false
 
+  const scopedKey = namespacedKey(key)
+
   try {
     if (expirySeconds) {
-      await client.setex(key, expirySeconds, JSON.stringify(data))
-      console.log(`Redis: Cached ${key} (expires in ${expirySeconds}s)`)
+      await client.setex(scopedKey, expirySeconds, JSON.stringify(data))
+      console.log(`Redis: Cached ${scopedKey} (expires in ${expirySeconds}s)`)
     } else {
-      await client.set(key, JSON.stringify(data))
-      console.log(`Redis: Cached ${key} (no expiry)`)
+      await client.set(scopedKey, JSON.stringify(data))
+      console.log(`Redis: Cached ${scopedKey} (no expiry)`)
     }
     return true
   } catch (error) {
@@ -45,13 +50,15 @@ export async function getCachedData<T>(key: string): Promise<T | null> {
   const client = getRedisClient()
   if (!client) return null
 
+  const scopedKey = namespacedKey(key)
+
   try {
-    const cachedData = await client.get(key)
+    const cachedData = await client.get(scopedKey)
     if (cachedData !== null && cachedData !== undefined) {
-      console.log(`Redis: Cache HIT ${key}`)
+      console.log(`Redis: Cache HIT ${scopedKey}`)
       return cachedData as T
     }
-    console.log(`Redis: Cache MISS ${key}`)
+    console.log(`Redis: Cache MISS ${scopedKey}`)
     return null
   } catch (error) {
     console.warn("Redis: Cache read error:", error)
@@ -63,10 +70,12 @@ export async function deleteCachedData(key: string): Promise<boolean> {
   const client = getRedisClient()
   if (!client) return false
 
+  const scopedKey = namespacedKey(key)
+
   try {
-    const result = await client.del(key)
+    const result = await client.del(scopedKey)
     if (result > 0) {
-      console.log(`Redis: Deleted ${key}`)
+      console.log(`Redis: Deleted ${scopedKey}`)
     }
     return result > 0
   } catch (error) {
