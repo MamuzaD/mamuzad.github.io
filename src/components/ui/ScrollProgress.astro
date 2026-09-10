@@ -1,0 +1,22 @@
+<div
+  class="bg-primary-foreground absolute top-[95%] right-0 left-0 z-99 h-[2px] overflow-hidden md:top-[75px] md:right-5 md:left-5"
+>
+  <div data-scroll-progress class="bg-primary h-full origin-left" style="transform: scaleX(0);"></div>
+</div>
+
+<script>
+  import { animate, scroll } from "motion"
+
+  let stopTracking: (() => void) | undefined
+
+  function trackScroll() {
+    const progress = document.querySelector<HTMLElement>("[data-scroll-progress]")
+    if (!progress) return
+
+    stopTracking?.()
+    stopTracking = scroll(animate(progress, { scaleX: [0, 1] }, { ease: "linear" }))
+  }
+
+  trackScroll()
+  document.addEventListener("astro:page-load", trackScroll)
+</script>

@@ -1,5 +1,3 @@
-import { motion } from "motion/react"
-
 import { topSkills } from "@/content/skills"
 
 const TopSkills = () => {
@@ -13,17 +11,9 @@ const TopSkills = () => {
               className="mx-auto flex flex-col items-center justify-center gap-1 transition-transform hover:scale-110 focus:scale-90"
               key={i}
             >
-              <motion.span
-                className="h-10 w-10 md:h-12 md:w-12"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.6 }}
-                transition={{
-                  whileHover: { duration: 500 },
-                  whileTap: { duration: 10 },
-                }}
-              >
+              <span className="h-10 w-10 transition-transform duration-500 hover:scale-110 active:scale-60 active:duration-[10ms] md:h-12 md:w-12">
                 {skill.icon}
-              </motion.span>
+              </span>
               <span className="text-center text-xs">{skill.name}</span>
             </div>
           )

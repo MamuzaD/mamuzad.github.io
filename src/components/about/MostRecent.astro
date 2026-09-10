@@ -1,11 +1,11 @@
 ---
 import recents from "@/content/recents"
 
-const sixMonthsAgo = new Date()
-sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6)
+const tenMonthsAgo = new Date()
+tenMonthsAgo.setMonth(tenMonthsAgo.getMonth() - 10)
 
 const recentRecents = recents
-  .filter((r) => r.date instanceof Date && r.date >= sixMonthsAgo)
+  .filter((r) => r.date instanceof Date && r.date >= tenMonthsAgo)
   .sort((a, b) => b.date.getTime() - a.date.getTime())
 ---
 

@@ -1,0 +1,57 @@
+---
+import Movies from "@/components/about/Movies"
+import Quotes from "@/components/about/Quotes"
+import TopSkills from "@/components/about/TopSkills"
+---
+
+<div
+  data-about-card
+  class="bg-primary-foreground/50 shadow-aboutcard relative flex h-full min-h-[400px] w-full max-w-[785px] auto-rows-[176px] grid-cols-4 flex-col gap-4 rounded-xl p-4 backdrop-blur-sm md:grid"
+  style="opacity: 0; transform: perspective(1500px) translateY(400px) rotateX(45deg) scaleX(0.9);"
+>
+  <Quotes client:visible />
+  <slot />
+  <Movies client:visible />
+  <TopSkills />
+</div>
+
+<script>
+  import { animate, inView } from "motion"
+
+  let activeCard: HTMLElement | null = null
+  let stopObserving: (() => void) | undefined
+
+  function initializeAbout() {
+    const card = document.querySelector<HTMLElement>("[data-about-card]")
+    if (card === activeCard) return
+
+    stopObserving?.()
+    stopObserving = undefined
+    activeCard = card
+
+    if (!card) return
+
+    stopObserving = inView(
+      card,
+      () => {
+        animate(
+          card,
+          {
+            opacity: 1,
+            transform: "perspective(1500px) translateY(0px) rotateX(0deg) scaleX(1)",
+          },
+          {
+            type: "spring",
+            stiffness: 90,
+            damping: 16,
+            delay: 0.6,
+          }
+        )
+      },
+      { margin: "500px" }
+    )
+  }
+
+  initializeAbout()
+  document.addEventListener("astro:page-load", initializeAbout)
+</script>
