@@ -10,6 +10,10 @@ interface RecentWorkProps {
   projects: CollectionEntry<"work">[]
 }
 
+const keepVideoMuted = (video: HTMLVideoElement | null) => {
+  if (video) video.muted = true
+}
+
 const HoverWork = ({ projects }: RecentWorkProps) => {
   const [highlightedProject, setHighlightedProject] = useState<CollectionEntry<"work"> | null>(null)
 
@@ -44,6 +48,8 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
                         }}
                         autoPlay
                         muted
+                        ref={keepVideoMuted}
+                        suppressHydrationWarning
                         loop
                         playsInline
                         preload="metadata"
@@ -100,6 +106,8 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
                         className="h-full w-full rounded-3xl object-cover"
                         autoPlay
                         muted
+                        ref={keepVideoMuted}
+                        suppressHydrationWarning
                         loop
                         playsInline
                         preload="metadata"

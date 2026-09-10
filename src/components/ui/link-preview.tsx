@@ -91,17 +91,22 @@ export const LinkPreview = ({
           setOpen(open)
         }}
       >
-        <HoverCardPrimitive.Trigger
-          onMouseMove={handleMouseMove}
-          className={cn("text-black dark:text-white", className, {
-            "no-sound": noUrl,
-          })}
-          target={target}
-          {...(noUrl ? {} : { href: url })}
-          asChild={noUrl}
-        >
-          {children}
-        </HoverCardPrimitive.Trigger>
+        {noUrl ? (
+          <HoverCardPrimitive.Trigger asChild>
+            <span onMouseMove={handleMouseMove} className={cn("no-sound text-black dark:text-white", className)}>
+              {children}
+            </span>
+          </HoverCardPrimitive.Trigger>
+        ) : (
+          <HoverCardPrimitive.Trigger
+            onMouseMove={handleMouseMove}
+            className={cn("text-black dark:text-white", className)}
+            target={target}
+            href={url}
+          >
+            {children}
+          </HoverCardPrimitive.Trigger>
+        )}
 
         <HoverCardPrimitive.Content
           className="z-9999 origin-(--radix-hover-card-content-transform-origin)"

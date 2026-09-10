@@ -78,12 +78,8 @@ const Skills = () => {
                     >
                       <motion.span
                         className="size-12 md:size-14"
-                        whileHover={{ scale: 1.15 }}
-                        whileTap={{ scale: 0.8 }}
-                        transition={{
-                          whileHover: { duration: 500 },
-                          whileTap: { duration: 25 },
-                        }}
+                        whileHover={{ scale: 1.15, transition: { duration: 0.5 } }}
+                        whileTap={{ scale: 0.8, transition: { duration: 0.025 } }}
                       >
                         {skill.icon}
                       </motion.span>

@@ -88,6 +88,7 @@ const canonical = currentPath === "/" ? siteURL : `${siteURL}${currentPath}`
     <ClientRouter />
 
     <script
+      is:inline
       type="application/ld+json"
       set:html={JSON.stringify({
         "@context": "https://schema.org",
@@ -163,6 +164,7 @@ const canonical = currentPath === "/" ? siteURL : `${siteURL}${currentPath}`
 
   let isPlaying = false
   let sound = new Audio()
+  const soundElements = (window.__soundElements ??= new WeakSet())
 
   const playRandomSound = () => {
     // Check if sound is muted
@@ -190,8 +192,8 @@ const canonical = currentPath === "/" ? siteURL : `${siteURL}${currentPath}`
   }
 
   const attachSound = (el) => {
-    if (el.classList.contains("no-sound") || el.dataset.sound) return
-    el.dataset.sound = "1"
+    if (el.classList.contains("no-sound") || soundElements.has(el)) return
+    soundElements.add(el)
     el.addEventListener("click", playRandomSound)
   }
 

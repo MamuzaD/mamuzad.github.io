@@ -64,12 +64,8 @@ const Movies = () => {
             src={filmDetails.imageUrl || ""}
             alt={filmDetails.title || "Film image"}
             className="bg-muted-foreground/30 w-12 rounded-lg text-[8px]"
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-            transition={{
-              whileHover: { duration: 500 },
-              whileTap: { duration: 100 },
-            }}
+            whileHover={{ scale: 1.2, transition: { duration: 0.5 } }}
+            whileTap={{ scale: 0.9, transition: { duration: 0.1 } }}
           />
           <div className="flex flex-col justify-center">
             <h2 className="text-md leader-tight line-clamp-1 text-center">{filmDetails.title}</h2>
