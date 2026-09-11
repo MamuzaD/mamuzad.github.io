@@ -20,7 +20,7 @@ const recentRecents = recents
               <>
                 {recent.content
                   .split(new RegExp(`(${recent.links.map((link) => link.where).join("|")})`))
-                  .map((part, i) => {
+                  .map((part) => {
                     const link = recent.links?.find((link) => link.where === part)
                     return link ? (
                       <a

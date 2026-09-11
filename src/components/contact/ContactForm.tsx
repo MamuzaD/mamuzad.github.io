@@ -15,7 +15,7 @@ const formSchema = z.object({
   name: z.string().min(2, { message: "please include a name" }).max(50, {
     message: "that's a long name, could you use a nickname perhaps",
   }),
-  email: z.string().email({ message: "please use a valid email" }),
+  email: z.email({ error: "please use a valid email" }),
   message: z.string().min(10, { message: "bit of a short message" }).max(500, {
     message: "bit of a long message, would you rather discuss in a meeting?",
   }),

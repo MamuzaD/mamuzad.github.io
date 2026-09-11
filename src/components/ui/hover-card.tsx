@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 const HoverCard = HoverCardPrimitive.Root
 
 const HoverCardTrigger = React.forwardRef<
-  React.ElementRef<typeof HoverCardPrimitive.Trigger>,
+  React.ComponentRef<typeof HoverCardPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof HoverCardPrimitive.Trigger>
 >(({ className, ...props }, ref) => (
   <HoverCardPrimitive.Trigger ref={ref} className={cn("no-sound", className)} {...props} />
@@ -15,7 +15,7 @@ const HoverCardTrigger = React.forwardRef<
 HoverCardTrigger.displayName = HoverCardPrimitive.Trigger.displayName
 
 const HoverCardContent = React.forwardRef<
-  React.ElementRef<typeof HoverCardPrimitive.Content>,
+  React.ComponentRef<typeof HoverCardPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof HoverCardPrimitive.Content>
 >(({ className, align = "center", sideOffset = 4, ...props }, ref) => (
   <HoverCardPrimitive.Content
