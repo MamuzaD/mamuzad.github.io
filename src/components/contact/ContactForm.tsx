@@ -2,7 +2,6 @@
 
 import emailjs from "@emailjs/browser"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { motion } from "motion/react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -58,7 +57,7 @@ export default function ContactForm({ setViewForm, setDropdownOpen }: ContactFor
           setViewForm(false)
         }, 2000)
       },
-      (error) => {
+      () => {
         setError(true)
       }
     )
@@ -66,14 +65,17 @@ export default function ContactForm({ setViewForm, setDropdownOpen }: ContactFor
 
   return (
     <div className="flex flex-col items-center">
-      <h3
-        className={`hover-underline-animation z-50 mb-4 min-h-26 cursor-pointer pb-5 text-center text-4xl font-bold`}
-        onClick={() => {
-          setViewForm(false)
-          setDropdownOpen(true)
-        }}
-      >
-        contact me
+      <h3 className="z-50 mb-4 min-h-26 pb-5 text-center text-4xl font-bold">
+        <button
+          type="button"
+          className="hover-underline-animation cursor-pointer"
+          onClick={() => {
+            setViewForm(false)
+            setDropdownOpen(true)
+          }}
+        >
+          contact me
+        </button>
       </h3>
       {isSubmitted ? (
         <p className="text-primary text-2xl font-medium">sent! thanks for reaching out</p>

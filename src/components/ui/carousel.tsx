@@ -94,6 +94,7 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
         return
       }
 
+      // oxlint-disable-next-line react/set-state-in-effect -- syncing scroll-button state from embla's imperative carousel API, an external system
       onSelect(api)
       api.on("reInit", onSelect)
       api.on("select", onSelect)
@@ -120,6 +121,7 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
           ref={ref}
           onKeyDownCapture={handleKeyDown}
           className={cn("relative", className)}
+          // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role -- role="region" + aria-roledescription is the ARIA APG carousel pattern, not a semantic <section>
           role="region"
           aria-roledescription="carousel"
           {...props}
@@ -156,6 +158,7 @@ const CarouselItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLD
     return (
       <div
         ref={ref}
+        // oxlint-disable-next-line jsx-a11y/prefer-tag-over-role -- role="group" + aria-roledescription="slide" is the ARIA APG carousel slide pattern
         role="group"
         aria-roledescription="slide"
         className={cn("min-w-0 shrink-0 grow-0 basis-full", orientation === "horizontal" ? "pl-4" : "pt-4", className)}

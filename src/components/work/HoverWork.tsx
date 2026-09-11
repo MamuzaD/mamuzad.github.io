@@ -93,10 +93,12 @@ const HoverWork = ({ projects }: RecentWorkProps) => {
         <div className="flex-1 md:max-w-md">
           <ul className="space-y-10">
             {projects.map((project) => (
-              <li key={project.id} onMouseEnter={() => setHighlightedProject(project)}>
+              <li key={project.id}>
                 <a
                   href={`/work/${project.id}`}
                   data-astro-prefetch
+                  onMouseEnter={() => setHighlightedProject(project)}
+                  onFocus={() => setHighlightedProject(project)}
                   className={`group shadow-experiencard-card-light hover:bg-muted/50 dark:shadow-experiencard-card-dark md:hover:bg-primary/30 mt-4 block cursor-pointer rounded-[2.5rem] px-10 py-5 backdrop-blur-xs transition-[background_color] duration-300 md:mt-0 md:rounded-xl md:shadow-none md:dark:shadow-none ${highlightedProject && highlightedProject.id === project.id ? "bg-muted/70 md:bg-primary/40 md:dark:bg-primary/20" : "bg-muted/70 md:bg-transparent"}`}
                 >
                   <div className="mt-4 block rounded-lg shadow-md md:hidden">

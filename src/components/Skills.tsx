@@ -1,14 +1,25 @@
 import { motion } from "motion/react"
-import { useRef, useState } from "react"
+import { useState } from "react"
 
-import { type skill, tabContent } from "@/content/skills"
+import { tabContent } from "@/content/skills"
 
 const tabs = ["general", "frontend", "backend", "other"] as const
 type TabType = (typeof tabs)[number]
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState<TabType>("general")
-  const animatedCategories = useRef<Set<string>>(new Set())
+  const [visitedTabs, setVisitedTabs] = useState<Set<TabType>>(() => new Set())
+  const shouldAnimate = !visitedTabs.has(activeTab)
+
+  const selectTab = (tab: TabType) => {
+    if (tab === activeTab) return
+
+    setVisitedTabs((previousTabs) => {
+      if (previousTabs.has(activeTab)) return previousTabs
+      return new Set(previousTabs).add(activeTab)
+    })
+    setActiveTab(tab)
+  }
 
   return (
     <section className="bg-primary-foreground/80 shadow-aboutcard z-10 rounded-3xl px-4 pt-5 pb-10 backdrop-blur-md md:px-16">
@@ -16,7 +27,7 @@ const Skills = () => {
         className={`no-visible-scrollbar relative mb-4 flex w-full max-w-full flex-row items-center justify-center overflow-auto sm:overflow-visible`}
       >
         {tabs.map((tab) => (
-          <button key={tab} onClick={() => setActiveTab(tab)} className={`relative rounded-full px-4 py-2`}>
+          <button key={tab} type="button" onClick={() => selectTab(tab)} className={`relative rounded-full px-4 py-2`}>
             {activeTab === tab && (
               <motion.div
                 layoutId="activeTab"
@@ -30,12 +41,8 @@ const Skills = () => {
       </div>
       <div className="space-y-4">
         {tabContent[activeTab].map(({ title, skills }, rI) => {
-          const categoryKey = `${activeTab}-${title}`
-          const shouldAnimate = !animatedCategories.current.has(categoryKey)
-          const handleAnimationComplete = () => animatedCategories.current.add(categoryKey)
-
           return (
-            <div key={categoryKey} className="w-full max-w-xl">
+            <div key={`${activeTab}-${title}`} className="w-full max-w-xl">
               <h4 className="mb-3 text-center font-medium">{title}</h4>
               <div className="flex w-full flex-wrap justify-center gap-2">
                 {skills.map((skill, i) => {
@@ -74,7 +81,6 @@ const Skills = () => {
                             }
                           : undefined
                       }
-                      onAnimationStart={handleAnimationComplete}
                     >
                       <motion.span
                         className="size-12 md:size-14"

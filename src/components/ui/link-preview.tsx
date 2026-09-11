@@ -61,6 +61,7 @@ export const LinkPreview = ({
   const [isMounted, setIsMounted] = React.useState(false)
 
   React.useEffect(() => {
+    // oxlint-disable-next-line react/set-state-in-effect -- intentional client-only mount flag to defer the preload <img> past SSR/hydration
     setIsMounted(true)
   }, [])
 
@@ -80,7 +81,7 @@ export const LinkPreview = ({
     <>
       {isMounted ? (
         <div className="hidden">
-          <img src={src} width={width} height={height} alt="hidden image" />
+          <img src={src} width={width} height={height} alt="" />
         </div>
       ) : null}
 
@@ -145,7 +146,7 @@ export const LinkPreview = ({
                       width={width}
                       height={height}
                       className="rounded-lg"
-                      alt="preview image z-999"
+                      alt="link preview"
                     />
                   </div>
                 ) : (
@@ -160,7 +161,7 @@ export const LinkPreview = ({
                       width={width}
                       height={height}
                       className="rounded-lg"
-                      alt="preview image z-999"
+                      alt="link preview"
                     />
                   </a>
                 )}

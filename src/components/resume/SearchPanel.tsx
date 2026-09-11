@@ -140,9 +140,10 @@ export default function SearchPanel({
             </div>
             <div className="space-y-3">
               {searchResults.map((result, index) => (
-                <div
+                <button
                   key={index}
-                  className={`hover:bg-accent/50 cursor-pointer rounded-lg border p-3 transition-all ${
+                  type="button"
+                  className={`hover:bg-accent/50 w-full cursor-pointer rounded-lg border p-3 text-left transition-all ${
                     index === currentSearchIndex
                       ? "border-primary bg-primary/10"
                       : "border-border bg-background/50 hover:border-accent backdrop-blur"
@@ -155,7 +156,7 @@ export default function SearchPanel({
                   <div className="text-sm leading-relaxed">
                     {highlightSearchText(result.context, result.matchStart, result.matchEnd)}
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>

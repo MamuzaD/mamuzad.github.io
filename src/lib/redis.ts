@@ -65,21 +65,3 @@ export async function getCachedData<T>(key: string): Promise<T | null> {
     return null
   }
 }
-
-export async function deleteCachedData(key: string): Promise<boolean> {
-  const client = getRedisClient()
-  if (!client) return false
-
-  const scopedKey = namespacedKey(key)
-
-  try {
-    const result = await client.del(scopedKey)
-    if (result > 0) {
-      console.log(`Redis: Deleted ${scopedKey}`)
-    }
-    return result > 0
-  } catch (error) {
-    console.warn("Redis: Delete error:", error)
-    return false
-  }
-}

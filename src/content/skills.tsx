@@ -1,16 +1,11 @@
-export type skill = {
+type Skill = {
   name: string
   icon: React.ReactElement
 }
 
-export type tab = {
-  title: string
-  skills: skill[]
-}[]
+type Skills = Record<string, Skill>
 
-type skills = Record<string, skill>
-
-export const langs: skills = {
+export const langs: Skills = {
   // prettier-ignore
   "C": {
     name: "C",
@@ -63,7 +58,7 @@ export const langs: skills = {
   },
 }
 
-const tech: skills = {
+const tech: Skills = {
   // prettier-ignore
   "Astro": {
     name: "Astro",
@@ -136,7 +131,7 @@ const tech: skills = {
   },
 }
 
-const tool: skills = {
+const tool: Skills = {
   // prettier-ignore
   "AWS": {
     name: "AWS",
@@ -219,7 +214,7 @@ const tool: skills = {
   },
 }
 
-export const topSkills: skill[] = [
+export const topSkills: Skill[] = [
   langs["TypeScript"],
   tech["React"],
   langs["C++"],

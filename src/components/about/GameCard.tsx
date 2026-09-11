@@ -45,7 +45,7 @@ const GameCard = ({ game }: GameCardProps) => {
             width={80}
             height={80}
             src={heroImg}
-            alt={`${game.name}'s Picture`}
+            alt={`${game.name} artwork`}
             onError={advanceHeroImg}
             style={{ imageRendering: "crisp-edges", objectPosition: game.artwork?.squarePosition }}
             className="no-sound h-16 w-16 rounded-lg object-cover transition-transform duration-300 ease-in-out hover:scale-110 md:h-19 md:w-19"
@@ -69,7 +69,7 @@ const GameCard = ({ game }: GameCardProps) => {
             width={231}
             height={87}
             src={bannerImg}
-            alt={`${game.name}'s Picture`}
+            alt={`${game.name} banner`}
             onError={advanceBannerImg}
             style={{ imageRendering: "crisp-edges" }}
             className="h-[87px] w-[231px] rounded-lg object-cover transition-transform duration-300 ease-in-out hover:scale-110"

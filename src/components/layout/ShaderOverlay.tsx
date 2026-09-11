@@ -9,7 +9,7 @@ export default function ShaderOverlay() {
   )
   const [isScrolling, setIsScrolling] = useState(false)
   const scrollTimeoutRef = useRef<number | null>(null)
-  const randVal = useRef(Math.random() * 2 - 1)
+  const [randVal] = useState(() => Math.random() * 2 - 1)
 
   useEffect(() => {
     const update = () => setIsDark(document.documentElement.classList.contains("dark"))
@@ -71,7 +71,7 @@ export default function ShaderOverlay() {
           speed={paused ? 0.15 : 0.45}
           scale={0.7}
           rotation={45}
-          offsetX={randVal.current * 0.2}
+          offsetX={randVal * 0.2}
           minPixelRatio={1}
         />
       </div>

@@ -2,14 +2,15 @@
 import { type Container, type ISourceOptions } from "@tsparticles/engine"
 import Particles, { initParticlesEngine } from "@tsparticles/react"
 import { loadSlim } from "@tsparticles/slim"
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 
 import { currentProfile, getIcons } from "@/lib/store"
 
 const ParticlesBG = () => {
   const [init, setInit] = useState(false)
   const [particleIcons, setParticleIcons] = useState<string[]>([])
-  const [sound, setSound] = useState<HTMLAudioElement | null>(null)
+  const soundRef = useRef<HTMLAudioElement | null>(null)
+  const isPlayingRef = useRef(false)
 
   // this should be run only once per application lifetime
   useEffect(() => {
@@ -36,35 +37,34 @@ const ParticlesBG = () => {
   }, [])
 
   useEffect(() => {
-    setSound(new Audio())
+    soundRef.current = new Audio()
   }, [])
 
   // sounds
   const sounds = ["/sounds/click1.wav", "/sounds/click2.wav", "/sounds/click3.wav", "/sounds/click4.wav"]
 
-  let isPlaying = false
-
   const playRandomSound = () => {
+    const sound = soundRef.current
     if (!sound) return
     // Check if sound is muted
     if ((window as any).soundMuted) return
 
     const randomSound = sounds[Math.floor(Math.random() * sounds.length)]
 
-    if (isPlaying) {
+    if (isPlayingRef.current) {
       sound.pause()
       sound.currentTime = 0
     }
 
     sound.src = randomSound
     sound.volume = 0.3
-    isPlaying = true
+    isPlayingRef.current = true
     sound.play()
 
     sound.addEventListener(
       "ended",
       () => {
-        isPlaying = false
+        isPlayingRef.current = false
       },
       { once: true }
     )
@@ -77,14 +77,6 @@ const ParticlesBG = () => {
       })
     }
   }
-
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine)
-    }).then(() => {
-      setInit(true)
-    })
-  }, [])
 
   const options: ISourceOptions = useMemo(
     () => ({

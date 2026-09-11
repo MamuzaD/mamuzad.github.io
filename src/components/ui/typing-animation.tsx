@@ -1,7 +1,7 @@
 "use client"
 
 import { type MotionProps, motion } from "motion/react"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -23,9 +23,7 @@ export default function TypingAnimation({
   startOnView = false,
   ...props
 }: TypingAnimationProps) {
-  const MotionComponent = motion.create(Component, {
-    forwardMotionProps: true,
-  })
+  const MotionComponent = useMemo(() => motion.create(Component, { forwardMotionProps: true }), [Component])
 
   const [displayedText, setDisplayedText] = useState<string>("")
   const [started, setStarted] = useState(false)
@@ -77,6 +75,7 @@ export default function TypingAnimation({
   }, [children, duration, started])
 
   return (
+    // oxlint-disable-next-line react/static-components -- memoized above via useMemo keyed on `Component`, identity is stable across renders
     <MotionComponent
       ref={elementRef}
       className={cn("text-4xl leading-20 font-bold tracking-[-0.02em]", className)}

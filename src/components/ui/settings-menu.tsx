@@ -16,20 +16,16 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export function SettingsMenu() {
-  const [isMuted, setIsMuted] = useState(true)
-  const [theme, setThemeState] = useState<"theme-light" | "dark" | "system">("system")
-
-  useEffect(() => {
+  const [isMuted, setIsMuted] = useState(() => {
+    if (typeof window === "undefined") return true
     const storedMute = localStorage.getItem("soundMuted")
-    if (storedMute) setIsMuted(storedMute === "true")
-
+    return storedMute ? storedMute === "true" : true
+  })
+  const [theme, setThemeState] = useState<"theme-light" | "dark" | "system">(() => {
+    if (typeof window === "undefined") return "system"
     const storedTheme = localStorage.getItem("theme") as "theme-light" | "dark" | "system" | null
-    if (storedTheme) {
-      setThemeState(storedTheme)
-    } else {
-      setThemeState("system")
-    }
-  }, [])
+    return storedTheme ?? "system"
+  })
 
   useEffect(() => {
     localStorage.setItem("soundMuted", isMuted.toString())
@@ -62,7 +58,7 @@ export function SettingsMenu() {
           <DropdownMenuLabel className="text-muted-foreground pt-2 pb-1 text-xs font-medium tracking-wide uppercase">
             Sound
           </DropdownMenuLabel>
-          <div className="bg-muted/60 flex gap-1 rounded-xl p-0.5" role="group" aria-label="Sound">
+          <fieldset className="bg-muted/60 m-0 flex gap-1 rounded-xl border-0 p-0.5" aria-label="Sound">
             <Button
               type="button"
               variant="ghost"
@@ -97,7 +93,7 @@ export function SettingsMenu() {
               <VolumeX className="h-3.5 w-3.5 shrink-0" />
               Off
             </Button>
-          </div>
+          </fieldset>
         </DropdownMenuGroup>
 
         <DropdownMenuSeparator className="my-2" />
@@ -106,7 +102,7 @@ export function SettingsMenu() {
           <DropdownMenuLabel className="text-muted-foreground pb-1 text-xs font-medium tracking-wide uppercase">
             Theme
           </DropdownMenuLabel>
-          <div className="bg-muted/60 flex gap-1 rounded-xl p-0.5" role="group" aria-label="Theme">
+          <fieldset className="bg-muted/60 m-0 flex gap-1 rounded-xl border-0 p-0.5" aria-label="Theme">
             <Button
               type="button"
               variant="ghost"
@@ -155,7 +151,7 @@ export function SettingsMenu() {
             >
               <MonitorIcon className="h-4 w-4" />
             </Button>
-          </div>
+          </fieldset>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
