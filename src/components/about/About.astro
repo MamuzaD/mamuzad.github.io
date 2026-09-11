@@ -1,5 +1,7 @@
 ---
-import Movies from "@/components/about/Movies"
+import Games from "@/components/about/Games.astro"
+import MostRecent from "@/components/about/MostRecent.astro"
+import Movies from "@/components/about/Movies.astro"
 import Quotes from "@/components/about/Quotes"
 import TopSkills from "@/components/about/TopSkills"
 ---
@@ -10,10 +12,69 @@ import TopSkills from "@/components/about/TopSkills"
   style="opacity: 0; transform: perspective(1500px) translateY(400px) rotateX(45deg) scaleX(0.9);"
 >
   <Quotes client:visible />
-  <slot />
-  <Movies client:visible />
+  <Games server:defer>
+    <div
+      slot="fallback"
+      aria-label="Loading favorite games"
+      class="bg-muted-foreground/10 dark:bg-muted/60 z-50 col-span-1 row-span-1 grid h-full w-full animate-pulse grid-cols-4 place-items-center gap-2 rounded-xl p-2 py-4 backdrop-blur-lg md:max-w-56 md:grid-cols-2 md:py-2"
+    >
+      {Array.from({ length: 4 }).map(() => (
+        <div class="bg-muted-foreground/10 size-16 rounded-lg md:size-19" />
+      ))}
+    </div>
+  </Games>
+  <MostRecent />
+  <Movies server:defer>
+    <div
+      slot="fallback"
+      aria-label="Loading recently watched movie"
+      class="bg-muted-foreground/10 dark:bg-muted/60 row-span-1 flex h-full flex-col items-center gap-0.5 rounded-xl py-4 backdrop-blur-lg md:p-2"
+    >
+      <span class="text-base font-medium">recently watched</span>
+      <div class="flex h-full animate-pulse flex-wrap items-center justify-center gap-2 md:gap-1 md:pb-8">
+        <div class="block h-[72px] w-12 rounded-lg bg-neutral-200 dark:bg-neutral-700" />
+        <div class="flex flex-col items-center justify-center gap-1">
+          <div class="text-md h-[22px] w-32 rounded-md bg-neutral-200 dark:bg-neutral-700" />
+          <div
+            aria-hidden="true"
+            class="flex h-5 items-center text-lg leading-none text-neutral-300 dark:text-neutral-600"
+          >
+            {Array.from({ length: 5 }).map((_, index) => (
+              <span class="movie-star" style={`animation-delay: ${index * 120}ms`}>
+                ★
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </Movies>
   <TopSkills />
 </div>
+
+<style>
+  @keyframes movie-star-loading {
+    0%,
+    100% {
+      opacity: 0.25;
+    }
+    20%,
+    45% {
+      opacity: 1;
+    }
+  }
+
+  .movie-star {
+    animation: movie-star-loading 1.8s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .movie-star {
+      animation: none;
+      opacity: 0.6;
+    }
+  }
+</style>
 
 <script>
   import { animate, inView } from "motion"

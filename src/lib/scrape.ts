@@ -2,7 +2,7 @@ import { waitUntil } from "@vercel/functions"
 
 import { cacheData, getCachedData } from "./redis"
 
-type FilmDetails = {
+export type FilmDetails = {
   title: string | null
   imageUrl: string | null
   stars: string | null

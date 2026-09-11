@@ -1,0 +1,93 @@
+---
+import { buttonVariants } from "@/components/ui/button"
+import { getFilmDetails } from "@/lib/scrape"
+
+let filmDetails = null
+try {
+  filmDetails = await getFilmDetails()
+} catch (err) {
+  console.error(err)
+}
+---
+
+<div
+  data-movies-card
+  class="bg-muted-foreground/10 dark:bg-muted/60 row-span-1 flex h-full flex-col items-center gap-0.5 rounded-xl py-4 backdrop-blur-lg md:p-2"
+>
+  <span class="text-base font-medium">recently watched</span>
+  <div
+    data-movies-content
+    class="animate-fadeIn flex h-full flex-wrap items-center justify-center gap-2 transition-opacity duration-500 ease-in-out md:gap-1 md:pb-8"
+    hidden={!filmDetails}
+  >
+    <img
+      data-movies-image
+      src={filmDetails?.imageUrl || ""}
+      alt={filmDetails?.title || "Film image"}
+      class="bg-muted-foreground/30 w-12 rounded-lg text-[8px] transition-transform duration-500 ease-in-out hover:scale-[1.2] active:scale-90"
+    />
+    <div class="flex flex-col justify-center">
+      <h2 data-movies-title class="text-md leader-tight line-clamp-1 text-center">
+        {filmDetails?.title}
+      </h2>
+      <p data-movies-stars class="text-primary text-center text-lg tracking-widest md:mt-1">
+        {filmDetails?.stars}
+      </p>
+    </div>
+  </div>
+  <div
+    data-movies-error
+    class="animate-fadeIn flex flex-col flex-wrap items-center justify-center gap-6 transition-opacity duration-500 ease-in-out"
+    hidden={!!filmDetails}
+  >
+    <span class="mt-2 font-medium text-red-600">{"error :("}</span>
+    <button data-movies-retry class={buttonVariants({ size: "sm" })} aria-label="Retry?">
+      retry?
+    </button>
+  </div>
+</div>
+
+<script>
+  interface FilmDetails {
+    title: string | null
+    imageUrl: string | null
+    stars: string | null
+  }
+
+  const retryMovies = async (button: HTMLButtonElement, card: HTMLElement) => {
+    button.disabled = true
+    button.textContent = "retrying..."
+
+    try {
+      const response = await fetch("/api/scrape?refresh=true")
+      if (!response.ok) throw new Error("Failed to fetch film details")
+      const filmDetails: FilmDetails = await response.json()
+
+      const image = card.querySelector<HTMLImageElement>("[data-movies-image]")
+      const title = card.querySelector<HTMLElement>("[data-movies-title]")
+      const stars = card.querySelector<HTMLElement>("[data-movies-stars]")
+      if (image) {
+        image.src = filmDetails.imageUrl ?? ""
+        image.alt = filmDetails.title ?? "Film image"
+      }
+      if (title) title.textContent = filmDetails.title ?? ""
+      if (stars) stars.textContent = filmDetails.stars ?? ""
+
+      card.querySelector<HTMLElement>("[data-movies-content]")?.removeAttribute("hidden")
+      card.querySelector<HTMLElement>("[data-movies-error]")?.setAttribute("hidden", "")
+    } catch (err) {
+      console.error(err)
+      button.disabled = false
+      button.textContent = "retry?"
+    }
+  }
+
+  document.addEventListener("click", (event) => {
+    const target = event.target
+    if (!(target instanceof Element)) return
+
+    const button = target.closest<HTMLButtonElement>("[data-movies-retry]")
+    const card = button?.closest<HTMLElement>("[data-movies-card]")
+    if (button && card) void retryMovies(button, card)
+  })
+</script>
