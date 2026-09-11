@@ -9,6 +9,8 @@
     "astro": "astro",
     "format:check": "oxfmt --check && prettier --check \"**/*.astro\" --cache",
     "format": "oxfmt && prettier --write \"**/*.astro\" --cache",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
     "typecheck": "astro check"
   },
   "dependencies": {
@@ -57,6 +59,7 @@
     "@astrojs/check": "^0.9.10",
     "@iconify-json/skill-icons": "^1.2.3",
     "oxfmt": "^0.67.0",
+    "oxlint": "^1.82.0",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^1.0.0",
     "typescript": "~6.0.3"
