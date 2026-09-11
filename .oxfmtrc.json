@@ -1,0 +1,41 @@
+{
+  "semi": false,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "useTabs": false,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "printWidth": 120,
+  "sortTailwindcss": {},
+  "sortImports": {
+    "groups": ["external", "app-lib", "app-components", "internal", ["parent", "sibling", "index"]],
+    "customGroups": [
+      {
+        "groupName": "app-lib",
+        "selector": "internal",
+        "elementNamePattern": ["@/lib/**", "@/utils/**", "@/content/**"]
+      },
+      {
+        "groupName": "app-components",
+        "selector": "internal",
+        "elementNamePattern": ["@/components/**"]
+      }
+    ],
+    "newlinesBetween": true
+  },
+  "ignorePatterns": [
+    "build/",
+    "dist/",
+    "node_modules/",
+    "package-lock.json",
+    "yarn.lock",
+    "pnpm-lock.yaml",
+    ".env",
+    ".env.*",
+    "*.min.js",
+    "*.log",
+    "coverage/",
+    "*.snap"
+  ]
+}

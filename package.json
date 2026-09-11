@@ -7,8 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx,astro}\" --cache",
-    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx,astro}\" --cache",
+    "format:check": "oxfmt --check && prettier --check \"**/*.astro\" --cache",
+    "format": "oxfmt && prettier --write \"**/*.astro\" --cache",
     "typecheck": "astro check"
   },
   "dependencies": {
@@ -56,16 +56,15 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "@iconify-json/skill-icons": "^1.2.3",
-    "@trivago/prettier-plugin-sort-imports": "^6.0.0",
-    "prettier": "^3.7.4",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-astro-organize-imports": "^0.4.11",
-    "prettier-plugin-tailwindcss": "^0.7.2",
+    "oxfmt": "^0.67.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^1.0.0",
     "typescript": "~6.0.3"
   },
   "engines": {
     "node": ">=22.12.0"
   },
+  "packageManager": "pnpm@10.30.0",
   "pnpm": {
     "onlyBuiltDependencies": [
       "@tsparticles/engine",

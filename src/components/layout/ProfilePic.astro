@@ -9,23 +9,21 @@ const { height, width, small } = Astro.props
 ---
 
 <profile-pic>
-  {
-    small ? (
-      <button class="profile-picture-small glow-on-hover" aria-label="Change profile picture">
-        <img
-          decoding="async"
-          alt=""
-          id="profile-picture-img"
-          loading="eager"
-          class="animate-fadeIn bg-muted-foreground/50"
-        />
-      </button>
-    ) : (
-      <button class="profile-picture" aria-label="Change profile picture">
-        <img {height} {width} decoding="async" alt="" loading="eager" />
-      </button>
-    )
-  }
+  {small ? (
+    <button class="profile-picture-small glow-on-hover" aria-label="Change profile picture">
+      <img
+        decoding="async"
+        alt=""
+        id="profile-picture-img"
+        loading="eager"
+        class="animate-fadeIn bg-muted-foreground/50"
+      />
+    </button>
+  ) : (
+    <button class="profile-picture" aria-label="Change profile picture">
+      <img {height} {width} decoding="async" alt="" loading="eager" />
+    </button>
+  )}
 </profile-pic>
 
 <script is:inline>

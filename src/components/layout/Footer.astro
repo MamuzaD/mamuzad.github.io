@@ -5,18 +5,20 @@ import { Icon } from "astro-icon/components"
 const currentYear = new Date().getFullYear()
 ---
 
-<footer
-  class="flex w-full flex-col place-items-center justify-between gap-4 bg-linear-to-t from-neutral-300/80 via-95% to-transparent px-2 pt-14 pb-6 font-semibold md:flex-row md:place-items-start md:px-8 dark:from-black/80"
->
+<footer class="flex w-full flex-col place-items-center justify-between gap-4 bg-linear-to-t from-neutral-300/80 via-95% to-transparent px-2 pt-14 pb-6 font-semibold md:flex-row md:place-items-start md:px-8 dark:from-black/80">
   <div class="z-50 flex gap-10 text-sm md:text-base">
     <p>
-      developed with <a href="https://astro.build/" class="hover-underline-animation">Astro </a>
+      developed with{" "}
+      <a href="https://astro.build/" class="hover-underline-animation">
+        Astro{" "}
+      </a>
       <Icon name="mdi--rocket-launch-outline" class="inline-block size-4 md:size-6" />
     </p>
     <p>
-      &copy; {currentYear}
-      {" "}
-      <a href="mailto:hello@danielmamuza.com" target="_blank" rel="noopener noreferrer">Daniel Mamuza</a>
+      &copy; {currentYear}{" "}
+      <a href="mailto:hello@danielmamuza.com" target="_blank" rel="noopener noreferrer">
+        Daniel Mamuza
+      </a>
     </p>
   </div>
   <div class="z-50 flex items-center justify-center gap-4 text-sm md:text-base">

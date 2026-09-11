@@ -23,7 +23,10 @@ const titles = [
   <div class="z-70 flex items-center justify-between gap-4">
     <ProfilePic height="300px" width="300px" small />
     <div class="mt-2 flex flex-col">
-      <a href="/" class="hover-underline-animation inline-block w-fit" data-astro-prefetch> Daniel Mamuza </a>
+      <a href="/" class="hover-underline-animation inline-block w-fit" data-astro-prefetch>
+        {" "}
+        Daniel Mamuza{" "}
+      </a>
       <div class="overflow-hidden">
         <span
           id="word-rotate"
@@ -37,28 +40,30 @@ const titles = [
     </div>
   </div>
   <div class="-ml-12 hidden items-center justify-center gap-4 md:flex">
-    <a href="/" class="hover-underline-animation" data-astro-prefetch>Home</a>
+    <a href="/" class="hover-underline-animation" data-astro-prefetch>
+      Home
+    </a>
     <span>•</span>
-    <a href="/work" class="hover-underline-animation" data-astro-prefetch>Work</a>
+    <a href="/work" class="hover-underline-animation" data-astro-prefetch>
+      Work
+    </a>
   </div>
   <div class="hidden place-items-center gap-2 md:flex md:gap-6">
-    {
-      socials.map((social, index) => (
-        <LinkPreview
-          imageSrc={social.src}
-          url={social.href}
-          target={social.name === "Resume" ? "" : "_blank"}
-          isStatic
-          client:load
-          aria-label={social.name}
-        >
-          <Icon
-            name={social.icon}
-            class={`hover:text-primary transition-all hover:scale-110 md:h-7 md:w-7 ${index % 2 === 0 ? "hover:rotate-12" : "hover:-rotate-12"}`}
-          />
-        </LinkPreview>
-      ))
-    }
+    {socials.map((social, index) => (
+      <LinkPreview
+        imageSrc={social.src}
+        url={social.href}
+        target={social.name === "Resume" ? "" : "_blank"}
+        isStatic
+        client:load
+        aria-label={social.name}
+      >
+        <Icon
+          name={social.icon}
+          class={`hover:text-primary transition-all hover:scale-110 md:h-7 md:w-7 ${index % 2 === 0 ? "hover:rotate-12" : "hover:-rotate-12"}`}
+        />
+      </LinkPreview>
+    ))}
     <div class="flex items-center gap-4">
       <SettingsMenu client:load />
     </div>
@@ -82,18 +87,20 @@ const titles = [
     class="bg-background/50 fixed top-0 left-0 z-50 flex w-full -translate-y-full transform justify-between gap-4 rounded-b-3xl border-b px-10 pt-28 pb-10 shadow-lg backdrop-blur-sm transition-transform duration-500 ease-in-out md:hidden"
   >
     <div class="flex items-center justify-center gap-2">
-      <a href="/" class="hover-underline-animation" data-astro-prefetch>Home</a>
+      <a href="/" class="hover-underline-animation" data-astro-prefetch>
+        Home
+      </a>
       <span>•</span>
-      <a href="/work" class="hover-underline-animation" data-astro-prefetch>Work</a>
+      <a href="/work" class="hover-underline-animation" data-astro-prefetch>
+        Work
+      </a>
     </div>
     <div class="flex items-center gap-4">
-      {
-        socials.map((social) => (
-          <a href={social.href} aria-label={social.name}>
-            <Icon name={social.icon} class="hover:text-primary size-7 transition-all hover:scale-110" />
-          </a>
-        ))
-      }
+      {socials.map((social) => (
+        <a href={social.href} aria-label={social.name}>
+          <Icon name={social.icon} class="hover:text-primary size-7 transition-all hover:scale-110" />
+        </a>
+      ))}
     </div>
     <div class="flex items-center gap-4">
       <SettingsMenu client:load />

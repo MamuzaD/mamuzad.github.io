@@ -30,76 +30,72 @@ const archivedCols2 = makeColumns(archived, 2)
   <main class="min-h-[calc(90vh)] pt-32">
     <!-- Active (featured + wip) -->
     <div class="hidden gap-4 px-8 lg:grid lg:grid-cols-3">
-      {
-        activeCols3.map((column) => (
-          <div class="flex shrink-0 flex-col gap-6">
-            {column.map((project) => (
-              <ProjectCard project={project} />
-            ))}
-          </div>
-        ))
-      }
+      {activeCols3.map((column) => (
+        <div class="flex shrink-0 flex-col gap-6">
+          {column.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+        </div>
+      ))}
     </div>
 
     <div class="hidden gap-4 px-8 sm:grid sm:grid-cols-2 lg:hidden">
-      {
-        activeCols2.map((column) => (
-          <div class="flex shrink-0 flex-col gap-6">
-            {column.map((project) => (
-              <ProjectCard project={project} />
-            ))}
-          </div>
-        ))
-      }
+      {activeCols2.map((column) => (
+        <div class="flex shrink-0 flex-col gap-6">
+          {column.map((project) => (
+            <ProjectCard project={project} />
+          ))}
+        </div>
+      ))}
     </div>
 
     <div class="flex flex-col gap-12 sm:hidden">
-      {active.map((project) => <ProjectCard project={project} />)}
+      {active.map((project) => (
+        <ProjectCard project={project} />
+      ))}
     </div>
 
-    {
-      archived.length > 0 && (
-        <section class="mt-16 md:px-8">
-          <details class="group rounded-lg p-4">
-            <summary class="relative z-50 flex cursor-pointer gap-2 font-mono text-2xl font-medium">
-              <span class="hover-underline-animation transition-transform duration-300 ease-in-out group-open:rotate-90">{`>`}</span>
-              <span class="hover-underline-animation">archived</span>
-            </summary>
+    {archived.length > 0 && (
+      <section class="mt-16 md:px-8">
+        <details class="group rounded-lg p-4">
+          <summary class="relative z-50 flex cursor-pointer gap-2 font-mono text-2xl font-medium">
+            <span class="hover-underline-animation transition-transform duration-300 ease-in-out group-open:rotate-90">{`>`}</span>
+            <span class="hover-underline-animation">archived</span>
+          </summary>
 
-            <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out group-open:grid-rows-[1fr] motion-reduce:transition-none">
-              <div class="overflow-hidden">
-                <div class="mt-6">
-                  <div class="hidden gap-4 lg:grid lg:grid-cols-3">
-                    {archivedCols3.map((column) => (
-                      <div class="flex shrink-0 flex-col gap-6">
-                        {column.map((project) => (
-                          <ProjectCard project={project} />
-                        ))}
-                      </div>
-                    ))}
-                  </div>
+          <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-in-out group-open:grid-rows-[1fr] motion-reduce:transition-none">
+            <div class="overflow-hidden">
+              <div class="mt-6">
+                <div class="hidden gap-4 lg:grid lg:grid-cols-3">
+                  {archivedCols3.map((column) => (
+                    <div class="flex shrink-0 flex-col gap-6">
+                      {column.map((project) => (
+                        <ProjectCard project={project} />
+                      ))}
+                    </div>
+                  ))}
+                </div>
 
-                  <div class="hidden gap-4 sm:grid sm:grid-cols-2 lg:hidden">
-                    {archivedCols2.map((column) => (
-                      <div class="flex shrink-0 flex-col gap-6">
-                        {column.map((project) => (
-                          <ProjectCard project={project} />
-                        ))}
-                      </div>
-                    ))}
-                  </div>
+                <div class="hidden gap-4 sm:grid sm:grid-cols-2 lg:hidden">
+                  {archivedCols2.map((column) => (
+                    <div class="flex shrink-0 flex-col gap-6">
+                      {column.map((project) => (
+                        <ProjectCard project={project} />
+                      ))}
+                    </div>
+                  ))}
+                </div>
 
-                  <div class="flex flex-col gap-12 sm:hidden">
-                    {archived.map((project) => (
-                      <ProjectCard project={project} />
-                    ))}
-                  </div>
+                <div class="flex flex-col gap-12 sm:hidden">
+                  {archived.map((project) => (
+                    <ProjectCard project={project} />
+                  ))}
                 </div>
               </div>
             </div>
-          </details>
-        </section>
-      )
-    }
+          </div>
+        </details>
+      </section>
+    )}
   </main>
 </Layout>
