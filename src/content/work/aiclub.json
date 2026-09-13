@@ -21,8 +21,8 @@
   },
   "tags": ["Next.js", "React", "Tailwind CSS", "TypeScript", "Google Analytics"],
   "links": [
-    { "icon": "github", "name": "github", "url": "https://github.com/aiunlv/website" },
-    { "icon": "link", "name": "live", "url": "https://aiclub.cs.unlv.edu" }
+    { "icon": "github", "name": "github", "url": "https://github.com/MamuzaD/aiunlv" },
+    { "icon": "link", "name": "live", "url": "https://aiunlv.vercel.app" }
   ],
   "media": [
     {
